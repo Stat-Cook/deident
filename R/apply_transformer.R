@@ -6,13 +6,15 @@ implemented_transforms_base.f <- function(user_defined=list()){
          "Blurer" = Blurer,
          "NumericBlurer" = NumericBlurer,
          "GroupedShuffler" = GroupedShuffler,
+         "Drop" = Drop,
          "psudonymize" = Pseudonymizer,
          "shuffle" = Shuffler,
          "encrypt" = Encrypter,
          "perturb" = Perturber,
          "blur" = Blurer,
          "numeric_blur" = NumericBlurer,
-         "grouped_shuffle" = GroupedShuffler)
+         "grouped_shuffle" = GroupedShuffler,
+         "droper" = Drop)
     append(base, user_defined)
 }
 
