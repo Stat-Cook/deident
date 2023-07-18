@@ -8,11 +8,6 @@ add_deident <- function(dlist, to_add){
 }
 
 from_yaml <- function(path, data=NULL){
-  yml <- yaml::read_yaml("dlist.yml")
-  dlist <- new_deident_list(data)
-
-  .lis <- append(yml, list(dlist), after=0)
-  purrr::reduce(.lis, add_deident)
+  yml <- yaml::read_yaml(path)
+  deident(yml)
 }
-
-

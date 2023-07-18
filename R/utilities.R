@@ -78,3 +78,7 @@ fix_colnames <- function(frm, pattern="V{.x}"){
   colnames(frm) <- .cols
   frm
 }
+
+init.list.f <- function(on_init = list(), dot.args = list()){
+  append(on_init, dot.args)
+}

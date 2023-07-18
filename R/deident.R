@@ -3,25 +3,88 @@ deident <- function(data, deidentifier, ..., init.list=list()){
   UseMethod("deident", data)
 }
 
-deident.data.frame <- function(data, deidentifier, ..., init.list=list()){
+deident.data.frame <- function(data, deidentifier=NULL, ..., init.list=list()){
   #' @exportS3Method
   #'
 
-  UseMethod("apply_to_data_frame", deidentifier)
+  dl <- DeidentList$new(data)
+
+  if (is.null(deidentifier)){
+    return(dl)
+  }
+  deident(dl, deidentifier, ..., init.list=init.list)
 }
 
 deident.DeidentList <- function(data, deidentifier, ..., init.list=list()){
   #' @exportS3Method
 
+  if (is.list(deidentifier)){
+    for (d in deidentifier){
+      # init.list <- init.list.f(d$OnInit, d$Dots)
+      # variables <- lapply(d$Variables, as.symbol)
+      #
+      # data$add_method(
+      #   deident=d$Type, !!!variables,
+      #   init.list=init.list)
+
+      add_deident(data, d)
+    }
+
+    return(data)
+  }
+
   data$add_method(deident=deidentifier, ..., init.list=init.list)
+
+
   data
 }
 
-# frm <- data.frame(A = letters, B =LETTERS)
-# dl <- DeidentList$new(frm)
-# deident(dl, Encrypter, B, init.list=list(hash_key="ABC"))
-#
-# dl$add_method(Encrypter, B)
+deident.character <- function(data, deidentifier=NULL, ..., init.list=list()){
+  #' @exportS3Method
+  #'
+  deident_without_data(data, {{deidentifier}}, ..., init.list=init.list)
+}
+
+deident.BaseDeident <- function(data, deidentifier=NULL, ..., init.list=list()){
+  #' @exportS3Method
+  #'
+
+  deident_without_data(data, {{deidentifier}}, ..., init.list=init.list)
+}
+
+deident.R6ClassGenerator <- function(data, deidentifier=NULL, ..., init.list=list()){
+  #' @exportS3Method
+  #'
+  deident_without_data(data, {{deidentifier}}, ..., init.list=init.list)
+}
+
+deident.list <- function(data, deidentifier=NULL, ..., init.list=list()){
+  #' @exportS3Method
+  #'
+  deident_without_data(data, {{deidentifier}}, ..., init.list=init.list)
+}
+
+
+deident_without_data <- function(deidentifier, ..., init.list=list()){
+  UseMethod("deident_without_data", deidentifier)
+}
+
+deident_without_data.default <- function(deidentifier, ..., init.list=list()){
+  #' @exportS3Method
+  dl <- DeidentList$new()
+  dl$add_method(deident=deidentifier, ..., init.list=init.list)
+  dl
+}
+
+deident_without_data.list <- function(deidentifier, ..., init.list=list()){
+  #' @exportS3Method
+  dl <- DeidentList$new()
+  for (d in deidentifier){
+    add_deident(dl, d)
+  }
+  return(dl)
+}
+
 
 apply_to_data_frame <- function(data, transformer, ..., init.list=list()){
   #' @export
@@ -48,7 +111,7 @@ apply_to_data_frame.DeidentTask <- function(data, transformer, ..., init.list=li
   #'
   apply_to_data_frame(
     data, transformer$method,
-    !!!enc2$variables, init.list=init.list
+    !!!transformer$variables, init.list=init.list
   )
 }
 

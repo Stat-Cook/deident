@@ -1,9 +1,9 @@
 LimitedShuffler <- R6Class(
   #' @export
   "LimitedShuffler", list(
-  initialize = function(...){
+  initialize = function(..., limit=1){
     super$initialize(...)
-    self$set_limit(1)
+    self$set_limit(limit)
   }),
   inherit = Shuffler
 )
@@ -12,9 +12,9 @@ LimitedShuffler <- R6Class(
 LimitedGroupedShuffler <- R6Class(
   #' @export
   "LimitedGroupedShuffler", list(
-  initialize = function(...){
+  initialize = function(..., limit=1){
     super$initialize(...)
-    self$set_limit(1)
+    self$set_limit(limit)
   }),
   inherit = GroupedShuffler
 )

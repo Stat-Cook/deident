@@ -1,6 +1,6 @@
-blur.f <- function(key, .list){
-  if (key %in% names(.list)){
-    return(.list[[key]])
+blur.f <- function(key, vec){
+  if (key %in% names(vec)){
+    return(vec[[key]])
   }
   return(key)
 }
@@ -23,7 +23,7 @@ Blurer <- R6Class(
     #' Create new Blurer object
     #' @param blur   Look-up list to define aggregation.
     #' @return `Blurer`
-    initialize = function(blur = list()){
+    initialize = function(blur = c()){
       self$blur = blur
       self$method = function(keys) blur(keys, self$blur)
     },
@@ -42,4 +42,7 @@ Blurer <- R6Class(
   ),
   inherit = BaseDeident
 )
+
+
+
 

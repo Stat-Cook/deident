@@ -32,8 +32,8 @@ Shuffler <- R6Class(
       return(self$method(keys))
     },
 
-    serialize = function(){
-      super$serialize(on_init = list(limit=self$limit))
+    serialize = function(dots=NA){
+      super$serialize(on_init = list(limit=self$limit), dots=dots)
     }
 
   ),
@@ -43,19 +43,6 @@ Shuffler <- R6Class(
 shuffle <- function(object, ..., encrypter=Shuffler, init.list=list()){
   deident(object, {{encrypter}}, ..., init.list=list())
 }
-
-# s <- GroupedShuffler$new(A, B)
-#
-# init.list.f(list(A=A), list(B, C))
-#
-# f <- function(object, group_on, ..., encrypter=Shuffler, init.list=list()){
-#   grps <- labels_as_symbols(group_on)
-#   init.list$
-#
-#   s <- GroupedShuffler$new(!!!grps)
-#   s
-#}
-
 
 shuffle_in_group <- function(data, grp_cols, ...){
   shuf <- Shuffler$new()

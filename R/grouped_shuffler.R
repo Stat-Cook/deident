@@ -21,9 +21,10 @@ GroupedShuffler <- R6Class(
     #' @param ... [optional] The columns of the to-be supplied data set to
     #' aggregate on.
     #' @return `Blurer`
-    initialize = function(...){
+    initialize = function(..., limit=0){
       self$group_on <- enquos(...)
       self$set_method(sample)
+      self$set_limit(limit)
     },
 
     #' Aggregate a data frame and apply 'mutate' to each.
@@ -35,7 +36,7 @@ GroupedShuffler <- R6Class(
     },
 
     serialize = function(){
-      super$serialize(dots = dots_as_labels(self$group_on))
+      super$serialize(dots = dots_as_labels(!!!self$group_on))
     },
 
     str = function(...){

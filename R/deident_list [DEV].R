@@ -15,7 +15,7 @@ DeidentList <- R6Class("DeidentList", list(
       check_values(self$allowed_values, ...)
     }
 
-    to_add <- create_deident(deident, ..., init.list=list())
+    to_add <- create_deident(deident, ..., init.list=init.list)
 
     self$deident_methods <- append(
       self$deident_methods,
@@ -52,9 +52,9 @@ DeidentList <- R6Class("DeidentList", list(
     invisible(self)
   },
   to_yaml = function(path){
-    #' @importFrom yaml to_yaml
+    #' @importFrom yaml write_yaml
     .lis <- serialize(self)
-    yaml::to_yaml(.lis, path)
+    yaml::write_yaml(.lis, path)
   }
 ))
 

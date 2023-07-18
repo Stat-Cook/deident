@@ -26,6 +26,7 @@ create_deident.R6ClassGenerator <- function(method, ..., init.list=list()){
 }
 
 create_deident.list <- function(object, ...){
+  #' @exportS3Method
   init.list <- init.list.f(on_init = object$OnInit, dot.args = object$Dots)
   create_deident(object$Type, ..., init.list = init.list)
 }
@@ -46,57 +47,3 @@ str.DeidentTask <- function(object, ...){
        {paste(labels, collapse=', ')}")
 }
 
-#'
-#' apply_task <- function(data, task){
-#'   #' @export
-#'
-#'   deidentifier <- task$Deidentifier
-#'   vars <- task$Variables
-#'   deidentifier$mutate(data, !!!vars)
-#' }
-#'
-#'
-#' DeidentList <- R6Class("DeidentList", list(
-#'   #' @export
-#'
-#'   tasks = NA,
-#'
-#'   initialize = function(tasks=list()){
-#'     self$tasks = tasks
-#'   },
-#'
-#'   append_to_tasks = function(task){
-#'     self$tasks <- append(self$tasks, list(task))
-#'   },
-#'
-#'   add_task = function(method, ...){
-#'     task <- create_deident(method, ...)
-#'     self$append_to_tasks(task)
-#'   },
-#'
-#'   apply_tasks = function(data){
-#'     to_reduce <- prepend(self$tasks, list(data))
-#'     reduce(to_reduce, apply_task)
-#'   }
-#' ))
-#'
-#'
-#' add_task <- function(deident_list, ...){
-#'   #' @export
-#'
-#'   deident_list$add_task(...)
-#'   deident_list
-#' }
-#'
-#' init_dlist <- function(){
-#'   #' @export
-#'
-#'   DeidentList$new()
-#' }
-#'
-#' apply_deident <- function(data, deident){
-#'   #' @export
-#'
-#'   deident$apply_tasks(data)
-#' }
-#'

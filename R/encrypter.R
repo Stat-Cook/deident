@@ -49,6 +49,6 @@ Encrypter <- R6Class(
 )
 
 encrypt <- function(object, ..., encrypter=Encrypter, init.list=list()){
+  #'
   deident(object, {{encrypter}}, ..., init.list=list())
 }
-

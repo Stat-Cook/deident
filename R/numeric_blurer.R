@@ -4,9 +4,6 @@ numeric_blur.f <- function(cuts){
     cut(values, cuts)
   }
 }
-cut(1:10, c(-Inf, 4, Inf))
-
-numeric_blur.f(c(2, 4))
 
 
 NumericBlurer <- R6Class(
@@ -15,7 +12,7 @@ NumericBlurer <- R6Class(
 
     cuts = NA,
 
-    initialize = function(cuts){
+    initialize = function(cuts=0){
       self$cuts = cuts
       self$method = function(values) {
         cuts <- c(-Inf, self$cuts, Inf)
@@ -34,20 +31,3 @@ NumericBlurer <- R6Class(
   ),
   inherit = BaseDeident
 )
-
-# frm <- data.frame(
-#   A = sample(letters[1:2], 100, T),
-#   B = sample(letters[1:2], 100, T),
-#   C = rnorm(100)
-# )
-#
-# nb <- NumericBlurer$new(c(0, 4))
-# nb$method(rnorm(100))
-# nb$transform(frm$C)
-#
-# nb$mutate(frm, C)
-
-
-#
-# nb$method
-# # (frm, C)
