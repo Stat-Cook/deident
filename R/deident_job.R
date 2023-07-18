@@ -27,6 +27,9 @@ DeidentJob <- R6::R6Class(
         ext <- tools::file_ext(.file)
 
         .base <- basename(.file)
+        .base <- stringr::str_replace(.base, ext, "csv")
+        # All files exported as csv.
+        # TODO: consider making this more flexible.
         result_path <- file.path(self$result_dir, .base)
 
         readr::write_excel_csv(converted_data, result_path)
