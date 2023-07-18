@@ -42,10 +42,9 @@ DeidentJob <- R6::R6Class(
 deident_job_from_folder <- function(deident_pipeline,
                                     data_dir,
                                     result_dir="Deident_results"){
+  #' @export
 
   dj <- DeidentJob$new(data_dir, result_dir)
   dj$apply_deident(deident_pipeline)
 }
-
-
 
