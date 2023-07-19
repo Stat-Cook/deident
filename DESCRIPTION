@@ -23,3 +23,5 @@ Imports:
   purrr,
   readxl,
   stringr
+Depends: 
+    R (>= 2.10)
