@@ -25,16 +25,17 @@ to the perception that artificial intelligence (AI) and machine learning
 resource-limited sector (Harwich and Laycock 2018; Wilson 2019; Nelson
 et al. 2019; Yu, Beam, and Kohane 2018). One key aspect of working
 within health data is the necessity to work within the ethical and legal
-frameworks of research with human participants(n.d.), notably around the
-risks posed by the processing of personally identifiable data (PID) and
-pseudo-PID (variables which if used together can identify an
-individual)\[ref\].
+frameworks of research with human participants(Sales and Folkman 2000;
+UKRI 2022), notably around the risks posed by the processing of
+personally identifiable data (PID) and pseudo-PID (variables which if
+used together can identify an individual)(ICO 2023).
 
 One approach to dealing with PID concerns is to apply transformations to
 the data, e.g. encryption of names, or aggregation of ages, which can
-limit the risk of identification at the cost of nuance\[ref\]. Hence, we
-demonstrate an extendable package of tools for the implementation and
-application of deidentification techniques to panel datasets.
+limit the risk of identification at the cost of nuance(Tachepun and
+Thammaboosadee 2020). Hence, we demonstrate an extendable package of
+tools for the implementation and application of deidentification
+techniques to panel datasets.
 
 # Statement of need
 
@@ -151,11 +152,11 @@ apply_deident.data.frame(babynames, pipeline3)
 For more details on each method refer to the `deident transforms`
 vignette.
 
-n.d.
-<https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics>.
-
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
+
+ICO. 2023. “What Is Personal Information: A Guide.” 2023.
+<https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-information-a-guide/>.
 
 Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
 “Predicting Scheduled Hospital Attendance with Artificial Intelligence.”
@@ -163,6 +164,14 @@ Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
 
 Sales, Bruce D, and Susan Ed Folkman. 2000. *Ethics in Research with
 Human Participants.* American Psychological Association.
+
+Tachepun, Chitanut, and Sotarat Thammaboosadee. 2020. “A Data Masking
+Guideline for Optimizing Insights and Privacy Under GDPR Compliance.” In
+*Proceedings of the 11th International Conference on Advances in
+Information Technology*, 1–9.
+
+UKRI. 2022. “Framework for Research Ethics.” 2022.
+<https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics>.
 
 Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.
 
