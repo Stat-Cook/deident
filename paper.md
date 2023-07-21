@@ -22,13 +22,13 @@ bibliography: paper.bib
 Research in the discipline of health data is of increasing interest due
 to the perception that artificial intelligence (AI) and machine learning
 (ML) techniques have the promise to bridge gaps in the large,
-resource-limited sector\[@harwich2018thinking, @wilson2019high,
-nelson2019predicting, @yu2018artificial\]. One key aspect of working
+resource-limited sector (Harwich and Laycock 2018; Wilson 2019; Nelson
+et al. 2019; Yu, Beam, and Kohane 2018). One key aspect of working
 within health data is the necessity to work within the ethical and legal
-frameworks of research with human participants\[@sales2000ethics,
-@UKRI\], notably around the risks posed by the processing of personally
-identifiable data (PID) and pseudo-PID (variables which if used together
-can identify an individual)\[ref\].
+frameworks of research with human participants(n.d.), notably around the
+risks posed by the processing of personally identifiable data (PID) and
+pseudo-PID (variables which if used together can identify an
+individual)\[ref\].
 
 One approach to dealing with PID concerns is to apply transformations to
 the data, e.g. encryption of names, or aggregation of ages, which can
@@ -150,3 +150,22 @@ apply_deident.data.frame(babynames, pipeline3)
 
 For more details on each method refer to the `deident transforms`
 vignette.
+
+n.d.
+<https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics>.
+
+Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
+the NHS.” *Reform Research Trust*.
+
+Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
+“Predicting Scheduled Hospital Attendance with Artificial Intelligence.”
+*NPJ Digital Medicine* 2 (1): 26.
+
+Sales, Bruce D, and Susan Ed Folkman. 2000. *Ethics in Research with
+Human Participants.* American Psychological Association.
+
+Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.
+
+Yu, Kun-Hsing, Andrew L Beam, and Isaac S Kohane. 2018. “Artificial
+Intelligence in Healthcare.” *Nature Biomedical Engineering* 2 (10):
+719–31.

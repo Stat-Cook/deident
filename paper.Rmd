@@ -2,6 +2,7 @@
 output: 
   md_document:
     variant: markdown_github
+bibliography: paper.bib
 ---
 
 # Summary
@@ -9,9 +10,9 @@ output:
 Research in the discipline of health data is of increasing interest due to the 
 perception that artificial intelligence (AI) and machine learning (ML) 
 techniques have the promise to bridge gaps in the large, resource-limited 
-sector[@harwich2018thinking, @wilson2019high, nelson2019predicting, @yu2018artificial].  One key aspect of working within health data is the necessity to work  within the ethical and legal frameworks of research with human participants[@sales2000ethics, @UKRI], notably around the risks posed by the processing of personally identifiable data (PID) and pseudo-PID (variables which if used together can identify an individual)[ref].  
+sector [@harwich2018thinking; @wilson2019high; @nelson2019predicting; @yu2018artificial].  One key aspect of working within health data is the necessity to work  within the ethical and legal frameworks of research with human participants[@sales2000ethics; @UKRI], notably around the risks posed by the processing of personally identifiable data (PID) and pseudo-PID (variables which if used together can identify an individual)[@ICO].  
 
-One approach to dealing with PID concerns is to apply transformations to the data, e.g. encryption of names, or aggregation of ages, which  can limit the risk of identification  at the cost of nuance[ref].   Hence, we demonstrate an extendable package of tools for the implementation  and application of deidentification techniques to panel datasets.
+One approach to dealing with PID concerns is to apply transformations to the data, e.g. encryption of names, or aggregation of ages, which  can limit the risk of identification  at the cost of nuance[@tachepun2020data].   Hence, we demonstrate an extendable package of tools for the implementation  and application of deidentification techniques to panel datasets.
 
 # Statement of need
 
