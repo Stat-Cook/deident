@@ -22,11 +22,13 @@ bibliography: paper.bib
 Research in the discipline of health data is of increasing interest due
 to the perception that artificial intelligence (AI) and machine learning
 (ML) techniques have the promise to bridge gaps in the large,
-resource-limited sector\[ref\]. One key aspect of working within health
-data is the necessity to work within the ethical and legal frameworks of
-research with human participants\[ref\], notably around the risks posed
-by the processing of personally identifiable data (PID) and pseudo-PID
-(variables which if used together can identify an individual)\[ref\].
+resource-limited sector\[@harwich2018thinking, @wilson2019high,
+nelson2019predicting, @yu2018artificial\]. One key aspect of working
+within health data is the necessity to work within the ethical and legal
+frameworks of research with human participants\[@sales2000ethics,
+@UKRI\], notably around the risks posed by the processing of personally
+identifiable data (PID) and pseudo-PID (variables which if used together
+can identify an individual)\[ref\].
 
 One approach to dealing with PID concerns is to apply transformations to
 the data, e.g. encryption of names, or aggregation of ages, which can
@@ -40,11 +42,13 @@ In order to broaden the access to sensitive data, data handlers need an
 auditable open process for the application of data transforms that limit
 the risk of personal identification (sometimes refereed to as ‘data
 masking’ transformations). Several production scale systems exist for
-applying data masking transformations\[ref\], but these are often
-expensive and cumbersome, preventing uptake for research data. The
-research community hence requires a simple toolbox for the application
-of several common ‘data masking transforms’ implemented in an open
-source language.
+applying data masking transformations
+(e.g. [Delphix](https://www.delphix.com/),
+[K2View](https://www.k2view.com), and
+[Accutive](https://accutive.com/)), but these are often expensive and
+cumbersome, limiting uptake in the domain of research. The research
+community hence requires a simple toolbox for the application of several
+common ‘data masking transforms’ implemented in an open source language.
 
 This implementation of the “deident” methods is in R, chosen due to the
 increase adoption of open source software into the working practices of
