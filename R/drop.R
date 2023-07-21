@@ -6,10 +6,15 @@ Drop <- R6Class(
 
     },
     mutate = function(data, ...){
-      dplyr::select(data, -c(...))
-
+      remove_if_exists(data, ...)
     }
   ),
   inherit = BaseDeident
 )
 
+
+remove_if_exists <- function(frm, ...){
+
+  to_drop <- overlap(frm, ...)
+  select(frm, -all_of(to_drop))
+}
