@@ -1,0 +1,207 @@
+---
+title: "transformations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{transformations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(deident)
+```
+
+# Transformations
+
+Out of the box, `deident` features a set of transformations to aid in the de-identification of data sets.   Each transformation is implemented via `R6Class`  and extends `BaseDeident`.  User defined  transformations can be implemented in a similar manner.
+
+To demonstrate the different transformation we supply a toy data set, `df`, comprising 26 observations of three variables:
+
+* A:  character, a to z
+* B: numeric, 1 to 26
+* C: character, `X` if `B <= 13`, `Y` if `B > 13`
+
+``` {r, include=F}
+df <- data.frame(
+  A = letters, 
+  B = 1:26, 
+  C = sort(rep(c("X", "Y"), 13))
+)
+df
+```
+
+## Psudonymizer
+
+Apply a cached random replacement cipher.  Re-occurrence of the same key will receive the same hash.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+deident(df, "psudonymize", A)
+deident(df, "Pseudonymizer", A)
+deident(df, Pseudonymizer, A)
+deident(df, Pseudonymizer$new(), A)
+
+psu <- Pseudonymizer$new()
+deident(df, psu, A)
+```
+
+### Options
+
+By default `Pseudonymizer` replaces  values in variables with a random alpha-numeric string of 5 characters.  This can be replaced via calling `set_method` on an instantiated Pseudonymizer with the desired function:
+
+``` {r}
+psu <- Pseudonymizer$new()
+
+new_method <- function(key, ...){
+  paste(sample(letters, 12, T), collapse="")
+}
+
+psu$set_method(new_method)
+
+deident(df, psu, A)
+```
+
+The first argument to the method receives the key to be transformed.
+
+## Shuffler
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+deident(df, "shuffle", A)
+deident(df, "Shuffler", A)
+deident(df, Shuffler, A)
+deident(df, Shuffler$new(), A)
+
+shuffle <- Shuffler$new()
+deident(df, shuffle, A)
+```
+
+## Encrypter
+
+Apply cryptographic hashing to a variable.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+deident(df, "encrypt", A)
+deident(df, "Encrypter", A)
+deident(df, Encrypter, A)
+deident(df, Encrypter$new(), A)
+
+encrypt <- Encrypter$new()
+deident(df, encrypt, A)
+```
+
+### Options
+
+At initialization, `Encrypter` can be given `hash_key` and `seed` values to control the cryptographic encryption.  It is recommended users set these values and do not disclose them.
+
+``` {r}
+encrypt <- Encrypter$new(hash_key="deident_hash_key_123", seed=202)
+deident(df, encrypt, A)
+```
+
+## Perturber
+
+Apply Gaussian white noise to a numeric variable.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+deident(df, "perturb", A)
+deident(df, "Perturber", A)
+deident(df, Perturber, A)
+deident(df, Perturber$new(), A)
+
+perturb <- Perturber$new()
+deident(df, perturb, A)
+```
+
+### Options
+
+At initialization, `Perturber` can be given a scale for the white noise via the `sd` argument.  
+
+``` {r}
+perturb <- Perturber$new(sd=5)
+deident(df, perturb, B)
+```
+
+## Blurer
+
+Aggregate categorical values dependent on a user supplied list.  the list must be supplied to `Blur` at initialization.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+letter_blur <- c(rep("Early", 13), rep("Late", 13))
+names(letter_blur) <- letters
+
+blur <- Blurer$new(blur = letter_blur)
+deident(df, blur, A)
+```
+
+## NumericBlurer
+
+Aggregate numeric values dependent on a user supplied vector of breaks/ cuts.  If no vector is supplied `NumericBlurer` defaults to a binary classification about 0.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+deident(df, "numeric_blur", B)
+deident(df, "NumericBlurer", B)
+deident(df, NumericBlurer, B)
+deident(df, NumericBlurer$new(), B)
+
+numeric_blur <- NumericBlurer$new()
+deident(df, numeric_blur, B)
+```
+### Options
+
+At initialization  `NumericBlurer` takes an argument `cuts` to define the limits of each interval.
+
+``` {r}
+numeric_blur <- NumericBlurer$new(cuts=c(5, 10, 15, 20))
+deident(df, numeric_blur, B)
+```
+
+## GroupedShuffler
+
+Apply `Shuffler` to a data set having first grouped the data on column(s).  The grouping needs to be defined at initialization.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+grouped_shuffle <- GroupedShuffler$new(C)
+deident(df, grouped_shuffle, B)
+```
+### Options
+
+At initialization  `GroupedShuffler` takes an argument `limit` such that if any aggregated sub group has fewer than `limit` observations all values are droped.
+
+``` {r}
+numeric_blur <- GroupedShuffler$new(C, limit=1)
+deident(df, numeric_blur, B)
+```
+
+## Drop
+
+Define a column to be removed from the pipeline.
+
+Implemented `deident` options:
+
+``` {r, eval=F}
+
+deident(df, Drop, B)
+
+drop <- deident:::Drop$new()
+deident(df, drop, B)
+```

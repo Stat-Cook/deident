@@ -1,0 +1,118 @@
+---
+title: "Worked Example"
+output: 
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{worked_example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+library(lemon)
+
+library(knitr)
+hook_output <- knit_hooks$get("output")
+knit_hooks$set(output = function(x, options) {
+  lines <- options$output.lines
+  if (is.null(lines)) {
+    return(hook_output(x, options))  # pass to default hook
+  }
+  x <- unlist(strsplit(x, "\n"))
+  more <- "..."
+  if (length(lines)==1) {        # first n lines
+    if (length(x) > lines) {
+      # truncate the output, but add ....
+      x <- c(head(x, lines), more)
+    }
+  } else {
+    x <- c(more, x[lines], more)
+  }
+  # paste these lines together
+  x <- paste(c(x, ""), collapse = "\n")
+  hook_output(x, options)
+})
+
+local_print <- function(x, options, ...){
+  x <- head(x)
+  lemon_print(x, options, ...)
+}
+
+knit_print.data.frame <- local_print
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(deident)
+```
+
+To assist new users, this vignette serves as a worked example of building, applying and saving a de-identification pipeline.  Due to the risk of suppling data with genuine PID to be redacted, we instead supply a synthetic data set comprising of artificial PID, `ShiftsWorked`.
+
+The data set consists of 3,100 observations where each row lists the work done (shift status, actual work done, and daily pay) by an inidividual on a given day.  `ShiftsWorked` consists of 7 variables:
+
+* Record ID:  integer, primary key.
+* Employee: character, 100 artificial staff names
+* Date: date.
+* Shift: character, one of 'Day', 'Night', 'Rest'
+* Shift Start: character, start time of shift (missing for 'Rest' shift).
+* Shift End: character, end time of shift (missing for 'Rest' shift).
+* Daily Pay: numeric, calculated remuneration (£).
+
+``` {r, render=local_print}
+library(deident)
+ShiftsWorked
+``` 
+
+Consider a hypothetical problem.  As part of a research project we wish to share this data set with others,  but we don't have permission to share individuals names.  How do we solve this issue?
+
+The simplest method for de-identification is a direct replacement, e.g. 'pseudonymization'.  Using `deident` comes in two steps:
+
+1. Define a pipeline
+2. Apply to the data set
+
+```{r, render=local_print}
+pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
+deident:::apply_deident(ShiftsWorked, pipeline)
+```
+
+This approach is relatively simple, but what if we wish to dig into the transformation?  In the case of this direct replacement, we might want to access the lookup table that underpins the pseudonymizer.  The easiest way to acheive this is to create an instance of a `Pseudonymizer` class, and pass it in to deident: 
+
+```{r, render=local_print}
+psu <- Pseudonymizer$new()
+pipeline2 <- deident(ShiftsWorked, psu, Employee)
+
+deident:::apply_deident(ShiftsWorked, pipeline2)
+```
+
+and once the transform has been performed we can check the `lookup` attribute: 
+
+``` {r, output.lines=4}
+unlist(psu$lookup)
+```
+
+Often we will need to apply multiple transformations.  Considering the `StaffsWorked` data, imagine the employees are complaining they don't want their exact salaries divulged (even once names are removed).  We can expand the pipeline to allow for this:
+
+``` {r, render=local_print}
+blur <- NumericBlurer$new(cuts = c(0, 100, 200, 300))
+
+multistep_pipeline <- ShiftsWorked |> 
+  deident(psu, Employee) |> 
+  deident(blur, `Daily Pay`)
+
+ShiftsWorked |> 
+  deident:::apply_deident(multistep_pipeline)
+```
+
+As well as having multiple data transforms to choose from, `deident` also allows the user to easily serialize their pipelines to a .yml file for audit and transfer.  This is done via the calls `to_yaml` and `from_yaml`:
+
+``` {r, render=local_print}
+multistep_pipeline$to_yaml("multistep_pipeline.yml")
+
+restored_pipeline <- deident:::from_yaml("multistep_pipeline.yml")
+
+ShiftsWorked |> 
+  deident:::apply_deident(restored_pipeline)
+```
+
