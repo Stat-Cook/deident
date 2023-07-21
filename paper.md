@@ -17,19 +17,40 @@ affiliations:
 date: 13 August 2017
 bibliography: paper.bib
 ---
+# Summary
+
 Research in the discipline of health data is of increasing interest due
 to the perception that artificial intelligence (AI) and machine learning
 (ML) techniques have the promise to bridge gaps in the large,
-resource-limited sector. One key aspect of working within health data is
-the necessity to work within the ethical and legal frameworks of
-research with human participants, notably around the risks posed by the
-processing of personally identifiable data (PID) and pseudo-PID. In the
-UK, there has been a drive to increase adoption of open source software
-into the working practices of the NHS, corresponding to the growth on
-the NHS-R community and similar groups.  
-Here we demonstrate an extendable package of tools for the
-implementation and application of deidentification techniques to panel
-datasets.
+resource-limited sector\[ref\]. One key aspect of working within health
+data is the necessity to work within the ethical and legal frameworks of
+research with human participants\[ref\], notably around the risks posed
+by the processing of personally identifiable data (PID) and pseudo-PID
+(variables which if used together can identify an individual)\[ref\].
+
+One approach to dealing with PID concerns is to apply transformations to
+the data, e.g. encryption of names, or aggregation of ages, which can
+limit the risk of identification at the cost of nuance\[ref\]. Hence, we
+demonstrate an extendable package of tools for the implementation and
+application of deidentification techniques to panel datasets.
+
+# Statement of need
+
+In order to broaden the access to sensitive data, data handlers need an
+auditable open process for the application of data transforms that limit
+the risk of personal identification (sometimes refereed to as ‘data
+masking’ transformations). Several production scale systems exist for
+applying data masking transformations\[ref\], but these are often
+expensive and cumbersome, preventing uptake for research data. The
+research community hence requires a simple toolbox for the application
+of several common ‘data masking transforms’ implemented in an open
+source language.
+
+This implementation of the “deident” methods is in R, chosen due to the
+increase adoption of open source software into the working practices of
+the NHS (driven by the growth on the NHS-R community and similar
+groups). However, the underlying specification, and implementation of
+the transforms can be ported to other languages.
 
 This package implements methods for de-identification via:
 
@@ -43,7 +64,7 @@ This package implements methods for de-identification via:
 -   perturbation – the addition of user-defined random noise to a
     numeric variable
 
-following the design principles of the existing tidyverse domain for
+Following the design principles of the existing tidyverse domain for
 ease of adoption. The package includes tools to create a single pipeline
 for the application of a multi-step deidentification pipeline to
 multiple files stored within the same repository, alongside the option
@@ -55,6 +76,8 @@ an easy method for de-identifying data sets which require little
 scripting knowledge by Trust staff may aid in overcoming several
 information governance risks that keep operational data siloed within
 health Trusts.
+
+# In practice
 
 The core functionality of the package is the `deident` function. To
 demonstrate functionality we use a subset of the `babynames` data set
