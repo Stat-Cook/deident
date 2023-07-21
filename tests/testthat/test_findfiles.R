@@ -3,6 +3,8 @@ dir.create(root)
 file.extensions <- c("csv", "xls", "xlsx")
 paths <- c()
 
+q <- 10
+
 for (ext in file.extensions){
   dir.create(file.path(root, ext))
   for (i in seq_len(q)){

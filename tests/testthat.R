@@ -10,3 +10,4 @@ library(testthat)
 library(deident)
 
 test_check("deident")
+

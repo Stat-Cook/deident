@@ -35,3 +35,5 @@ test_that("Grouped Shuffler works", {
 
   expect_equal(df.ave$Ave, shuffled.ave$Ave)
 })
+
+

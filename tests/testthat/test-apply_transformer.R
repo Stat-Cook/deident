@@ -15,7 +15,7 @@ test_that("apply_transformer.BaseDeident methods", {
   enc <- Encrypter$new()
   pert <- Perturber$new()
   blur <- Blurer$new(list(A="Up", B="Up", C="Down"))
-  num.blur <- NumericBlurer$new()
+  num.blur <- NumericBlurer$new(cuts=c(-2, 0, 2))
 
   expect_length(apply_transformer(str.vec, psu), n)
   expect_length(apply_transformer(str.vec, shuf), n)
