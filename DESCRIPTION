@@ -11,8 +11,10 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
 Suggests: 
-  testthat (>= 3.0.0),
-  checkmate
+    testthat (>= 3.0.0),
+    checkmate,
+    knitr,
+    rmarkdown
 Imports:
   R6,
   dplyr,
@@ -25,3 +27,4 @@ Imports:
   stringr
 Depends: 
     R (>= 2.10)
+VignetteBuilder: knitr

@@ -1,4 +1,5 @@
 Drop <- R6Class(
+  #' @export
   "Drop",
   list(
     transform = function(keys, ...){
