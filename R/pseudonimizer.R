@@ -9,7 +9,9 @@ exists <- Vectorize(exists.f, "key")
 get.f <- function(key, .list){
   .list[[key]]
 }
-get <- Vectorize(get.f, "key")
+get <- function(keys, .list){
+  unlist(.list[keys])
+}
 
 add.f <- function(.list, key, method = function(i) i){
   .list[[key]] <- method(key)
@@ -19,7 +21,9 @@ add <- function(keys, .list=list(), method = function(i) i){# Vectorize(add.f, "
 
   .unique.keys <- unique(keys)
 
-  to.create <- .unique.keys[!.unique.keys %in% names(.list)]
+  to.create <- setdiff(.unique.keys, names(.list))
+
+  # to.create <- .unique.keys[!.unique.keys %in% names(.list)]
 
   new_list <- lapply(to.create, method)
   names(new_list) <- to.create
