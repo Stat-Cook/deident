@@ -42,6 +42,12 @@ siloed within health Trusts.
 
 # In practice
 
+To install the current version of the `deident` package, run the command
+
+``` {r}
+devtools::install_github("Stat-Cook/deident")
+```
+
 The core functionality of the package is the `deident` function. To demonstrate functionality we use a subset of the `babynames` data set consisting of the final two years.  
 
 ``` {r}

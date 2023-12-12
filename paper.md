@@ -84,6 +84,55 @@ health Trusts.
 
 # In practice
 
+To install the current version of the `deident` package, run the command
+
+``` r
+devtools::install_github("Stat-Cook/deident")
+```
+
+    ## Downloading GitHub repo Stat-Cook/deident@HEAD
+
+    ## These packages have more recent versions available.
+    ## It is recommended to update all of them.
+    ## Which would you like to update?
+    ## 
+    ##  1: All                                
+    ##  2: CRAN packages only                 
+    ##  3: None                               
+    ##  4: cli         (3.6.0 -> 3.6.2) [CRAN]
+    ##  5: vctrs       (0.6.1 -> 0.6.5) [CRAN]
+    ##  6: rlang       (1.1.0 -> 1.1.2) [CRAN]
+    ##  7: lifecycle   (1.0.3 -> 1.0.4) [CRAN]
+    ##  8: prettyunits (1.1.1 -> 1.2.0) [CRAN]
+    ##  9: hms         (1.1.2 -> 1.1.3) [CRAN]
+    ## 10: crayon      (1.5.1 -> 1.5.2) [CRAN]
+    ## 11: utf8        (1.2.2 -> 1.2.4) [CRAN]
+    ## 12: pillar      (1.8.1 -> 1.9.0) [CRAN]
+    ## 13: fansi       (1.0.3 -> 1.0.6) [CRAN]
+    ## 14: rematch     (1.0.1 -> 2.0.0) [CRAN]
+    ## 15: sys         (3.4   -> 3.4.2) [CRAN]
+    ## 16: withr       (2.5.0 -> 2.5.2) [CRAN]
+    ## 17: stringi     (1.7.8 -> 1.8.3) [CRAN]
+    ## 18: progress    (1.2.2 -> 1.2.3) [CRAN]
+    ## 19: cpp11       (0.4.2 -> 0.4.7) [CRAN]
+    ## 20: askpass     (1.1   -> 1.2.0) [CRAN]
+    ## 21: stringr     (1.5.0 -> 1.5.1) [CRAN]
+    ## 22: readxl      (1.4.2 -> 1.4.3) [CRAN]
+    ## 23: purrr       (1.0.1 -> 1.0.2) [CRAN]
+    ## 24: openssl     (2.0.2 -> 2.1.1) [CRAN]
+    ## 25: dplyr       (1.1.0 -> 1.1.4) [CRAN]
+    ## 
+    ##          checking for file 'C:\Users\rzc1\AppData\Local\Temp\Rtmp0qISqX\remotes275c38a86025\Stat-Cook-deident-8c6b118/DESCRIPTION' ...     checking for file 'C:\Users\rzc1\AppData\Local\Temp\Rtmp0qISqX\remotes275c38a86025\Stat-Cook-deident-8c6b118/DESCRIPTION' ...   ✔  checking for file 'C:\Users\rzc1\AppData\Local\Temp\Rtmp0qISqX\remotes275c38a86025\Stat-Cook-deident-8c6b118/DESCRIPTION' (393ms)
+    ##       ─  preparing 'deident':
+    ##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
+    ##       ─  checking for LF line-endings in source and make files and shell scripts
+    ##   ─  checking for empty or unneeded directories
+    ##       ─  building 'deident_0.1.0.tar.gz'
+    ##      
+    ## 
+
+    ## Warning: package 'deident' is in use and will not be installed
+
 The core functionality of the package is the `deident` function. To
 demonstrate functionality we use a subset of the `babynames` data set
 consisting of the final two years.
