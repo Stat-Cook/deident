@@ -44,7 +44,7 @@ siloed within health Trusts.
 
 To install the current version of the `deident` package, run the command
 
-``` {r}
+``` {r, eval=F}
 devtools::install_github("Stat-Cook/deident")
 ```
 
