@@ -3,12 +3,14 @@ null.method <- function(i) i
 exists.f <- function(key, .list){
   key %in% names(.list)
 }
+
 exists <- Vectorize(exists.f, "key")
 
 
 get.f <- function(key, .list){
   .list[[key]]
 }
+
 get <- function(keys, .list){
   unlist(.list[keys])
 }
@@ -17,6 +19,7 @@ add.f <- function(.list, key, method = function(i) i){
   .list[[key]] <- method(key)
   return(.list)
 }
+
 add <- function(keys, .list=list(), method = function(i) i){# Vectorize(add.f, "key") #, USE.NAMES = FALSE, SIMPLIFY = FALSE)
 
   .unique.keys <- unique(keys)
@@ -36,6 +39,7 @@ persist <- function(item, location){
 }
 
 key.values <- c(letters, LETTERS, 0:9)
+
 make.key <- function(k=5){
   vec <- sample(key.values, k, T)
   paste(vec, collapse="")
@@ -49,6 +53,8 @@ method.random <- function(.list){
   }
   return(proposal)
 }
+
+# TODO make accesing the lookup from a pseudonmuizer easier.
 
 Pseudonymizer <- R6Class(
   #' @export
