@@ -3,3 +3,7 @@
 .RData
 .Ruserdata
 inst/doc
+/Meta/
+deident.Rproj
+multistep_pipeline.yml
+examples.R
