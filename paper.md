@@ -159,6 +159,18 @@ An in depth example can be found in the `Worked Example` vigentte, while
 more details on each method are presented in the `deident transforms`
 vignette.
 
+## Current applications
+
+The `deident` toolbox was developed for applications in the NuRS and
+AmreS research projects which aim to extract and analyze retrospective
+operational data from NHS Trusts to understand staff retention and
+patient safety.
+
+## Acknowledgements
+
+The development of `deident` was part of the he NuRS and AmreS projects
+funded by the Health Foundation.
+
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
 
