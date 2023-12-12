@@ -98,7 +98,8 @@ pipeline3 <- deident(babynames, "psudonymize", name, sex) |>
 apply_deident.data.frame(babynames, pipeline3)
 ```
 
-For more details on each method refer to the `deident transforms` vignette.
+An in depth example can be found in the `Worked Example` vigentte, while 
+more details on each method are presented in the `deident transforms` vignette.
 
 
 

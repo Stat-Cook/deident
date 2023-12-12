@@ -1,21 +1,21 @@
 ---
-title: 'D-identifyR – open source tools for a data de-identification pipeline'
+title: 'Deident: An R package for data anonymization'
 tags:
   - R
-  - de-identification
-  - data manipulation
-  - PID
-  - personally identifiable data
 authors:
   - name: Robert M. Cook
     orcid: 0000-0000-0000-0000
     equal-contrib: true
     affiliation: 1
+  - name: Md Asaduzaman
+    orcid: 0000-0000-0000-0000
+    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
+    affiliation: 1
 affiliations:
-  - name: Staffordshire University, Stafford, UK
-    index: 1
-date: 13 August 2017
-bibliography: paper.bib
+ - name: Staffordshire University, England
+   index: 1
+date: 12 December 2023
+
 ---
 # Summary
 
@@ -149,7 +149,8 @@ pipeline3 <- deident(babynames, "psudonymize", name, sex) |>
 apply_deident.data.frame(babynames, pipeline3)
 ```
 
-For more details on each method refer to the `deident transforms`
+An in depth example can be found in the `Worked Example` vigentte, while
+more details on each method are presented in the `deident transforms`
 vignette.
 
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
