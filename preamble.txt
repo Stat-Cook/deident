@@ -1,0 +1,19 @@
+---
+title: 'Deident: An R package for data anonymization'
+tags:
+  - R
+authors:
+  - name: Robert M. Cook
+    orcid: 0000-0000-0000-0000
+    equal-contrib: false
+    affiliation: 1
+  - name: Md Asaduzaman
+    orcid: 0000-0000-0000-0000
+    equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
+    affiliation: 1
+affiliations:
+ - name: Staffordshire University, England
+   index: 1
+date: 12 December 2023
+
+---

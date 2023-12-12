@@ -5,11 +5,11 @@ tags:
 authors:
   - name: Robert M. Cook
     orcid: 0000-0000-0000-0000
-    equal-contrib: true
+    equal-contrib: false
     affiliation: 1
   - name: Md Asaduzaman
     orcid: 0000-0000-0000-0000
-    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
+    equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
 affiliations:
  - name: Staffordshire University, England
