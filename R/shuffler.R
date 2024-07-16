@@ -40,15 +40,5 @@ Shuffler <- R6Class(
   inherit = BaseDeident
 )
 
-shuffle <- function(object, ..., encrypter=Shuffler, init.list=list()){
-  deident(object, {{encrypter}}, ..., init.list=list())
-}
-
-shuffle_in_group <- function(data, grp_cols, ...){
-  shuf <- Shuffler$new()
-  shuf$group_and_mutate(
-    data, {{grp_cols}}, c(...)
-  )
-}
 
 
