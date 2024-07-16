@@ -82,3 +82,12 @@ fix_colnames <- function(frm, pattern="V{.x}"){
 init.list.f <- function(on_init = list(), dot.args = list()){
   append(on_init, dot.args)
 }
+
+arg_kwarg <- function(...){
+  .list <- rlang::list2(...)
+  
+  list(
+    args = .list[names(.list) == ""],
+    kwargs = .list[names(.list) != ""]
+  )  
+}
