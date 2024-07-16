@@ -15,7 +15,7 @@ for (ext in file.extensions){
   }
 }
 
-.files <- find_files("Test_files")
+.files <- find_files("Test_files", file.extensions)
 
 unlink("Test_files",recursive = TRUE)
 

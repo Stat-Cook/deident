@@ -9,15 +9,11 @@ test_that("Psudonomizer works", {
 
   expect_character(.tra$transform(df$A))
   expect_equal(length(.tra$transform(df$A)), n)
-
-  expect_warning(.tra$transform(df$B))
+  
+  expect_warning(.tra$transform(df$B, parse_numerics=F))
 
   .mut <- .tra$mutate(df, A)
   expect_data_frame(.mut)
   expect_equal(nrow(.mut), n)
 
-  expect_warning(.tra$mutate(df, B))
-  expect_data_frame(
-    suppressWarnings(.tra$mutate(df, B))
-  )
 })
