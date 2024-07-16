@@ -47,8 +47,3 @@ Encrypter <- R6Class(
   ),
   inherit = BaseDeident
 )
-
-encrypt <- function(object, ..., encrypter=Encrypter, init.list=list()){
-  #'
-  deident(object, {{encrypter}}, ..., init.list=list())
-}
