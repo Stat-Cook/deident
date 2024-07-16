@@ -37,8 +37,14 @@ create_deident.character <- function(method, ..., init.list = list()){
 
   implemented_transforms <- implemented_transforms_base.f()
   .tra <- implemented_transforms[[method]]
+  
+  if (is.null(.tra)){
+    stop(glue::glue("Transform method {method} not implemented"))
+  }
+  
   create_deident(.tra, ..., init.list = init.list)
 }
+
 
 str.DeidentTask <- function(object, ...){
   #' @exportS3Method
