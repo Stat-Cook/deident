@@ -76,14 +76,18 @@ Pseudonymizer <- R6Class(
     keys <- c(keys, ...)
     get(keys, self$lookup)
   },
-  transform = function(keys, ...){
+  transform = function(keys, ..., parse_numerics=T){
     keys <- c(keys, ...)
-    if(!is.character(keys)){
-      # warning("Pseudonomizer expects character string - received numeric.
-      #         Column not altered")
-      # return(keys)
+    if (parse_numerics){
       keys <- as.character(keys)
+    } else {
+      if(!is.character(keys)){
+        warning("Pseudonomizer expects character string - received numeric.
+                Column not altered")
+        return(keys)
+      }
     }
+    
     self$add(keys)
     self$get(keys)
   }),
