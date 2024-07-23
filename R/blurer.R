@@ -48,8 +48,10 @@ Blurer <- R6Class(
       self$method(keys)
     },
 
+    #' @description 
+    #' `r serialize.desc()`
     serialize = function(){
-      super$serialize(on_init = list(blur = self$blur))
+      super$serialize(blur = self$blur)
     }
   ),
   inherit = BaseDeident
