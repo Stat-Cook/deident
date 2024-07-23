@@ -22,6 +22,7 @@ reference:
   - adaptive_noise
   - lognorm_noise
   - white_noise
+  - from_yaml
 - title: "R6 Classes"
   contents: 
   - starts_with("[A-Z]")
