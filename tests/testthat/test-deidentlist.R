@@ -97,3 +97,83 @@
 # all(enc.A$B == frm$B)
 # all(enc.A$C == frm$C)
 #
+
+
+test_that(
+  "Add step with Generator",
+  {
+    dl <- DeidentList$new() 
+    dl$add_method(Pseudonymizer, Employee, lookup=list("Bob"="asjkdha"))
+    
+    d <- dl$deident_methods[[1]]
+    .vars <- purrr::map(d$variables, rlang::quo_get_expr) 
+    
+    expect_equal(
+      .vars[[1]],
+      as.name("Employee")
+    )
+    
+    expect_equal(
+      length(.vars),
+      1
+    )
+    
+    expect_equal(
+      d$method$lookup,
+      list(Bob="asjkdha")
+    )
+  }
+)
+
+test_that(
+  "Add step with object",
+  {
+    dl <- DeidentList$new() 
+    psu <- Pseudonymizer$new(lookup=list("Bob"="asjkdha"))
+    dl$add_method(psu, Employee)
+    
+    d <- dl$deident_methods[[1]]
+    .vars <- purrr::map(d$variables, rlang::quo_get_expr) 
+    
+    expect_equal(
+      .vars[[1]],
+      as.name("Employee")
+    )
+    
+    expect_equal(
+      length(.vars),
+      1
+    )
+    
+    expect_equal(
+      d$method$lookup,
+      list(Bob="asjkdha")
+    )
+  }
+)
+
+test_that(
+  "Add step with character",
+  {
+    dl <- DeidentList$new() 
+    dl$add_method("Pseudonymizer", Employee, lookup=list("Bob"="asjkdha"))
+    
+    d <- dl$deident_methods[[1]]
+    .vars <- purrr::map(d$variables, rlang::quo_get_expr) 
+    
+    expect_equal(
+      .vars[[1]],
+      as.name("Employee")
+    )
+    
+    expect_equal(
+      length(.vars),
+      1
+    )
+    
+    expect_equal(
+      d$method$lookup,
+      list(Bob="asjkdha")
+    )
+  }
+)
