@@ -20,6 +20,7 @@ Encrypter <- R6Class(
     #' @field seed String for concatenation to raw value
     seed = NA,
 
+    #' @description
     #' Create new Encrypter object
     #' @param hash_key An alpha numeric key for use in encryption
     #' @param seed An alpha numeric key which is concatenated to
@@ -41,8 +42,10 @@ Encrypter <- R6Class(
       self$method(keys)
     },
 
+    #' @description 
+    #' `r serialize.desc()`
     serialize = function(){
-      super$serialize(on_init = list(hash_key=self$hash_key, seed=self$seed))
+      super$serialize(hash_key=self$hash_key, seed=self$seed)
     }
   ),
   inherit = BaseDeident
