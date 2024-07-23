@@ -10,4 +10,5 @@ devtools::install_github("Stat-Cook/deident")
 library("deident")
 ```
 
-More documentation and vignettes will be included as the core functionality is completed.
+The documentation for `deident` is hosted via github pages [here](https://stat-cook.github.io/deident/).  We suggest looking at the (`Worked Example`)[https://stat-cook.github.io/deident/articles/Worked%20Example.html] vignette to understand the intended workflow.
+
