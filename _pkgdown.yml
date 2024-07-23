@@ -19,7 +19,9 @@ reference:
 - title: "Utilities"
   contents: 
   - category_blur
-  - apply_deident
+  - adaptive_noise
+  - lognorm_noise
+  - white_noise
 - title: "R6 Classes"
   contents: 
   - starts_with("[A-Z]")
