@@ -1,3 +1,5 @@
+home:
+  title: deident - an R package for the transformation of identifiable data
 reference:
 - title: "Deident"
   desc: >
