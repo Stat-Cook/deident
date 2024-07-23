@@ -5,9 +5,11 @@ numeric_blur.f <- function(cuts){
   }
 }
 
-
+#' Group numeric data into baskets
+#' 
+#' @export
 NumericBlurer <- R6Class(
-  #' @export
+
   "NumericBlurer", list(
 
     cuts = NA,
