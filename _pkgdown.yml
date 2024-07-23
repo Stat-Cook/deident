@@ -1,0 +1,21 @@
+reference:
+- title: "Deident"
+  desc: >
+  contents: 
+  - deident
+- title: "API"
+  desc: >
+    Functional interface to the deident methods.
+  contents: 
+  - starts_with("add")
+- title: "Dataset"
+  contents: 
+  - babyname_sample
+  - ShiftsWorked
+- title: "Utilities"
+  contents: 
+  - category_blur
+  - apply_deident
+- title: "R6 Classes"
+  contents: 
+  - starts_with("[A-Z]")
