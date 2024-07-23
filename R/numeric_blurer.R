@@ -28,7 +28,7 @@ NumericBlurer <- R6Class(
     },
 
     serialize = function(){
-      super$serialize(on_init = list(cuts = self$cuts))
+      super$serialize(cuts = self$cuts)
     }
   ),
   inherit = BaseDeident
