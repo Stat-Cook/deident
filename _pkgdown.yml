@@ -3,6 +3,10 @@ reference:
   desc: >
   contents: 
   - deident
+  - create_deident
+  - apply_deident
+  - apply_to_data_frame
+  - deident_job_from_folder
 - title: "API"
   desc: >
     Functional interface to the deident methods.
