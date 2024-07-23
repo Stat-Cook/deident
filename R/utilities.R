@@ -15,9 +15,7 @@ labels_as_symbols <- function(labels){
   lapply(labels, as.symbol)
 }
 
-serialize <- function(x, ...){
-  UseMethod("serialize", x)
-}
+
 
 serialize.BaseDeident <- function(x, ...){
   #' @exportS3Method
@@ -29,19 +27,20 @@ serialize.DeidentTask <- function(x, ...){
   method.list <- serialize(x$method)
   variables <- quosure_as_labels(x$variables)
 
-  append(method.list, list(Variables=variables))
+  append(method.list, list(variables=variables))
 }
 
 serialize.DeidentList <- function(x, ...){
   #' @exportS3Method
-  lapply(x$deident_methods, serialize)
+  
+  map(x$deident_methods, serialize)
+
 }
 
-check_values <- function(allowed_values,  ...,
+check_values <- function(allowed_values,  quos,
                          msg_template = "Column(s) {cols} not present in data"){
   #' @importFrom glue glue
 
-  quos <- enquos(...)
   quos.labels <- unlist(lapply(quos, rlang::as_label))
 
   not_present <- quos.labels[!quos.labels %in% allowed_values]
@@ -84,10 +83,29 @@ init.list.f <- function(on_init = list(), dot.args = list()){
 }
 
 arg_kwarg <- function(...){
-  .list <- rlang::list2(...)
+  .list <- rlang::enquos(...)
   
   list(
     args = .list[names(.list) == ""],
     kwargs = .list[names(.list) != ""]
   )  
+}
+
+squash_map <- function(x){
+  map(x, rlang::quo_squash)
+}
+
+
+unexpected_kwargs <- function(...){
+  dots <- arg_kwarg(...)
+
+  if (length(dots$kwargs) > 0){
+    
+    .names <- names(dots$kwargs)
+    .names.str <- paste0("'", .names, "'", collapse=", ")
+    warning(glue::glue(
+      "Key-word arguments passed when using pre-initialized deidentifier are ignored. \\
+         Options for {.names.str} have been ignored."
+    ))
+  }
 }
