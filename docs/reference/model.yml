@@ -1,0 +1,4 @@
+- Type: Pseudonymizer
+  args:
+    lookup: []
+  variables: Employee

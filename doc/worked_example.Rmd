@@ -3,7 +3,7 @@ title: "Worked Example"
 output: 
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{worked_example}
+  %\VignetteIndexEntry{Worked Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -74,7 +74,7 @@ The simplest method for de-identification is a direct replacement, e.g. 'pseudon
 
 ```{r, render=local_print}
 pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
-deident:::apply_deident(ShiftsWorked, pipeline)
+apply_deident(ShiftsWorked, pipeline)
 ```
 
 This approach is relatively simple, but what if we wish to dig into the transformation?  In the case of this direct replacement, we might want to access the lookup table that underpins the pseudonymizer.  The easiest way to acheive this is to create an instance of a `Pseudonymizer` class, and pass it in to deident: 
@@ -83,7 +83,7 @@ This approach is relatively simple, but what if we wish to dig into the transfor
 psu <- Pseudonymizer$new()
 pipeline2 <- deident(ShiftsWorked, psu, Employee)
 
-deident:::apply_deident(ShiftsWorked, pipeline2)
+apply_deident(ShiftsWorked, pipeline2)
 ```
 
 and once the transform has been performed we can check the `lookup` attribute: 
@@ -102,7 +102,7 @@ multistep_pipeline <- ShiftsWorked |>
   deident(blur, `Daily Pay`)
 
 ShiftsWorked |> 
-  deident:::apply_deident(multistep_pipeline)
+  apply_deident(multistep_pipeline)
 ```
 
 As well as having multiple data transforms to choose from, `deident` also allows the user to easily serialize their pipelines to a .yml file for audit and transfer.  This is done via the calls `to_yaml` and `from_yaml`:
@@ -110,9 +110,9 @@ As well as having multiple data transforms to choose from, `deident` also allows
 ``` {r, render=local_print}
 multistep_pipeline$to_yaml("multistep_pipeline.yml")
 
-restored_pipeline <- deident:::from_yaml("multistep_pipeline.yml")
+restored_pipeline <- from_yaml("multistep_pipeline.yml")
 
 ShiftsWorked |> 
-  deident:::apply_deident(restored_pipeline)
+  apply_deident(restored_pipeline)
 ```
 

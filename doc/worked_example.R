@@ -43,13 +43,13 @@ ShiftsWorked
 
 ## ---- render=local_print------------------------------------------------------
 pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
-deident:::apply_deident(ShiftsWorked, pipeline)
+apply_deident(ShiftsWorked, pipeline)
 
 ## ---- render=local_print------------------------------------------------------
 psu <- Pseudonymizer$new()
 pipeline2 <- deident(ShiftsWorked, psu, Employee)
 
-deident:::apply_deident(ShiftsWorked, pipeline2)
+apply_deident(ShiftsWorked, pipeline2)
 
 ## ---- output.lines=4----------------------------------------------------------
 unlist(psu$lookup)
@@ -62,13 +62,13 @@ multistep_pipeline <- ShiftsWorked |>
   deident(blur, `Daily Pay`)
 
 ShiftsWorked |> 
-  deident:::apply_deident(multistep_pipeline)
+  apply_deident(multistep_pipeline)
 
 ## ---- render=local_print------------------------------------------------------
 multistep_pipeline$to_yaml("multistep_pipeline.yml")
 
-restored_pipeline <- deident:::from_yaml("multistep_pipeline.yml")
+restored_pipeline <- from_yaml("multistep_pipeline.yml")
 
 ShiftsWorked |> 
-  deident:::apply_deident(restored_pipeline)
+  apply_deident(restored_pipeline)
 

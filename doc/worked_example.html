@@ -29,27 +29,27 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -63,55 +63,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -354,8 +353,8 @@ shift).</li>
 shift).</li>
 <li>Daily Pay: numeric, calculated remuneration (£).</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deident)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ShiftsWorked</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(deident)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>ShiftsWorked</span></code></pre></div>
 <table>
 <colgroup>
 <col width="13%" />
@@ -444,8 +443,8 @@ steps:</p>
 <li>Define a pipeline</li>
 <li>Apply to the data set</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pipeline <span class="ot">&lt;-</span> <span class="fu">deident</span>(ShiftsWorked, <span class="st">&quot;psudonymize&quot;</span>, Employee)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>deident<span class="sc">:::</span><span class="fu">apply_deident</span>(ShiftsWorked, pipeline)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>pipeline <span class="ot">&lt;-</span> <span class="fu">deident</span>(ShiftsWorked, <span class="st">&quot;psudonymize&quot;</span>, Employee)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">apply_deident</span>(ShiftsWorked, pipeline)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="14%" />
@@ -470,7 +469,7 @@ steps:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">bCOgT</td>
+<td align="left">AMLZL</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -479,7 +478,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">9cFSU</td>
+<td align="left">bFMO1</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -488,7 +487,7 @@ steps:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">DF53i</td>
+<td align="left">6adyI</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -497,7 +496,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">mRdti</td>
+<td align="left">rM14S</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -506,7 +505,7 @@ steps:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">EOlMO</td>
+<td align="left">CXqXU</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -515,7 +514,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">vVgFf</td>
+<td align="left">ewvZV</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -529,10 +528,10 @@ the transformation? In the case of this direct replacement, we might
 want to access the lookup table that underpins the pseudonymizer. The
 easiest way to acheive this is to create an instance of a
 <code>Pseudonymizer</code> class, and pass it in to deident:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>psu <span class="ot">&lt;-</span> Pseudonymizer<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pipeline2 <span class="ot">&lt;-</span> <span class="fu">deident</span>(ShiftsWorked, psu, Employee)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>deident<span class="sc">:::</span><span class="fu">apply_deident</span>(ShiftsWorked, pipeline2)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>psu <span class="ot">&lt;-</span> Pseudonymizer<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>pipeline2 <span class="ot">&lt;-</span> <span class="fu">deident</span>(ShiftsWorked, psu, Employee)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">apply_deident</span>(ShiftsWorked, pipeline2)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="14%" />
@@ -557,7 +556,7 @@ easiest way to acheive this is to create an instance of a
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">XwFKa</td>
+<td align="left">WCRjx</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -566,7 +565,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">68tn0</td>
+<td align="left">mEIzP</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -575,7 +574,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">2Us1e</td>
+<td align="left">fmMTb</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -584,7 +583,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">Hj8po</td>
+<td align="left">B9QNl</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -593,7 +592,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">x8n8T</td>
+<td align="left">Jatrp</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -602,7 +601,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">W91yq</td>
+<td align="left">cMPSS</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -613,24 +612,24 @@ easiest way to acheive this is to create an instance of a
 </table>
 <p>and once the transform has been performed we can check the
 <code>lookup</code> attribute:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unlist</span>(psu<span class="sc">$</span>lookup)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Maria Cook           Stephen Cox        Kimberly Ortiz </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               &quot;XwFKa&quot;               &quot;68tn0&quot;               &quot;2Us1e&quot; </span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Nathan Alvarez         Samuel Parker          Scott Morris </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               &quot;Hj8po&quot;               &quot;x8n8T&quot;               &quot;W91yq&quot; </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">unlist</span>(psu<span class="sc">$</span>lookup)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;            Maria Cook           Stephen Cox        Kimberly Ortiz </span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;               &quot;WCRjx&quot;               &quot;mEIzP&quot;               &quot;fmMTb&quot; </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;        Nathan Alvarez         Samuel Parker          Scott Morris </span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;               &quot;B9QNl&quot;               &quot;Jatrp&quot;               &quot;cMPSS&quot; </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>...</span></code></pre></div>
 <p>Often we will need to apply multiple transformations. Considering the
 <code>StaffsWorked</code> data, imagine the employees are complaining
 they don’t want their exact salaries divulged (even once names are
 removed). We can expand the pipeline to allow for this:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>blur <span class="ot">&lt;-</span> NumericBlurer<span class="sc">$</span><span class="fu">new</span>(<span class="at">cuts =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>multistep_pipeline <span class="ot">&lt;-</span> ShiftsWorked <span class="sc">|&gt;</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deident</span>(psu, Employee) <span class="sc">|&gt;</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deident</span>(blur, <span class="st">`</span><span class="at">Daily Pay</span><span class="st">`</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ShiftsWorked <span class="sc">|&gt;</span> </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  deident<span class="sc">:::</span><span class="fu">apply_deident</span>(multistep_pipeline)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>blur <span class="ot">&lt;-</span> NumericBlurer<span class="sc">$</span><span class="fu">new</span>(<span class="at">cuts =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>multistep_pipeline <span class="ot">&lt;-</span> ShiftsWorked <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="fu">deident</span>(psu, Employee) <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="fu">deident</span>(blur, <span class="st">`</span><span class="at">Daily Pay</span><span class="st">`</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>ShiftsWorked <span class="sc">|&gt;</span> </span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  <span class="fu">apply_deident</span>(multistep_pipeline)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="14%" />
@@ -655,7 +654,7 @@ removed). We can expand the pipeline to allow for this:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">XwFKa</td>
+<td align="left">WCRjx</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -664,7 +663,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">68tn0</td>
+<td align="left">mEIzP</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -673,7 +672,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">2Us1e</td>
+<td align="left">fmMTb</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -682,7 +681,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">Hj8po</td>
+<td align="left">B9QNl</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -691,7 +690,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">x8n8T</td>
+<td align="left">Jatrp</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -700,7 +699,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">W91yq</td>
+<td align="left">cMPSS</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -713,12 +712,12 @@ removed). We can expand the pipeline to allow for this:</p>
 <code>deident</code> also allows the user to easily serialize their
 pipelines to a .yml file for audit and transfer. This is done via the
 calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>multistep_pipeline<span class="sc">$</span><span class="fu">to_yaml</span>(<span class="st">&quot;multistep_pipeline.yml&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>restored_pipeline <span class="ot">&lt;-</span> deident<span class="sc">:::</span><span class="fu">from_yaml</span>(<span class="st">&quot;multistep_pipeline.yml&quot;</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ShiftsWorked <span class="sc">|&gt;</span> </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  deident<span class="sc">:::</span><span class="fu">apply_deident</span>(restored_pipeline)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>multistep_pipeline<span class="sc">$</span><span class="fu">to_yaml</span>(<span class="st">&quot;multistep_pipeline.yml&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>restored_pipeline <span class="ot">&lt;-</span> <span class="fu">from_yaml</span>(<span class="st">&quot;multistep_pipeline.yml&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>ShiftsWorked <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="fu">apply_deident</span>(restored_pipeline)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="14%" />
@@ -743,7 +742,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">bJBRW</td>
+<td align="left">WCRjx</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -752,7 +751,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">9tQtv</td>
+<td align="left">mEIzP</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -761,7 +760,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">emF6C</td>
+<td align="left">fmMTb</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -770,7 +769,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">i3O86</td>
+<td align="left">B9QNl</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -779,7 +778,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">ZRpjV</td>
+<td align="left">Jatrp</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -788,7 +787,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">i55rD</td>
+<td align="left">cMPSS</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>

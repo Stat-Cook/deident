@@ -10,9 +10,6 @@
     <loc>/articles/transformations.html</loc>
   </url>
   <url>
-    <loc>/articles/Worked Example.html</loc>
-  </url>
-  <url>
     <loc>/articles/worked_example.html</loc>
   </url>
   <url>
@@ -89,6 +86,9 @@
   </url>
   <url>
     <loc>/reference/f.html</loc>
+  </url>
+  <url>
+    <loc>/reference/from_yaml.html</loc>
   </url>
   <url>
     <loc>/reference/GroupedShuffler.html</loc>

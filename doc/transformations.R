@@ -67,8 +67,8 @@ deident(df, encrypt, A)
 #  deident(df, perturb, A)
 
 ## -----------------------------------------------------------------------------
-perturb <- Perturber$new(sd=5)
-deident(df, perturb, B)
+# perturb <- Perturber$new(noise=adaptive_noise(0.2))
+# deident(df, perturb, B)
 
 ## ---- eval=F------------------------------------------------------------------
 #  letter_blur <- c(rep("Early", 13), rep("Late", 13))

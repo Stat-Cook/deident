@@ -36,7 +36,7 @@ the repeated application of  anonymization transformations."><!-- mathjax --><sc
       <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
-      <a href="../articles/Worked%20Example.html">Worked Example</a>
+      <a href="../articles/worked_example.html">Worked Example</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
@@ -104,7 +104,20 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 <span class="r-out co"><span class="r-pr">#&gt;</span>    columns: Record ID, Employee, Date, Shift, Shift Start, Shift End, Daily Pay</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">pipe</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in apply_deident(ShiftsWorked, pipe):</span> could not find function "apply_deident"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 XjYp7    2015-01-01 Night 17:01         00:01              78.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 KoJsN    2015-01-01 Day   08:01         16:01             155. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 xEWTh    2015-01-01 Day   08:01         16:01              77.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 vq3Rx    2015-01-01 Day   08:01         15:01             203. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 PlAva    2015-01-01 Night 16:01         23:01             211. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 eaFAQ    2015-01-01 Night 17:01         00:01             142. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 hBT8K    2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                  0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 zELFk    2015-01-01 Night 17:01         00:01             213. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 vy5NN    2015-01-01 Night 16:01         00:01             219. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 jeHYQ    2015-01-01 Night 16:01         00:01             242. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,090 more rows</span></span>
 <span class="r-in"><span>  </span></span>
 </code></pre></div>
     </div>
