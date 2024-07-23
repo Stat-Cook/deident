@@ -28,7 +28,7 @@
 #' @format  A data frame with 3,100 rows and 6 columns:
 #' \describe{
 #'   \item{Record ID}{Table primary key (integer)}
-#'   \item{Emloyee}{Name of listed employee}
+#'   \item{Employee}{Name of listed employee}
 #'   \item{Date}{The date being considered}
 #'   \item{Shift}{The shift-type done by `employee` on `date`.  One of 'Day', 'Night' or 'Rest'.}
 #'   \item{Shift Start}{Shift start time (missing if on 'Rest' shift)}
