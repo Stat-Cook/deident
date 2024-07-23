@@ -7,11 +7,11 @@
 \format{
 A data frame with 65,448 rows and 5 columns:
 \describe{
-  \item{year}{Calendar year considered}
-  \item{sex}{Assigned at birth gender - M: male, F: female}
-  \item{name}{Popular baby name in given year}
-  \item{n}{Frequency to which `name` was used in `year`}
-  \item{prop}{Proportion of all baby's born in `year` with `name`}
+\item{year}{Calendar year considered}
+\item{sex}{Assigned at birth gender - M: male, F: female}
+\item{name}{Popular baby name in given year}
+\item{n}{Frequency to which \code{name} was used in \code{year}}
+\item{prop}{Proportion of all baby's born in \code{year} with \code{name}}
 
 }
 }
@@ -19,8 +19,8 @@ A data frame with 65,448 rows and 5 columns:
 babyname_sample
 }
 \description{
-Subsample of the `babynames` data set found in
-\href{https://github.com/hadley/babynames}{`babynames`}
+Subsample of the \code{babynames} data set found in
+\href{https://github.com/hadley/babynames}{\code{babynames}}
 supplied for testing the package.
 }
 \keyword{datasets}

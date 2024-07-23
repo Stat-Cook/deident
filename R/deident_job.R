@@ -39,10 +39,19 @@ DeidentJob <- R6::R6Class(
   )
 )
 
+#' Apply a pipeline to files on disk.
+#' 
+#' Apply a deident pipeline to a set of files and save them back to disk
+#' 
+#' @param deident_pipeline The deident list to be used.
+#' @param data_dir a path to the files to be transformed.
+#' @param result_dir a path to where files are to be saved.
+#' 
+#' @export 
 deident_job_from_folder <- function(deident_pipeline,
                                     data_dir,
                                     result_dir="Deident_results"){
-  #' @export
+
 
   dj <- DeidentJob$new(data_dir, result_dir)
   dj$apply_deident(deident_pipeline)

@@ -3,110 +3,35 @@
 \name{Encrypter}
 \alias{Encrypter}
 \title{Deidentifier class for applying 'encryption' transform}
+\arguments{
+\item{hash_key}{An alpha numeric key for use in encryption}
+
+\item{seed}{An alpha numeric key which is concatenated to
+minimize brute force attacks}
+
+\item{keys}{Vector of values to be processed}
+
+\item{...}{Values to be concatenated to keys}
+}
+\value{
+\code{Encrypter}
+Apply blur to a vector of values
+}
 \description{
+Create new Encrypter object
+
+Convert \code{self} to a list.
+}
+\details{
 'Encrypting' refers to the cryptographic hashing  of data e.g. md5
 checksum.  Encryption is more powerful if a random hash and seed are
 supplied and kept secret.
 }
-\section{Super class}{
-\code{\link[deident:BaseDeident]{deident::BaseDeident}} -> \code{Encrypter}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
+\section{Fields}{
+
 \describe{
 \item{\code{hash_key}}{Alpha-numeric secret key for encryption}
 
-\item{\code{seed}}{String for concatenation to raw value
-Create new Encrypter object}
-}
-\if{html}{\out{</div>}}
-}
-\section{Methods}{
-\subsection{Public methods}{
-\itemize{
-\item \href{#method-Encrypter-new}{\code{Encrypter$new()}}
-\item \href{#method-Encrypter-transform}{\code{Encrypter$transform()}}
-\item \href{#method-Encrypter-serialize}{\code{Encrypter$serialize()}}
-\item \href{#method-Encrypter-clone}{\code{Encrypter$clone()}}
-}
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
-<ul>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="group_and_mutate"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-group_and_mutate'><code>deident::BaseDeident$group_and_mutate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="group_mutate"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-group_mutate'><code>deident::BaseDeident$group_mutate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="mutate"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-mutate'><code>deident::BaseDeident$mutate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="persist"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-persist'><code>deident::BaseDeident$persist()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="set_method"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-set_method'><code>deident::BaseDeident$set_method()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="str"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-str'><code>deident::BaseDeident$str()</code></a></span></li>
-</ul>
-</details>
+\item{\code{seed}}{String for concatenation to raw value}
 }}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Encrypter-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Encrypter-new}{}}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Encrypter$new(hash_key = "", seed = NA)}\if{html}{\out{</div>}}
-}
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{hash_key}}{An alpha numeric key for use in encryption}
-
-\item{\code{seed}}{An alpha numeric key which is concatenated to
-minimize brute force attacks}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-`Encrypter`
-Apply blur to a vector of values
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Encrypter-transform"></a>}}
-\if{latex}{\out{\hypertarget{method-Encrypter-transform}{}}}
-\subsection{Method \code{transform()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Encrypter$transform(keys, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{keys}}{Vector of values to be processed}
-
-\item{\code{...}}{Values to be concatenated to keys}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Encrypter-serialize"></a>}}
-\if{latex}{\out{\hypertarget{method-Encrypter-serialize}{}}}
-\subsection{Method \code{serialize()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Encrypter$serialize()}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Encrypter-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-Encrypter-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Encrypter$clone(deep = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
-}

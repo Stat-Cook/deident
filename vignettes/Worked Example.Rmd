@@ -3,7 +3,7 @@ title: "Worked Example"
 output: 
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{worked_example}
+  %\VignetteIndexEntry{Worked Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -5,7 +5,7 @@ pipeline to sensitive data.  The package is implemented in R.
 
 To install the current version, run the command
 
-``` {r}
+```r
 devtools::install_github("Stat-Cook/deident")
 library("deident")
 ```

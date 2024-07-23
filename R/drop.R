@@ -1,5 +1,11 @@
+#' R6 class for the removal of variables from a pipeline
+#' 
+#' @description  
+#' A `Deident` class dealing with the exclusion of variables.
+#' 
+#' @export
 Drop <- R6Class(
-  #' @export
+
   "Drop",
   list(
     transform = function(keys, ...){

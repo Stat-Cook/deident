@@ -131,8 +131,8 @@ deident(df, perturb, A)
 At initialization, `Perturber` can be given a scale for the white noise via the `sd` argument.  
 
 ``` {r}
-perturb <- Perturber$new(sd=5)
-deident(df, perturb, B)
+# perturb <- Perturber$new(noise=adaptive_noise(0.2))
+# deident(df, perturb, B)
 ```
 
 ## Blurer

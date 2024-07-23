@@ -1,15 +1,18 @@
+#' GroupedShuffler class for applying 'shuffling' transform with data
+#'   aggregated
+#'
+#' 'Shuffling' refers to the a random sampling of a variable without
+#' replacement e.g. \[A, B, C\] becoming \[B, A, C\] but not \[A, A, B\].  "Grouped
+#' shuffling" refers to aggregating the data by another feature before appling
+#' the shuffling process.  Grouped shuffling will preserve aggregate level
+#' metrics (e.g. mean, median, mode) but removes ordinal properties
+#' i.e. correlations and auto-correlations
+#'
+#' @param limit Minimum number of rows required to shuffle data
+#'
+#' @export
 GroupedShuffler <- R6Class(
-  #' GroupedShuffler class for applying 'shuffling' transform with data
-  #'   aggregated
-  #'
-  #' 'Shuffling' refers to the a random sampling of a variable without
-  #' replacement e.g. [A, B, C] becoming [B, A, C] but not [A, A, B].  "Grouped
-  #' shuffling" refers to aggregating the data by another feature before appling
-  #' the shuffling process.  Grouped shuffling will preserve aggregate level
-  #' metrics (e.g. mean, median, mode) but removes ordinal properties
-  #' i.e. correlations and auto-correlations
-  #'
-  #' @export
+
   "GroupedShuffler", list(
     #' @field group_on Symbolic representation of grouping varaibles
     group_on = NA,
@@ -18,9 +21,8 @@ GroupedShuffler <- R6Class(
     limit = 0,
 
     #' Create new GroupedShuffler object
-    #' @param ... [optional] The columns of the to-be supplied data set to
+    #' @param ... \[optional\] The columns of the to-be supplied data set to
     #' aggregate on.
-    #' @return `Blurer`
     initialize = function(..., limit=0){
       self$group_on <- enquos(...)
       self$set_method(sample)
@@ -35,11 +37,15 @@ GroupedShuffler <- R6Class(
         group_modify(private$group_mutate, ...)
     },
 
+    #' @description 
+    #' `r serialize.desc()`
     serialize = function(){
       super$serialize(dots = dots_as_labels(!!!self$group_on))
     },
 
-    str = function(...){
+    #' @description 
+    #' Character representation of the class
+    str = function(){
       labels <- quosure_as_labels(self$group_on)
       super.str <- super$str()
       glue("{super.str}(group_on={paste(labels, collapse=', ')})")

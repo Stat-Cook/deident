@@ -1,37 +1,69 @@
-create_deident <- function(method, ..., init.list=list()){
-  #' @export
+#' Create a deident pipeline 
+#' 
+#' @param method A deidentifier to initialize.
+#' @param ... list of variables to be deindeitifer. NB: key word arguments will 
+#' be passed to method at initialization.
+#' 
+#' @export
+create_deident <- function(method, ...){
+
 
   UseMethod("create_deident",method)
 }
 
-create_deident.BaseDeident <- function(method, ..., init.list=list()){
+create_deident.BaseDeident <- function(method, ...){
 
   #' @exportS3Method
   #' @importFrom rlang enquos
+  #'
+
+  unexpected_kwargs(...)
+  dots <- arg_kwarg(...)
 
   l <- list(
-    variables = enquos(...),
+    variables = dots$args,
     method = method
   )
   class(l) <- "DeidentTask"
   l
 }
 
-create_deident.R6ClassGenerator <- function(method, ..., init.list=list()){
+create_deident.R6ClassGenerator <- function(method, ...){
   #' @exportS3Method
   #' @export
 
+  dots <- arg_kwarg(...)
+
+  init.list <- purrr::map(dots$kwargs, rlang::quo_get_expr)
+    
   .tra <- do.call(method$new, init.list)
-  create_deident(.tra, ...)
+  
+  create_deident(.tra, !!!dots$args)
+
 }
 
-create_deident.list <- function(object, ...){
+create_deident.GrouperR6ClassGenerator <- function(method, ...){
   #' @exportS3Method
-  init.list <- init.list.f(on_init = object$OnInit, dot.args = object$Dots)
-  create_deident(object$Type, ..., init.list = init.list)
+  #' @export
+  #' 
+
+  l <- list(
+    variables = c(),
+    method = method$new(...)
+  )
+
+  class(l) <- "DeidentTask"
+  l
 }
 
-create_deident.character <- function(method, ..., init.list = list()){
+create_deident.list <- function(method, ...){
+  #' @exportS3Method
+  #init.list <- init.list.f(on_init = object$OnInit, dot.args = object$Dots)
+  
+  create_deident(method$Type, !!!method$variables, !!!method$args)
+}
+
+create_deident.character <- function(method, ...){
   #' @exportS3Method
   #' @export
 
@@ -42,7 +74,7 @@ create_deident.character <- function(method, ..., init.list = list()){
     stop(glue::glue("Transform method {method} not implemented"))
   }
   
-  create_deident(.tra, ..., init.list = init.list)
+  create_deident(.tra, ...)
 }
 
 

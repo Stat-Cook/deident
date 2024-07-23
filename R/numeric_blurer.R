@@ -5,9 +5,11 @@ numeric_blur.f <- function(cuts){
   }
 }
 
-
+#' Group numeric data into baskets
+#' 
+#' @export
 NumericBlurer <- R6Class(
-  #' @export
+
   "NumericBlurer", list(
 
     cuts = NA,
@@ -26,7 +28,7 @@ NumericBlurer <- R6Class(
     },
 
     serialize = function(){
-      super$serialize(on_init = list(cuts = self$cuts))
+      super$serialize(cuts = self$cuts)
     }
   ),
   inherit = BaseDeident

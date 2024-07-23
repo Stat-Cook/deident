@@ -1,11 +1,23 @@
-blur.f <- function(key, vec){
-  if (key %in% names(vec)){
-    return(vec[[key]])
-  }
-  return(key)
+# blur.f <- function(key, vec){
+#   if (key %in% names(vec)){
+#     return(vec[[key]])
+#   }
+#   return(key)
+# }
+# 
+# blur <- Vectorize(blur.f, "key")
+
+
+blur <- function(vec, .blur){
+  corrected <- names(.blur)
+  not_in_blur <- setdiff(unique(vec), corrected)
+  
+  names(not_in_blur) <- not_in_blur
+  compelete.blur <- c(.blur, not_in_blur)
+  
+  simplify(compelete.blur[vec])
 }
 
-blur <- Vectorize(blur.f, "key")
 
 #' Deidentifier class for applying 'blur' transform
 #'
@@ -36,8 +48,10 @@ Blurer <- R6Class(
       self$method(keys)
     },
 
+    #' @description 
+    #' `r serialize.desc()`
     serialize = function(){
-      super$serialize(on_init = list(blur = self$blur))
+      super$serialize(blur = self$blur)
     }
   ),
   inherit = BaseDeident

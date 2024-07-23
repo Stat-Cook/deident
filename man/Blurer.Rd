@@ -3,106 +3,30 @@
 \name{Blurer}
 \alias{Blurer}
 \title{Deidentifier class for applying 'blur' transform}
+\arguments{
+\item{blur}{Look-up list to define aggregation.}
+
+\item{keys}{Vector of values to be processed}
+
+\item{...}{Values to be concatenated to keys}
+}
+\value{
+\code{Blurer}
+Apply blur to a vector of values
+}
 \description{
+Convert \code{self} to a list.
+}
+\details{
 'Bluring' refers to aggregation of data e.g. converting city to country,
 or post code to IMD.  The level of blurring is defined by the list given
 at initialization which maps key to value e.g.
 list(London = "England", Paris = "France").
 }
-\section{Super class}{
-\code{\link[deident:BaseDeident]{deident::BaseDeident}} -> \code{Blurer}
-}
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
+\section{Fields}{
+
 \describe{
 \item{\code{blur}}{List of aggregations to be applied.
 Create new Blurer object}
-}
-\if{html}{\out{</div>}}
-}
-\section{Methods}{
-\subsection{Public methods}{
-\itemize{
-\item \href{#method-Blurer-new}{\code{Blurer$new()}}
-\item \href{#method-Blurer-transform}{\code{Blurer$transform()}}
-\item \href{#method-Blurer-serialize}{\code{Blurer$serialize()}}
-\item \href{#method-Blurer-clone}{\code{Blurer$clone()}}
-}
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
-<ul>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="group_and_mutate"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-group_and_mutate'><code>deident::BaseDeident$group_and_mutate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="group_mutate"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-group_mutate'><code>deident::BaseDeident$group_mutate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="mutate"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-mutate'><code>deident::BaseDeident$mutate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="persist"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-persist'><code>deident::BaseDeident$persist()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="set_method"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-set_method'><code>deident::BaseDeident$set_method()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="deident" data-topic="BaseDeident" data-id="str"><a href='../../deident/html/BaseDeident.html#method-BaseDeident-str'><code>deident::BaseDeident$str()</code></a></span></li>
-</ul>
-</details>
 }}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Blurer-new"></a>}}
-\if{latex}{\out{\hypertarget{method-Blurer-new}{}}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Blurer$new(blur = c())}\if{html}{\out{</div>}}
-}
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{blur}}{Look-up list to define aggregation.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-`Blurer`
-Apply blur to a vector of values
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Blurer-transform"></a>}}
-\if{latex}{\out{\hypertarget{method-Blurer-transform}{}}}
-\subsection{Method \code{transform()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Blurer$transform(keys, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{keys}}{Vector of values to be processed}
-
-\item{\code{...}}{Values to be concatenated to keys}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Blurer-serialize"></a>}}
-\if{latex}{\out{\hypertarget{method-Blurer-serialize}{}}}
-\subsection{Method \code{serialize()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Blurer$serialize()}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Blurer-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-Blurer-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Blurer$clone(deep = FALSE)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
-}

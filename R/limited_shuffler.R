@@ -1,5 +1,5 @@
 LimitedShuffler <- R6Class(
-  #' @export
+
   "LimitedShuffler", list(
   initialize = function(..., limit=1){
     super$initialize(...)
@@ -10,7 +10,6 @@ LimitedShuffler <- R6Class(
 
 
 LimitedGroupedShuffler <- R6Class(
-  #' @export
   "LimitedGroupedShuffler", list(
   initialize = function(..., limit=1){
     super$initialize(...)
@@ -20,7 +19,6 @@ LimitedGroupedShuffler <- R6Class(
 )
 
 limited_shuffle_in_group <- function(data, grp_cols, ...){
-  #' @export
   #' @importFrom tidyselect eval_select
   #' @importFrom rlang enquo sym
 

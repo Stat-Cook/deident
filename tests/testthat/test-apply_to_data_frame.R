@@ -1,7 +1,3 @@
-methods(apply_to_data_frame)
-
-apply_to_data_frame.DeidentTask
-
 df <- data.frame(A = sample(letters[1:4], 100, T))
 
 test_that(
@@ -30,22 +26,10 @@ test_that(
   "apply_to_data_frame.DeidentTask methods",
   {
     enc_task <- create_deident("Encrypter", A)
-
+    
     df_DeidentTask <- apply_to_data_frame(df, enc_task)
     expect_equal(dim(df), dim(df_DeidentTask))
     expect_equal(colnames(df), colnames(df_DeidentTask))
     expect_true(all(df$A != df_DeidentTask$A))
   }
 )
-
-test_that("bob",{
-
-  # .list <- list(Type = "Encrypter", OnInit=list(), Dots = list())
-  # df_list <- apply_to_data_frame(df, .list, A)
-  #
-  # expect_equal(dim(df), dim(df_list))
-  # expect_equal(colnames(df), colnames(df_list))
-  # expect_true(all(df$A != df_list$A))
-
-})
-# apply_to_data_frame.list
