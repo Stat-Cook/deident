@@ -7,6 +7,10 @@ implemented_transforms_base.f <- function(user_defined=list()){
          "NumericBlurer" = NumericBlurer,
          "GroupedShuffler" = GroupedShuffler,
          "Drop" = Drop,
+         "Tidyer" = Tidyer,
+         "Mutater" = Mutater,
+         "Grouper" = Grouper,
+         "Ungrouper" = Ungrouper,
          "psudonymize" = Pseudonymizer,
          "shuffle" = Shuffler,
          "encrypt" = Encrypter,
@@ -14,35 +18,35 @@ implemented_transforms_base.f <- function(user_defined=list()){
          "blur" = Blurer,
          "numeric_blur" = NumericBlurer,
          "grouped_shuffle" = GroupedShuffler,
-         "droper" = Drop)
+         "droper" = Drop,
+         "tidy" = Tidyer,
+         "mutate"  = Mutater,
+         "group" = Grouper,
+         "ungroup" = Ungrouper)
     append(base, user_defined)
 }
 
 apply_transformer <- function(values, transformer){
-  #' @export
   UseMethod ("apply_transformer", transformer)
 }
 
 
 apply_transformer.BaseDeident <- function(values, transformer){
-  #' @exportS3Method
   return (transformer$transform(values))
 }
 
 apply_transformer.R6 <- function(values, transformer){
-  #' @exportS3Method
+
   return (transformer$transform(values))
 }
 
 apply_transformer.R6ClassGenerator <- function(values, transformer, ...){
-  #' @exportS3Method
+
   .tra <- transformer$new(...)
   return (.tra$transform(values))
 }
 
 apply_transformer.character <- function(values, transformer){
-  #' @exportS3Method
-  #'
 
   implemented_transforms <- implemented_transforms_base.f()
 
