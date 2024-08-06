@@ -35,6 +35,9 @@ inter-variable metrics are rendered spurious."><!-- mathjax --><script src="http
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
       <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
@@ -103,36 +106,36 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 <span class="r-in"><span><span class="va">pipe.shuffle</span> <span class="op">&lt;-</span> <span class="fu">add_shuffle</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.shuffle</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee              Date       Shift Shift St…¹ Shift…² Daily…³</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Jeffrey Jones         2015-01-01 Night 17:01      00:01      78.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Maria Cook            2015-01-01 Day   08:01      16:01     155. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Nicholas Castillo     2015-01-01 Day   08:01      16:01      77.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Angela Anderson       2015-01-01 Day   08:01      15:01     203. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Kyle Walker           2015-01-01 Night 16:01      23:01     211. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Christine Cook        2015-01-01 Night 17:01      00:01     142. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Jose Alvarez          2015-01-01 Rest  <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>          0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Jason Evans           2015-01-01 Night 17:01      00:01     213. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Christopher Rodriguez 2015-01-01 Night 16:01      00:01     219. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 Stephen Cox           2015-01-01 Night 16:01      00:01     242. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,090 more rows, and abbreviated variable names ¹​`Shift Start`,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​`Shift End`, ³​`Daily Pay`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee          Date       Shift `Shift Start` Shift …¹ Daily…²</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Jeffrey Jones     2015-01-01 Night 17:01         00:01       78.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Ronald James      2015-01-01 Day   08:01         16:01      155. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 William Ward      2015-01-01 Day   08:01         16:01       77.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Charles Evans     2015-01-01 Day   08:01         15:01      203. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Jonathan Edwards  2015-01-01 Night 16:01         23:01      211. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Kyle Robinson     2015-01-01 Night 17:01         00:01      142. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Maria Castillo    2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>           0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Michelle Reed     2015-01-01 Night 17:01         00:01      213. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Nicholas Castillo 2015-01-01 Night 16:01         00:01      219. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 Jeffrey Robinson  2015-01-01 Night 16:01         00:01      242. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,090 more rows, and abbreviated variable names ¹​`Shift End`,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​`Daily Pay`</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">pipe.shuffle.limit</span> <span class="op">&lt;-</span> <span class="fu">add_shuffle</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span>, limit<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.shuffle.limit</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee         Date       Shift `Shift Start` Shift E…¹ Daily…²</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Adam James       2015-01-01 Night 17:01         00:01        78.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Timothy Martinez 2015-01-01 Day   08:01         16:01       155. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Joseph Sanders   2015-01-01 Day   08:01         16:01        77.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Carol Kim        2015-01-01 Day   08:01         15:01       203. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Paul Mendoza     2015-01-01 Night 16:01         23:01       211. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Steven Morales   2015-01-01 Night 17:01         00:01       142. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Ashley Smith     2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>            0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 John Bell        2015-01-01 Night 17:01         00:01       213. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Samuel Peterson  2015-01-01 Night 16:01         00:01       219. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 Barbara Davis    2015-01-01 Night 16:01         00:01       242. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee          Date       Shift `Shift Start` Shift …¹ Daily…²</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Patricia Martinez 2015-01-01 Night 17:01         00:01       78.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Sandra Cook       2015-01-01 Day   08:01         16:01      155. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Richard Wilson    2015-01-01 Day   08:01         16:01       77.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Jordan Flores     2015-01-01 Day   08:01         15:01      203. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Nicole Martin     2015-01-01 Night 16:01         23:01      211. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Christina Jones   2015-01-01 Night 17:01         00:01      142. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 William Ward      2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>           0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Michelle Reed     2015-01-01 Night 17:01         00:01      213. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Ashley Smith      2015-01-01 Night 16:01         00:01      219. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 Maria Cook        2015-01-01 Night 16:01         00:01      242. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,090 more rows, and abbreviated variable names ¹​`Shift End`,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​`Daily Pay`</span></span>
 <span class="r-in"><span></span></span>

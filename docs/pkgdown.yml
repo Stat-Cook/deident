@@ -2,7 +2,8 @@ pandoc: 3.1.11.1
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
+  rationale: rationale.html
   transformations: transformations.html
   worked_example: worked_example.html
-last_built: 2024-07-23T16:34Z
+last_built: 2024-08-06T14:15Z
 
