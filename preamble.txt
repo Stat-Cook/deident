@@ -8,7 +8,7 @@ authors:
     equal-contrib: false
     affiliation: 1
   - name: Md Asaduzaman
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0002-8885-6721
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
   - name: Sarahjane Jones
