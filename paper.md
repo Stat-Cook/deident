@@ -4,7 +4,7 @@ tags:
   - R
 authors:
   - name: Robert M. Cook
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0003-3343-8271
     equal-contrib: false
     affiliation: 1
   - name: Md Asaduzaman
@@ -12,7 +12,7 @@ authors:
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
   - name: Sarahjane Jones
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0003-4729-4029
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
 affiliations:
