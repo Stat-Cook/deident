@@ -11,6 +11,10 @@ authors:
     orcid: 0000-0000-0000-0000
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
+  - name: Sarahjane Jones
+    orcid: 0000-0000-0000-0000
+    equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
+    affiliation: 1
 affiliations:
  - name: Staffordshire University, England
    index: 1
