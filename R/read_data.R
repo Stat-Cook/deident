@@ -1,4 +1,5 @@
 set_path_class <- function(file_path){
+  #' @keywords internal
   ext <- tolower(tools::file_ext(file_path))
 
   class(file_path) <- c(glue::glue("{ext}_path"), "path", class(file_path))
