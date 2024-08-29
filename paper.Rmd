@@ -18,7 +18,7 @@ One approach to dealing with PID concerns is to apply transformations to the dat
 
 In order to broaden the access to sensitive data, data handlers need an auditable open process for the application of data transforms that limit the risk of personal identification (sometimes refereed to as 'data masking' transformations).  Several production scale systems exist for applying data masking transformations (e.g. [Delphix](https://www.delphix.com/), [K2View](https://www.k2view.com), and [Accutive](https://accutive.com/)), but these are often expensive and cumbersome, limiting uptake in the domain of research.  The research community hence requires a simple toolbox for the application of several common 'data masking transforms' implemented  in an open source language.
 
-This implementation of the "deident" methods is in R, chosen due to the increase adoption of open source software into the working practices of the NHS (driven by the growth on the NHS-R community and similar groups).  However, the underlying specification, and implementation of the transforms can be ported to other languages.
+This implementation of the "deident" methods is in R, chosen due to the increased adoption of open source software into the working practices of the NHS (driven by the growth on the NHS-R community and similar groups).  However, the underlying specification, and implementation of the transforms can be ported to other languages.
 
 This package implements methods for de-identification via:
 
