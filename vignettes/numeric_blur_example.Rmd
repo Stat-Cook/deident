@@ -1,0 +1,30 @@
+---
+title: "Numeric Blur Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Numeric Blur Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Not all sensitive data is recorded as strings - features such as age, date of birth, or income could result in aspects of a data set being personally identifiable.  To aid with these challenges we include the 'numeric blur' method (in comparison to the 'blur' for categorical data).  As the 'blur' transform aggregates categorical features according to a new taxonomy, so too does 'numeric blur' create aggregation for numeric features.
+
+At present the methods require pre-defined points at which to divide the data.   
+
+```{r setup}
+library(deident)
+
+quantile_cuts <- quantile(ShiftsWorked$`Daily Pay`, c(0.25, 0.5, 0.75))
+
+numeric_blur_pipe <- ShiftsWorked |>
+  add_numeric_blur(`Daily Pay`, cuts = quantile_cuts)
+
+apply_deident(ShiftsWorked, numeric_blur_pipe)
+```

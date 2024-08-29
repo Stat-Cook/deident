@@ -2,7 +2,7 @@
 title: "Blur Example"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{blur_example}
+  %\VignetteIndexEntry{Blur Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

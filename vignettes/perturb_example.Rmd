@@ -1,0 +1,49 @@
+---
+title: "Perturb Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Perturb Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+Not all sensitive data is recorded as strings - features such as age, date of birth, or income could result in aspects of a data set being personally identifiable.  To aid with these challenges we include methods for 'perturbing' numeric data (the addition of random noise). 
+
+Three types of random noise are included:
+
+1. `adaptive_noise` [default] - random noise which scales with the standard deviation of the variable transformed.
+2. `white_noise` - random noise at a set spread.
+3. `lognorm_noise` - random multiplicative noise at a set spread.
+
+```{r setup}
+library(deident)
+
+perturb_pipe <- ShiftsWorked |>
+  add_perturb(`Daily Pay`)
+
+apply_deident(ShiftsWorked, perturb_pipe)
+```
+
+To change the noise, pass one of the functions including the desired level of noise.
+
+```{r}
+perturb_pipe_white_noise <- ShiftsWorked |>
+  add_perturb(`Daily Pay`, noise = white_noise(sd=0.3))
+
+apply_deident(ShiftsWorked, perturb_pipe_white_noise)
+```
+
+```{r }
+perturb_pipe_heavy_adaptive_noise <- ShiftsWorked |>
+  add_perturb(`Daily Pay`, noise = adaptive_noise(sd.ratio=0.4))
+
+apply_deident(ShiftsWorked, perturb_pipe_heavy_adaptive_noise)
+```

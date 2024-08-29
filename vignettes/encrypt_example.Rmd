@@ -2,7 +2,7 @@
 title: "Encrypt Example"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{encrypt_example}
+  %\VignetteIndexEntry{Encrypt Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

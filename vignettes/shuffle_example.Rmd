@@ -2,7 +2,7 @@
 title: "Shuffle Example"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{shuffle_example}
+  %\VignetteIndexEntry{Shuffle Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

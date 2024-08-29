@@ -2,7 +2,7 @@
 title: "Re-using Methods"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{reusing_methods}
+  %\VignetteIndexEntry{Re-using Methods}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
