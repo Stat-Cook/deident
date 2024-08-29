@@ -16,7 +16,6 @@ reference:
   - starts_with("add")
 - title: "Dataset"
   contents: 
-  - babyname_sample
   - ShiftsWorked
 - title: "Utilities"
   contents: 
