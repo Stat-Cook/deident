@@ -1,11 +1,19 @@
 Package: deident
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: Deident: An R package for data anonymization
+Version: 1.0.0
+Authors@R: c(
+    person("Robert", "Cook", , "robert.cook@staffs.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-3343-8271")),
+    person("Md", "Assaduzaman", role = "aut",
+           comment = c(ORCID = "0000-0002-8885-6721")),
+    person("Sarahjane", "Jones", role = "aut",
+           comment = c(ORCID = "0000-0003-4729-4029"))
+  )
+Maintainer: Robert M. Cook <robert.cook@staffs.ac.uk>
+Description: A package for the replicable removal of personally identifiable data 
+    (PID) in data sets.  The package implements a suite of methods to suit different 
+    data types.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
