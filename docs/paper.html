@@ -99,12 +99,12 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pipeline</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deident.html">deident</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="st">"psudonymize"</span>, <span class="va">name</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">apply_deident.data.frame</span><span class="op">(</span><span class="va">babynames</span>, <span class="va">pipeline</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="va">pipeline</span><span class="op">)</span></span></code></pre></div>
 <p>The same method can be applied to multiple variables by adding the variable names:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pipeline2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deident.html">deident</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="st">"psudonymize"</span>, <span class="va">name</span>, <span class="va">sex</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">apply_deident.data.frame</span><span class="op">(</span><span class="va">babynames</span>, <span class="va">pipeline2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="va">pipeline2</span><span class="op">)</span></span></code></pre></div>
 <p>The transformations can also be initialized as base classes, allowing for them to be shared between pipelines:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">psu</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/Pseudonymizer.html">Pseudonymizer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
@@ -118,11 +118,15 @@
 <span><span class="va">pipeline3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deident.html">deident</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="st">"psudonymize"</span>, <span class="va">name</span>, <span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/deident.html">deident</a></span><span class="op">(</span><span class="va">blur</span>, <span class="va">n</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">apply_deident.data.frame</span><span class="op">(</span><span class="va">babynames</span>, <span class="va">pipeline3</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="va">pipeline3</span><span class="op">)</span></span></code></pre></div>
 <p>An in depth example can be found in the <code>Worked Example</code> vigentte, while more details on each method are presented in the <code>deident transforms</code> vignette.</p>
 <div class="section level2">
 <h2 id="current-applications">Current applications<a class="anchor" aria-label="anchor" href="#current-applications"></a></h2>
 <p>The <code>deident</code> toolbox was developed for applications in the NuRS and AmreS research projects which aim to extract and analyze retrospective operational data from NHS Trusts to understand staff retention and patient safety.</p>
+</div>
+<div class="section level2">
+<h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a></h2>
+<p>The package was designed by RC, MA, and SJ. Implementation was done by RC. Quality assurance was done by MA. Documentation was written by RC, and SJ. Funding for the work was won by RC and SJ.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a></h2>

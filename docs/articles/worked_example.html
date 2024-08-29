@@ -221,7 +221,7 @@ steps:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">TsYfD</td>
+<td align="left">yWRwQ</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -230,7 +230,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">ACP5L</td>
+<td align="left">bYn0s</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -239,7 +239,7 @@ steps:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">rKOMY</td>
+<td align="left">sRCSQ</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -248,7 +248,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">w3dxf</td>
+<td align="left">xYWpS</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -257,7 +257,7 @@ steps:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">5v35L</td>
+<td align="left">ux1Wk</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -266,7 +266,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">DTHUW</td>
+<td align="left">dTmko</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -278,7 +278,7 @@ steps:</p>
 <p>This approach is relatively simple, but what if we wish to dig into
 the transformation? In the case of this direct replacement, we might
 want to access the lookup table that underpins the pseudonymizer. The
-easiest way to acheive this is to create an instance of a
+easiest way to achieve this is to create an instance of a
 <code>Pseudonymizer</code> class, and pass it in to deident:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">psu</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Pseudonymizer.html">Pseudonymizer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
@@ -307,7 +307,7 @@ easiest way to acheive this is to create an instance of a
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">pJ5eb</td>
+<td align="left">VALd7</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -316,7 +316,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">jnA5T</td>
+<td align="left">a8ad5</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -325,7 +325,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">8zNdg</td>
+<td align="left">FRoRX</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -334,7 +334,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">kA6x5</td>
+<td align="left">bm3x9</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -343,7 +343,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">SjIBA</td>
+<td align="left">8am20</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -352,7 +352,7 @@ easiest way to acheive this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">zhWld</td>
+<td align="left">mf0sM</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -366,9 +366,9 @@ easiest way to acheive this is to create an instance of a
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">psu</span><span class="op">$</span><span class="va">lookup</span><span class="op">)</span></span>
 <span><span class="co">#&gt;            Maria Cook           Stephen Cox        Kimberly Ortiz </span></span>
-<span><span class="co">#&gt;               "pJ5eb"               "jnA5T"               "8zNdg" </span></span>
+<span><span class="co">#&gt;               "VALd7"               "a8ad5"               "FRoRX" </span></span>
 <span><span class="co">#&gt;        Nathan Alvarez         Samuel Parker          Scott Morris </span></span>
-<span><span class="co">#&gt;               "kA6x5"               "SjIBA"               "zhWld" </span></span>
+<span><span class="co">#&gt;               "bm3x9"               "8am20"               "mf0sM" </span></span>
 <span><span class="va">...</span></span></code></pre></div>
 <p>Often we will need to apply multiple transformations. Considering the
 <code>StaffsWorked</code> data, imagine the employees are complaining
@@ -405,7 +405,7 @@ removed). We can expand the pipeline to allow for this:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">pJ5eb</td>
+<td align="left">VALd7</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -414,7 +414,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">jnA5T</td>
+<td align="left">a8ad5</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -423,7 +423,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">8zNdg</td>
+<td align="left">FRoRX</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -432,7 +432,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">kA6x5</td>
+<td align="left">bm3x9</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -441,7 +441,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">SjIBA</td>
+<td align="left">8am20</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -450,7 +450,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">zhWld</td>
+<td align="left">mf0sM</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -492,7 +492,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">pJ5eb</td>
+<td align="left">VALd7</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -501,7 +501,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">jnA5T</td>
+<td align="left">a8ad5</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -510,7 +510,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">8zNdg</td>
+<td align="left">FRoRX</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -519,7 +519,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">kA6x5</td>
+<td align="left">bm3x9</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -528,7 +528,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">SjIBA</td>
+<td align="left">8am20</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -537,7 +537,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">zhWld</td>
+<td align="left">mf0sM</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>

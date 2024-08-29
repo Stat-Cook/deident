@@ -77,7 +77,7 @@ pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
 apply_deident(ShiftsWorked, pipeline)
 ```
 
-This approach is relatively simple, but what if we wish to dig into the transformation?  In the case of this direct replacement, we might want to access the lookup table that underpins the pseudonymizer.  The easiest way to acheive this is to create an instance of a `Pseudonymizer` class, and pass it in to deident: 
+This approach is relatively simple, but what if we wish to dig into the transformation?  In the case of this direct replacement, we might want to access the lookup table that underpins the pseudonymizer.  The easiest way to achieve this is to create an instance of a `Pseudonymizer` class, and pass it in to deident: 
 
 ```{r, render=local_print}
 psu <- Pseudonymizer$new()
