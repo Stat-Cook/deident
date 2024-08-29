@@ -19,7 +19,7 @@ via  an encryption hashing function depending on the hash_key and seed set."><!-
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">deident</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -43,6 +43,9 @@ via  an encryption hashing function depending on the hash_key and seed set."><!-
       <a href="../articles/worked_example.html">Worked Example</a>
     </li>
   </ul></li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -102,40 +105,38 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 <span class="r-in"><span><span class="va">pipe.encrypt</span> <span class="op">&lt;-</span> <span class="fu">add_encrypt</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.encrypt</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee                 Date       Shift Shift…¹ Shift…² Daily…³</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;hash&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 312d52572a2178064119cc0… 2015-01-01 Night 17:01   00:01      78.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 027f4cb5c1044d54bc3e66c… 2015-01-01 Day   08:01   16:01     155. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 7abda183bab5802ec44111d… 2015-01-01 Day   08:01   16:01      77.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 a9233521d2ef17b444061e0… 2015-01-01 Day   08:01   15:01     203. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 3dbf8cef9cb858d76fd73e5… 2015-01-01 Night 16:01   23:01     211. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 a20aa75870b88ebce12e556… 2015-01-01 Night 17:01   00:01     142. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 1cfba46f68868b0ca0dbe84… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>          0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 09f892f6f2f1c6cfa9ad9ab… 2015-01-01 Night 17:01   00:01     213. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 f86b94c94d0b946224c4e75… 2015-01-01 Night 16:01   00:01     219. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 7752db48229400e43c6dbeb… 2015-01-01 Night 16:01   00:01     242. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,090 more rows, and abbreviated variable names ¹​`Shift Start`,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​`Shift End`, ³​`Daily Pay`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee   Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;hash&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 312d52572… 2015-01-01 Night 17:01         00:01              78.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 027f4cb5c… 2015-01-01 Day   08:01         16:01             155. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 7abda183b… 2015-01-01 Day   08:01         16:01              77.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 a9233521d… 2015-01-01 Day   08:01         15:01             203. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 3dbf8cef9… 2015-01-01 Night 16:01         23:01             211. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 a20aa7587… 2015-01-01 Night 17:01         00:01             142. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 1cfba46f6… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                  0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 09f892f6f… 2015-01-01 Night 17:01         00:01             213. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 f86b94c94… 2015-01-01 Night 16:01         00:01             219. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 7752db482… 2015-01-01 Night 16:01         00:01             242. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,090 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Once set the encryption is more secure assuming `hash_key` and `seed` are </span></span></span>
 <span class="r-in"><span><span class="co"># not exposed.</span></span></span>
 <span class="r-in"><span><span class="va">pipe.encrypt.secure</span> <span class="op">&lt;-</span> <span class="fu">add_encrypt</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span>, hash_key<span class="op">=</span><span class="st">"hash1"</span>, seed<span class="op">=</span><span class="st">"Seed2"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.encrypt.secure</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee                 Date       Shift Shift…¹ Shift…² Daily…³</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;hash&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 53af26ae1ace9bc1d920d8b… 2015-01-01 Night 17:01   00:01      78.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 bb45dae1952a1947508b2d2… 2015-01-01 Day   08:01   16:01     155. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 67097a8d17771ebab29c2c3… 2015-01-01 Day   08:01   16:01      77.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 48c337406e60b4b36c383e2… 2015-01-01 Day   08:01   15:01     203. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 8bff17034246a3240c91479… 2015-01-01 Night 16:01   23:01     211. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 70636e28d30a0aab94c5010… 2015-01-01 Night 17:01   00:01     142. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 0dec10ccae8db7da9830e9b… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>          0  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 eb692692b93e9ee01b1ac7c… 2015-01-01 Night 17:01   00:01     213. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 1e13a7ecaa79aa9a47d7e7e… 2015-01-01 Night 16:01   00:01     219. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 83b9ae7db8e961482930e95… 2015-01-01 Night 16:01   00:01     242. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,090 more rows, and abbreviated variable names ¹​`Shift Start`,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​`Shift End`, ³​`Daily Pay`</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee   Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;hash&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 53af26ae1… 2015-01-01 Night 17:01         00:01              78.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 bb45dae19… 2015-01-01 Day   08:01         16:01             155. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 67097a8d1… 2015-01-01 Day   08:01         16:01              77.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 48c337406… 2015-01-01 Day   08:01         15:01             203. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 8bff17034… 2015-01-01 Night 16:01         23:01             211. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 70636e28d… 2015-01-01 Night 17:01         00:01             142. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 0dec10cca… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                  0  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 eb692692b… 2015-01-01 Night 17:01         00:01             213. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 1e13a7eca… 2015-01-01 Night 16:01         00:01             219. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 83b9ae7db… 2015-01-01 Night 16:01         00:01             242. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,090 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -147,7 +148,7 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by The package maintainer.</p>
+  <p></p><p>Developed by Robert Cook, Md Assaduzaman, Sarahjane Jones.</p>
 </div>
 
 <div class="pkgdown">
