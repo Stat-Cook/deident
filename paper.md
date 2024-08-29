@@ -125,7 +125,7 @@ The simplest use case is transforming one variable via a single method:
 ``` r
 pipeline <- deident(babynames, "psudonymize", name)
 
-apply_deident.data.frame(babynames, pipeline)
+apply_deident(babynames, pipeline)
 ```
 
 The same method can be applied to multiple variables by adding the
@@ -134,7 +134,7 @@ variable names:
 ``` r
 pipeline2 <- deident(babynames, "psudonymize", name, sex)
 
-apply_deident.data.frame(babynames, pipeline2)
+apply_deident(babynames, pipeline2)
 ```
 
 The transformations can also be initialized as base classes, allowing
@@ -156,7 +156,7 @@ blur <- NumericBlurer$new(cuts=c(0, 10, 100, 1000, 10000))
 pipeline3 <- deident(babynames, "psudonymize", name, sex) |>
   deident(blur, n)
 
-apply_deident.data.frame(babynames, pipeline3)
+apply_deident(babynames, pipeline3)
 ```
 
 An in depth example can be found in the `Worked Example` vigentte, while
