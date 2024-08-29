@@ -175,6 +175,8 @@ patient safety.
 The development of `deident` was part of the he NuRS and AmreS projects
 funded by the Health Foundation.
 
+## References
+
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
 
