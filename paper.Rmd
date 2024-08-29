@@ -40,6 +40,10 @@ sets which require little scripting knowledge by Trust staff may aid in
 overcoming several information governance risks that keep operational data 
 siloed within health Trusts.  
 
+# Comparison to existing R packages
+
+Several packages have undergone development for the implementation of `encryption` methods to minimize identifiability within data sets (e.g. 'anonymizer'[@Anonymizer2024], 'deidentifyr'[@deidentifyr2024] and 'digest'[@digest2021]).  While these packages implement a variety of encryption tools, such systems are not infallible[@wang2005break; @szikora2022end ] especially if the data being encrypted is drawn from a known domain such as common names.  This package introduces the stateful 'pseudonymization' method by which string vectors are replaced by a randomly generated hash the first time they are observed and then preserved for re-use.  As such, breaking a single hash no longer exposes the 'key' and 'salt' the encryption relies on.  In addition, this package introduces methods for removing pseudo-identifiability (identification via the combination of features) via the other methods included.
+ 
 # In practice
 
 To install the current version of the `deident` package, run the command

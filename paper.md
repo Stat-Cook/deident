@@ -86,6 +86,23 @@ scripting knowledge by Trust staff may aid in overcoming several
 information governance risks that keep operational data siloed within
 health Trusts.
 
+# Comparison to existing R packages
+
+Several packages have undergone development for the implementation of
+`encryption` methods to minimize identifiability within data sets
+(e.g. ‘anonymizer’(Hendricks, n.d.), ‘deidentifyr’(Wilkins, n.d.) and
+‘digest’(Antoine Lucas et al. 2021)). While these packages implement a
+variety of encryption tools, such systems are not infallible(Wang and Yu
+2005; Szikora and Lazányi 2022 ) especially if the data being encrypted
+is drawn from a known domain such as common names. This package
+introduces the stateful ‘pseudonymization’ method by which string
+vectors are replaced by a randomly generated hash the first time they
+are observed and then preserved for re-use. As such, breaking a single
+hash no longer exposes the ‘key’ and ‘salt’ the encryption relies on. In
+addition, this package introduces methods for removing
+pseudo-identifiability (identification via the combination of features)
+via the other methods included.
+
 # In practice
 
 To install the current version of the `deident` package, run the command
@@ -183,8 +200,17 @@ funded by the Health Foundation.
 
 ## References
 
+Antoine Lucas, Dirk Eddelbuettel with contributions by, Jarek Tuszynski,
+Henrik Bengtsson, Simon Urbanek, Mario Frasca, Bryan Lewis, Murray
+Stokely, et al. 2021. *Digest: Create Compact Hash Digests of r
+Objects*. <https://CRAN.R-project.org/package=digest>.
+
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
+
+Hendricks, Paul. n.d. “Anonymizer: Anonymize Data Containing Personally
+Identifiable Information (PII) in r.”
+<https://github.com/paulhendricks/anonymizer>.
 
 ICO. 2023. “What Is Personal Information: A Guide.” 2023.
 <https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-information-a-guide/>.
@@ -196,6 +222,11 @@ Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
 Sales, Bruce D, and Susan Ed Folkman. 2000. *Ethics in Research with
 Human Participants.* American Psychological Association.
 
+Szikora, Péter, and Kornélia Lazányi. 2022. “The End of Encryption?–the
+Era of Quantum Computers.” In *Security-Related Advanced Technologies in
+Critical Infrastructure Protection: Theoretical and Practical Approach*,
+61–72. Springer.
+
 Tachepun, Chitanut, and Sotarat Thammaboosadee. 2020. “A Data Masking
 Guideline for Optimizing Insights and Privacy Under GDPR Compliance.” In
 *Proceedings of the 11th International Conference on Advances in
@@ -203,6 +234,13 @@ Information Technology*, 1–9.
 
 UKRI. 2022. “Framework for Research Ethics.” 2022.
 <https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics>.
+
+Wang, Xiaoyun, and Hongbo Yu. 2005. “How to Break MD5 and Other Hash
+Functions.” In *Annual International Conference on the Theory and
+Applications of Cryptographic Techniques*, 19–35. Springer.
+
+Wilkins, David. n.d. “Deidentifyr.”
+<https://github.com/wilkox/deidentifyr>.
 
 Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.
 
