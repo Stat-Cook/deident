@@ -50,7 +50,7 @@ library(deident)
 
 To assist new users, this vignette serves as a worked example of building, applying and saving a de-identification pipeline.  Due to the risk of suppling data with genuine PID to be redacted, we instead supply a synthetic data set comprising of artificial PID, `ShiftsWorked`.
 
-The data set consists of 3,100 observations where each row lists the work done (shift status, actual work done, and daily pay) by an inidividual on a given day.  `ShiftsWorked` consists of 7 variables:
+The data set consists of 3,100 observations where each row lists the work done (shift status, actual work done, and daily pay) by an individual on a given day.  `ShiftsWorked` consists of 7 variables:
 
 * Record ID:  integer, primary key.
 * Employee: character, 100 artificial staff names
