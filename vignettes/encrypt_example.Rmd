@@ -1,0 +1,35 @@
+---
+title: "Encrypt Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{encrypt_example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(deident)
+```
+
+The most direct method of removing identifiability is via 'encryption' which comprises two processes:
+
+1. The 'salting' of a string by appending a given, unknown string.
+2. The 'hashing' of the resulting string via an encryption method e.g. MD5 or sha256.
+
+This approach is implemented via the `Encrypter` methods (which uses the `openssl::sha256` implementation by default):
+
+``` {r}
+name_pipe <- starwars |> 
+  add_encrypt(name, hash_key = "hash123", seed="seed456")
+
+apply_deident(starwars, name_pipe)
+```
+
+

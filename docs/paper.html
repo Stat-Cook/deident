@@ -32,7 +32,19 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="articles/blur_example.html">Blur Example</a>
+    </li>
+    <li>
+      <a href="articles/encrypt_example.html">Encrypt Example</a>
+    </li>
+    <li>
       <a href="articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="articles/reusing_methods.html">Re-using Methods</a>
+    </li>
+    <li>
+      <a href="articles/shuffle_example.html">Shuffle Example</a>
     </li>
     <li>
       <a href="articles/transformations.html">transformations</a>
@@ -73,6 +85,10 @@
 <li>bluring – the aggregation of numeric or categorical data according to specified rules</li>
 <li>perturbation – the addition of user-defined random noise to a numeric variable</li>
 </ul><p>Following the design principles of the existing tidyverse domain for ease of adoption. The package includes tools to create a single pipeline for the application of a multi-step deidentification pipeline to multiple files stored within the same repository, alongside the option to serialize/ define the pipeline to/ via yaml. This approach allows a researcher to design and implement an appropriate de-identification plan and deliver it to the research support/ business intelligence team of an organisation with limited knowledge of the sensitive data. The supply of an easy method for de-identifying data sets which require little scripting knowledge by Trust staff may aid in overcoming several information governance risks that keep operational data siloed within health Trusts.</p>
+</div>
+<div class="section level1">
+<h1 id="comparison-to-existing-r-packages">Comparison to existing R packages<a class="anchor" aria-label="anchor" href="#comparison-to-existing-r-packages"></a></h1>
+<p>Several packages have undergone development for the implementation of <code>encryption</code> methods to minimize identifiability within data sets (e.g. ‘anonymizer’(Hendricks, n.d.), ‘deidentifyr’(Wilkins, n.d.) and ‘digest’(Antoine Lucas et al. 2021)). While these packages implement a variety of encryption tools, such systems are not infallible(Wang and Yu 2005; Szikora and Lazányi 2022 ) especially if the data being encrypted is drawn from a known domain such as common names. This package introduces the stateful ‘pseudonymization’ method by which string vectors are replaced by a randomly generated hash the first time they are observed and then preserved for re-use. As such, breaking a single hash no longer exposes the ‘key’ and ‘salt’ the encryption relies on. In addition, this package introduces methods for removing pseudo-identifiability (identification via the combination of features) via the other methods included.</p>
 </div>
 <div class="section level1">
 <h1 id="in-practice">In practice<a class="anchor" aria-label="anchor" href="#in-practice"></a></h1>
@@ -134,12 +150,17 @@
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
+<p>Antoine Lucas, Dirk Eddelbuettel with contributions by, Jarek Tuszynski, Henrik Bengtsson, Simon Urbanek, Mario Frasca, Bryan Lewis, Murray Stokely, et al. 2021. <em>Digest: Create Compact Hash Digests of r Objects</em>. <a href="https://CRAN.R-project.org/package=digest" class="external-link uri">https://CRAN.R-project.org/package=digest</a>.</p>
 <p>Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in the NHS.” <em>Reform Research Trust</em>.</p>
+<p>Hendricks, Paul. n.d. “Anonymizer: Anonymize Data Containing Personally Identifiable Information (PII) in r.” <a href="https://github.com/paulhendricks/anonymizer" class="external-link uri">https://github.com/paulhendricks/anonymizer</a>.</p>
 <p>ICO. 2023. “What Is Personal Information: A Guide.” 2023. <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-information-a-guide/" class="external-link uri">https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-information-a-guide/</a>.</p>
 <p>Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019. “Predicting Scheduled Hospital Attendance with Artificial Intelligence.” <em>NPJ Digital Medicine</em> 2 (1): 26.</p>
 <p>Sales, Bruce D, and Susan Ed Folkman. 2000. <em>Ethics in Research with Human Participants.</em> American Psychological Association.</p>
+<p>Szikora, Péter, and Kornélia Lazányi. 2022. “The End of Encryption?–the Era of Quantum Computers.” In <em>Security-Related Advanced Technologies in Critical Infrastructure Protection: Theoretical and Practical Approach</em>, 61–72. Springer.</p>
 <p>Tachepun, Chitanut, and Sotarat Thammaboosadee. 2020. “A Data Masking Guideline for Optimizing Insights and Privacy Under GDPR Compliance.” In <em>Proceedings of the 11th International Conference on Advances in Information Technology</em>, 1–9.</p>
 <p>UKRI. 2022. “Framework for Research Ethics.” 2022. <a href="https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics" class="external-link uri">https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics</a>.</p>
+<p>Wang, Xiaoyun, and Hongbo Yu. 2005. “How to Break MD5 and Other Hash Functions.” In <em>Annual International Conference on the Theory and Applications of Cryptographic Techniques</em>, 19–35. Springer.</p>
+<p>Wilkins, David. n.d. “Deidentifyr.” <a href="https://github.com/wilkox/deidentifyr" class="external-link uri">https://github.com/wilkox/deidentifyr</a>.</p>
 <p>Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.</p>
 <p>Yu, Kun-Hsing, Andrew L Beam, and Isaac S Kohane. 2018. “Artificial Intelligence in Healthcare.” <em>Nature Biomedical Engineering</em> 2 (10): 719–31.</p>
 </div>

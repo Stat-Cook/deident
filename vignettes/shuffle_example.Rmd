@@ -1,0 +1,78 @@
+---
+title: "Shuffle Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shuffle_example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(deident)
+```
+
+While individual variables can often make data personally identifiable, we can often tell quickly if a variable has this risk (e.g. names, social security numbers, etc).  The less readily considered situation is when a collection of variables render individuals identifiable.  
+
+As an example, consider the `starwars` data set (borrowed from `dplyr`):
+
+``` {r}
+head(starwars)
+```
+
+Inspection of the data shows `species` can be a unique identifier (e.g. 'Admiral Ackbar' is the only 'Mon Calamari') so we may consider aggregating species:
+
+``` {r}
+starwars |> 
+  dplyr::filter(species == "Mon Calamari")
+```
+
+However, while knowing someone is 'Human' does not have the same effect, if we also knew they were from 'Coruscant' and had 'blond' hair (each of which is not uniquely identifiable) if used in combination we reduce the data to a single case: 
+
+``` {r}
+starwars |> 
+  dplyr::filter(species == "Human", 
+                homeworld == "Coruscant",
+                hair_color == "blond"
+                )
+```
+
+Hence, individual columns can contain useful information but we may not wish to disclose the inter-variable correlations.  To aid with this, we introduce the `shuffling` method  which performs column wise sampling without replacement:
+
+``` {r}
+shuffle_pipe <- starwars |> 
+  add_shuffle(species, homeworld, hair_color)
+
+new_starwars <- apply_deident(starwars, shuffle_pipe)
+
+head(new_starwars)
+```
+
+A `Shuffle` hence preserves the column summaries, e.g. modal values and distributions, but breaks inter-column behaviors which might lead to identification.
+
+``` {r}
+new_starwars |> 
+  dplyr::filter(species == "Human", 
+                homeworld == "Coruscant"
+                )
+```
+
+### `Grouped Shuffling`
+
+Clearly there will be situations in which inter-variable dependencies are key to our understanding of the data, and we may wish to preserve the column metrics within strata.  Such a situation is foreseen, and 'shuffling' can be performed within a grouped data set as easily as on the whole data:
+
+``` {r}
+grouped_shuffle_pipe <- starwars |> 
+  add_group(gender) |> 
+  add_shuffle(species, homeworld, hair_color) |>
+  add_ungroup()
+
+apply_deident(starwars, grouped_shuffle_pipe)
+```
+

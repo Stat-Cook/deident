@@ -1,0 +1,70 @@
+---
+title: "Blur Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{blur_example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+One way to reduce identifiability of a data set is by converting a categorical variable to have a more aggregated taxonomy (i.e. a many-to-one mapping).  Here we refer to such a method as a 'blur' as it causes features to be joined together in such a way to hide the underlying information.
+
+As an example, consider the `ShiftsWorked` data:
+
+```{r setup}
+library(deident)
+head(ShiftsWorked)
+```
+
+A simple 'blur' might be to change the taxonomy of 'Shift' e.g. combine 'Day' and 'Night' into a new group 'Working' and ignore the 'Rest' shifts.  To do this we define the values we wish to change as a vector, build a pipeline and apply it to the data:
+
+``` {r}
+shift_blur <- c("Day" = "Working", "Night" = "Working")
+blur_pipe <- ShiftsWorked |>
+  add_blur(Shift, blur=shift_blur)
+
+apply_deident(ShiftsWorked, blur_pipe)
+```
+
+### The `category_blur` utility
+
+Applying the blur is relatively simple, but constructing it can be complex.  Consider the `starwars` data set supplied by dplyr:
+
+``` {r}
+starwars <- dplyr::starwars
+head(starwars)
+```
+
+And notably the `species` variable:
+
+``` {r}
+table(starwars$species)
+```
+
+Imagine we wanted to reduce identifiability by aggregating the data into Human
+ vs Non-Human.  We could code the vector by hand, but human error can lead to mistakes. To aid in designing complex blurs we supply the `category_blur` utility which uses regex to define the groups.
+
+``` {r}
+human_blur <- category_blur(
+  starwars$species,
+  "NotHuman" = "^(?!Human)" # Doesn't start with "Human"
+)
+```
+
+And the vector returned can be passed into a new pipeline as before.
+
+``` {r}
+species_pipe <- starwars |>
+  add_blur(species, blur=human_blur)
+  
+new_starwars <- apply_deident(starwars, species_pipe)
+
+table(new_starwars$species)
+```

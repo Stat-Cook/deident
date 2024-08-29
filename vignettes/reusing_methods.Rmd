@@ -1,0 +1,49 @@
+---
+title: "Re-using Methods"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{reusing_methods}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+NB: the following is an advanced usage of `deident`.  If you are just getting started we recommend looking at the other vignettes first.
+
+While the `deident` package implements multiple different methods for deidentification, one of its key advantages is the ability to re-use and share methods across data sets due to the 'stateful' nature of its design.
+
+If you wish to share a unit between different pipelines, the cleanest approach is to initialize the method of interest and then pass it into the first pipeline:
+
+```{r setup}
+library(deident)
+
+psu <- Pseudonymizer$new()
+
+name_pipe <- starwars |>
+  deident(psu, name)
+
+apply_deident(starwars, name_pipe)
+```
+
+Having called `apply_deident` the Pseudonymizer `psu` has learned encodings for each string in `starwars$name`.  If these strings appear a second time, they will be replaced in the same way, and we can build a second pipeline using `psu`: 
+
+``` {r}
+combined.frm <- data.frame(
+  ID = c(head(starwars$name, 5), head(ShiftsWorked$Employee, 5))
+)
+
+reused_pipe <- combined.frm |>
+  deident(psu, ID)
+
+apply_deident(combined.frm, reused_pipe)
+
+```
+
+Since the first 5 lines of `combined.frm$ID` are the same as `starwars$ID` the first 5 lines of each transformed data set are also the same.
+

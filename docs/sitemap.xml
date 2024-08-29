@@ -4,10 +4,22 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/articles/blur_example.html</loc>
+  </url>
+  <url>
+    <loc>/articles/encrypt_example.html</loc>
+  </url>
+  <url>
     <loc>/articles/index.html</loc>
   </url>
   <url>
     <loc>/articles/rationale.html</loc>
+  </url>
+  <url>
+    <loc>/articles/reusing_methods.html</loc>
+  </url>
+  <url>
+    <loc>/articles/shuffle_example.html</loc>
   </url>
   <url>
     <loc>/articles/transformations.html</loc>
@@ -125,6 +137,9 @@
   </url>
   <url>
     <loc>/reference/Shuffler.html</loc>
+  </url>
+  <url>
+    <loc>/reference/starwars.html</loc>
   </url>
   <url>
     <loc>/reference/white_noise.html</loc>
