@@ -109,7 +109,11 @@ more details on each method are presented in the `deident transforms` vignette.
 
 ## Current applications
 
-The `deident` toolbox was developed for applications in the NuRS and AmreS research projects which aim to extract and analyze retrospective operational data from NHS Trusts to understand staff retention and patient safety.   
+The `deident` toolbox was developed for applications in the NuRS and AmreS research projects which aim to extract and analyze retrospective operational data from NHS Trusts to understand staff retention and patient safety.  
+
+## Contributions
+
+The package was designed by RC, MA, and SJ.  Implementation was done by RC. Quality assurance was done by MA.  Documentation was written by RC, and SJ.  Funding for the work was won by RC and SJ.
 
 ## Acknowledgements
 

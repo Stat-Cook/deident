@@ -170,6 +170,12 @@ AmreS research projects which aim to extract and analyze retrospective
 operational data from NHS Trusts to understand staff retention and
 patient safety.
 
+## Contributions
+
+The package was designed by RC, MA, and SJ. Implementation was done by
+RC. Quality assurance was done by MA. Documentation was written by RC,
+and SJ. Funding for the work was won by RC and SJ.
+
 ## Acknowledgements
 
 The development of `deident` was part of the he NuRS and AmreS projects
