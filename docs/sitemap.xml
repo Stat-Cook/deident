@@ -64,6 +64,9 @@
     <loc>/reference/add_group.html</loc>
   </url>
   <url>
+    <loc>/reference/add_mutate.html</loc>
+  </url>
+  <url>
     <loc>/reference/add_numeric_blur.html</loc>
   </url>
   <url>
@@ -74,6 +77,9 @@
   </url>
   <url>
     <loc>/reference/add_shuffle.html</loc>
+  </url>
+  <url>
+    <loc>/reference/add_tidy.html</loc>
   </url>
   <url>
     <loc>/reference/apply_deident.html</loc>
@@ -146,6 +152,9 @@
   </url>
   <url>
     <loc>/reference/starwars.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tidyeval.html</loc>
   </url>
   <url>
     <loc>/reference/white_noise.html</loc>

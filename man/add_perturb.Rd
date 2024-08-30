@@ -14,6 +14,7 @@ add_perturb(object, ..., noise = adaptive_noise(0.1))
 \item{noise}{a single-argument function that applies randomness.}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

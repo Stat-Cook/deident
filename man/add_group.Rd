@@ -15,6 +15,7 @@ add_ungroup(object, ...)
 \item{...}{Variables on which data is to be grouped.}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

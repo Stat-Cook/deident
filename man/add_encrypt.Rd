@@ -16,6 +16,7 @@ add_encrypt(object, ..., hash_key = "", seed = NA)
 \item{seed}{a random alphanumeric to concat to the value being encypted}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

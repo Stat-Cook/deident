@@ -12,6 +12,7 @@ new_deident(object, ..., encrypter)
 \item{...}{variables to be transformed.}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

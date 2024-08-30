@@ -15,6 +15,7 @@ add_blur(object, ..., blur = c())
 transformation.}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

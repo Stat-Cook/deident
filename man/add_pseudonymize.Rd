@@ -15,6 +15,7 @@ add_pseudonymize(object, ..., lookup = list())
 Instances of 'name' will be replaced with 'value' on transformation.#'}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

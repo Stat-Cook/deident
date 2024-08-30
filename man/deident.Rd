@@ -18,6 +18,7 @@ pipeline}
 and key-word arguments are passed to 'deidentifier' at creation}
 }
 \value{
+d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{
