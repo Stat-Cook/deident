@@ -57,26 +57,26 @@ deident_list_mutate <- function(data, deident_vars){
   deident_vars$method$mutate(data, !!!deident_vars$variables)
 }
 
-
-fix_colnames <- function(frm, pattern="V{.x}"){
-  .cols <- colnames(frm)
-
-  fix_index <- which((.cols == "") | (length(.cols) == 0))
-  .x <- 1
-
-  for (index in fix_index){
-    proposal <- glue(pattern)
-    while (proposal %in% .cols){
-      .x <- .x + 1
-      proposal <- glue(pattern)
-    }
-
-    .cols[index] <- proposal
-  }
-
-  colnames(frm) <- .cols
-  frm
-}
+# 
+# fix_colnames <- function(frm, pattern="V{.x}"){
+#   .cols <- colnames(frm)
+# 
+#   fix_index <- which((.cols == "") | (length(.cols) == 0))
+#   .x <- 1
+# 
+#   for (index in fix_index){
+#     proposal <- glue(pattern)
+#     while (proposal %in% .cols){
+#       .x <- .x + 1
+#       proposal <- glue(pattern)
+#     }
+# 
+#     .cols[index] <- proposal
+#   }
+# 
+#   colnames(frm) <- .cols
+#   frm
+# }
 
 init.list.f <- function(on_init = list(), dot.args = list()){
   append(on_init, dot.args)
