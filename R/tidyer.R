@@ -1,3 +1,4 @@
+#' @importFrom purrr as_mapper
 Tidyer <- R6Class(
   "Tidyer",
   list(
@@ -14,7 +15,7 @@ Tidyer <- R6Class(
     mutate = function(data, ...){
       as_mapper(self$fn)(data)
     },
-    
+
     serialize = function(){
       # TODO: implement some fix for this
       stop("'serialize' not currently implemented for the 'Tidyer' class")
