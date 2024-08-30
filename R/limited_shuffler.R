@@ -17,18 +17,18 @@ LimitedGroupedShuffler <- R6Class(
   }),
   inherit = GroupedShuffler
 )
-
-limited_shuffle_in_group <- function(data, grp_cols, ...){
-  #' @importFrom tidyselect eval_select
-  #' @importFrom rlang enquo sym
-
-  cols <- eval_select(
-    enquo(grp_cols),
-    data = data
-  )
-  grp_cols_list <- lapply(names(cols), sym)
-
-  lgs <- LimitedGroupedShuffler$new(!!!grp_cols_list)
-
-  lgs$mutate(data, ...)
-}
+#' 
+#' limited_shuffle_in_group <- function(data, grp_cols, ...){
+#'   #' @importFrom tidyselect eval_select
+#'   #' @importFrom rlang enquo sym
+#' 
+#'   cols <- eval_select(
+#'     enquo(grp_cols),
+#'     data = data
+#'   )
+#'   grp_cols_list <- lapply(names(cols), sym)
+#' 
+#'   lgs <- LimitedGroupedShuffler$new(!!!grp_cols_list)
+#' 
+#'   lgs$mutate(data, ...)
+#' }
