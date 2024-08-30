@@ -118,8 +118,8 @@ Pseudonymizer <- R6Class(
     #' 
     get_lookup = function(){
       tibble(
-        Original = names(psu$lookup), 
-        Transformed = simplify(psu$lookup)
+        Original = names(self$lookup), 
+        Transformed = simplify(self$lookup)
       )
     },
     
