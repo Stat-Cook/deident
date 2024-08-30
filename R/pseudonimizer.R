@@ -16,7 +16,9 @@ get <- function(keys, .list){
 }
 
 add.f <- function(.list, key, method = function(i) i){
-  .list[[key]] <- method(key)
+  key.str <- as.character(key)
+  
+  .list[[key.str]] <- method(key)
   return(.list)
 }
 
