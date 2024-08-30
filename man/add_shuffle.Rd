@@ -16,7 +16,6 @@ have for shuffling to be performed.  If the variable has length less than \code{
 values are repalced with \code{NA}s.}
 }
 \value{
-d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{

@@ -14,7 +14,6 @@ add_numeric_blur(object, ..., cuts = 0)
 \item{cuts}{The position in which data is to be divided.}
 }
 \value{
-d
 A 'DeidentList' representing the untrained transformation pipeline.
 The object contains fields:
 \itemize{
