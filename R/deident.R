@@ -124,16 +124,16 @@ apply_to_data_frame.BaseDeident <- function(data, transformer, ...){
   data |> transformer$mutate(...)
 }
 
-#' @exportS3Method
-apply_to_data_frame.R6 <- function(data, transformer, ...){
-
-  if ("transform" %in% names(transformer)){
-    mutated <- data |> transformer$mutate(...)
-    return(mutated)
-  }
-  
-  return(data)
-}
+# # @exportS3Method
+# apply_to_data_frame.R6 <- function(data, transformer, ...){
+# 
+#  if ("transform" %in% names(transformer)){
+#     mutated <- data |> transformer$mutate(...)
+#   return(mutated)
+# }
+#   
+#   return(data)
+# }
 
 #' @exportS3Method
 apply_to_data_frame.DeidentTask <- function(data, transformer, ...){
@@ -164,15 +164,15 @@ apply_to_data_frame.character <- function(data, transformer, ...){
   return(data)
 }
 
-#' @exportS3Method
-apply_to_data_frame.list <- function(data, transformer, ...){
-  
-  implemented_transforms <- implemented_transforms_base.f()
-  
-  if (transformer %in% names(implemented_transforms)){
-    init.list <- init.list.f(on_init = transformer$OnInit, dot.args = transformer$Dots)
-    deident_task <- create_deident(transformer$Type, ...)
-    return(deident_list_mutate(data, deident_task))
-  }
-  return(data)
-}
+# @exportS3Method
+# apply_to_data_frame.list <- function(data, transformer, ...){
+#   
+#   implemented_transforms <- implemented_transforms_base.f()
+#   
+#   if (transformer %in% names(implemented_transforms)){
+#     init.list <- init.list.f(on_init = transformer$OnInit, dot.args = transformer$Dots)
+#     deident_task <- create_deident(transformer$Type, ...)
+#     return(deident_list_mutate(data, deident_task))
+#   }
+#   return(data)
+# }
