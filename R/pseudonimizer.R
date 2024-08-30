@@ -36,9 +36,9 @@ add <- function(keys, .list=list(), method = function(i) i){# Vectorize(add.f, "
   append(.list, new_list)
 }
 
-persist <- function(item, location){
-  saveRDS(item, location)
-}
+# persist <- function(item, location){
+#   saveRDS(item, location)
+# }
 
 key.values <- c(letters, LETTERS, 0:9)
 
