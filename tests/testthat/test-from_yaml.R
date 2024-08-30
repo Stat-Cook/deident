@@ -27,8 +27,10 @@ test_that(
 
     yaml::write_yaml(serialize(dl), "temp.yml")
 
-    dl.yml <- yaml::read_yaml("temp.yml") |>
-      deident()
+    # dl.yml <- yaml::read_yaml("temp.yml") |>
+    #   deident()
+    
+    dl.yml <- from_yaml("temp.yml")
 
     expect_equal(get_types(dl.yml), get_types(dl))
     expect_equal(get_variables(dl.yml), get_variables(dl))
@@ -40,6 +42,8 @@ test_that(
       get_from_method(dl, "seed"),
       get_from_method(dl.yml, "seed")
     )
+    
+    from_yaml("temp.yml")
 	}
 )
 

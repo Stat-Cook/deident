@@ -236,3 +236,14 @@ test_that(
   }
 )
 
+test_that("auxillary tests",{
+  
+  new.data <- apply_to_data_frame(ShiftsWorked, Pseudonymizer, Employee)
+  
+  expect_true(all(
+    new.data$Employee != ShiftsWorked$Employee
+  ))
+  
+  
+  
+})

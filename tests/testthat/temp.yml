@@ -1,11 +1,9 @@
 - Type: Encrypter
-  OnInit:
+  args:
     hash_key: qwerty
     seed: 101.0
-  Dots: []
-  Variables: A
+  variables: A
 - Type: NumericBlurer
-  OnInit:
+  args:
     cuts: 0.0
-  Dots: []
-  Variables: C
+  variables: C
