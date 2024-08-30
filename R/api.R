@@ -260,7 +260,7 @@ add_ungroup <- function(object, ...){
               encrypter = Ungrouper)
 }
 
-#' Add a 'tidyverse' function to the pipeline.
+# Add a 'tidyverse' function to the pipeline.
 add_tidy <- function(object, ..., fn=\(x) x){
 
   new_deident(object, 
@@ -269,7 +269,7 @@ add_tidy <- function(object, ..., fn=\(x) x){
               encrypter = Tidyer)
 }
 
-#' Add a 'tidyverse' mutate to the pipeline.
+# Add a 'tidyverse' mutate to the pipeline.
 add_mutate <- function(object, ...){
   
   new_deident(object, 
