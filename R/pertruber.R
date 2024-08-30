@@ -65,18 +65,18 @@ adaptive_noise <-  function(sd.ratio = 1/10){
   
 }
 
-
-initialize_perturb <- function(object, ...){
-  UseMethod("initialize_perturb")
-}
-
-initialize_perturb.function <- function(object, ...){
-  return(object)
-}
-
-initialize_perturb.numeric <- function(object, ...){
-  return(white_noise(object))
-}
+# 
+# initialize_perturb <- function(object, ...){
+#   UseMethod("initialize_perturb")
+# }
+# 
+# initialize_perturb.function <- function(object, ...){
+#   return(object)
+# }
+# 
+# initialize_perturb.numeric <- function(object, ...){
+#   return(white_noise(object))
+# }
 
 initialize.pertuber <- function(noise, self){
   UseMethod("initialize.pertuber")
