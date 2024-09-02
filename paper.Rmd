@@ -20,7 +20,8 @@ In order to broaden the access to sensitive data, data handlers need an auditabl
 
 This implementation of the "deident" methods is in R, chosen due to the increased adoption of open source software into the working practices of the NHS (driven by the growth on the NHS-R community and similar groups).  However, the underlying specification, and implementation of the transforms can be ported to other languages.
 
-This package implements methods for de-identification via:
+
+This package was designed considering the ICO guidelines on anonymization [@ICOAnonymisation] and draws on pre-existing methodologies and naming conventions[@NIST2015; @integrateIO]. The package implemented de-identification via:   
 
 *	pseudonymization – the consistent replacement of a string by a random string
 *	encryption 
@@ -28,7 +29,7 @@ This package implements methods for de-identification via:
 *	bluring – the aggregation of numeric or categorical data according to specified rules
 *	perturbation – the addition of user-defined random noise to a numeric variable
 
-Following the design principles of the existing tidyverse domain for ease of 
+Following the design principles of the existing tidyverse[@tidyverse] domain for ease of
 adoption.  The package includes tools to create a single pipeline for the 
 application of a multi-step deidentification pipeline to multiple files 
 stored within the same repository, alongside the option to serialize/ define 

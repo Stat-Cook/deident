@@ -56,12 +56,15 @@ community hence requires a simple toolbox for the application of several
 common ‘data masking transforms’ implemented in an open source language.
 
 This implementation of the “deident” methods is in R, chosen due to the
-increase adoption of open source software into the working practices of
+increased adoption of open source software into the working practices of
 the NHS (driven by the growth on the NHS-R community and similar
 groups). However, the underlying specification, and implementation of
 the transforms can be ported to other languages.
 
-This package implements methods for de-identification via:
+This package was designed considering the ICO guidelines on
+anonymization (ICO 2012) and draws on pre-existing methodologies and
+naming conventions(Garfinkel 2015; Integrate.IO, n.d.). The package
+implemented de-identification via:
 
 -   pseudonymization – the consistent replacement of a string by a
     random string
@@ -73,18 +76,18 @@ This package implements methods for de-identification via:
 -   perturbation – the addition of user-defined random noise to a
     numeric variable
 
-Following the design principles of the existing tidyverse domain for
-ease of adoption. The package includes tools to create a single pipeline
-for the application of a multi-step deidentification pipeline to
-multiple files stored within the same repository, alongside the option
-to serialize/ define the pipeline to/ via yaml. This approach allows a
-researcher to design and implement an appropriate de-identification plan
-and deliver it to the research support/ business intelligence team of an
-organisation with limited knowledge of the sensitive data. The supply of
-an easy method for de-identifying data sets which require little
-scripting knowledge by Trust staff may aid in overcoming several
-information governance risks that keep operational data siloed within
-health Trusts.
+Following the design principles of the existing tidyverse(Wickham et al.
+2019) domain for ease of adoption. The package includes tools to create
+a single pipeline for the application of a multi-step deidentification
+pipeline to multiple files stored within the same repository, alongside
+the option to serialize/ define the pipeline to/ via yaml. This approach
+allows a researcher to design and implement an appropriate
+de-identification plan and deliver it to the research support/ business
+intelligence team of an organisation with limited knowledge of the
+sensitive data. The supply of an easy method for de-identifying data
+sets which require little scripting knowledge by Trust staff may aid in
+overcoming several information governance risks that keep operational
+data siloed within health Trusts.
 
 # Comparison to existing R packages
 
@@ -205,6 +208,9 @@ Henrik Bengtsson, Simon Urbanek, Mario Frasca, Bryan Lewis, Murray
 Stokely, et al. 2021. *Digest: Create Compact Hash Digests of r
 Objects*. <https://CRAN.R-project.org/package=digest>.
 
+Garfinkel, Simson L. 2015. *De-Identification of Personal Information*.
+Gaithersburg, MD: NIST.
+
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
 
@@ -212,8 +218,14 @@ Hendricks, Paul. n.d. “Anonymizer: Anonymize Data Containing Personally
 Identifiable Information (PII) in r.”
 <https://github.com/paulhendricks/anonymizer>.
 
-ICO. 2023. “What Is Personal Information: A Guide.” 2023.
+ICO. 2012. “Anonymisation: Managing Data Protection Risk Code of
+Practice.” Wycliffe House, Cheshire.
+
+———. 2023. “What Is Personal Information: A Guide.” 2023.
 <https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-information-a-guide/>.
+
+Integrate.IO. n.d. “6 Steps for Data Pseudonymization.”
+<https://www.integrate.io/blog/6-steps-to-pseudonymize-pii/#steps>.
 
 Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
 “Predicting Scheduled Hospital Attendance with Artificial Intelligence.”
@@ -222,10 +234,8 @@ Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
 Sales, Bruce D, and Susan Ed Folkman. 2000. *Ethics in Research with
 Human Participants.* American Psychological Association.
 
-Szikora, Péter, and Kornélia Lazányi. 2022. “The End of Encryption?–the
-Era of Quantum Computers.” In *Security-Related Advanced Technologies in
-Critical Infrastructure Protection: Theoretical and Practical Approach*,
-61–72. Springer.
+Szikora, Péter, and Kornélia Lazányi. 2022. *The End of Encryption?–the
+Era of Quantum Computers*. Springer.
 
 Tachepun, Chitanut, and Sotarat Thammaboosadee. 2020. “A Data Masking
 Guideline for Optimizing Insights and Privacy Under GDPR Compliance.” In
@@ -238,6 +248,11 @@ UKRI. 2022. “Framework for Research Ethics.” 2022.
 Wang, Xiaoyun, and Hongbo Yu. 2005. “How to Break MD5 and Other Hash
 Functions.” In *Annual International Conference on the Theory and
 Applications of Cryptographic Techniques*, 19–35. Springer.
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
+Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
 
 Wilkins, David. n.d. “Deidentifyr.”
 <https://github.com/wilkox/deidentifyr>.
