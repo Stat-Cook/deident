@@ -443,8 +443,12 @@ steps:</p>
 <li>Define a pipeline</li>
 <li>Apply to the data set</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>pipeline <span class="ot">&lt;-</span> <span class="fu">deident</span>(ShiftsWorked, <span class="st">&quot;psudonymize&quot;</span>, Employee)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">apply_deident</span>(ShiftsWorked, pipeline)</span></code></pre></div>
+<p>NB: we set a random seed using <code>set.seed</code> here for
+reproducibility. We recommend users avoid this step when using the
+package in production code.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">101</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>pipeline <span class="ot">&lt;-</span> <span class="fu">deident</span>(ShiftsWorked, <span class="st">&quot;psudonymize&quot;</span>, Employee)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">apply_deident</span>(ShiftsWorked, pipeline)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="14%" />
@@ -469,7 +473,7 @@ steps:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">aVlku</td>
+<td align="left">i4TE2</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -478,7 +482,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">PkZ0q</td>
+<td align="left">q5E87</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -487,7 +491,7 @@ steps:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">cTqkP</td>
+<td align="left">61IcF</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -496,7 +500,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">xnZkW</td>
+<td align="left">iFIIH</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -505,7 +509,7 @@ steps:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">fbVH3</td>
+<td align="left">ZE7E0</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -514,7 +518,7 @@ steps:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">TpRk7</td>
+<td align="left">6WnlG</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -556,7 +560,7 @@ easiest way to achieve this is to create an instance of a
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">9JArd</td>
+<td align="left">0CwoC</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -565,7 +569,7 @@ easiest way to achieve this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">dzLN9</td>
+<td align="left">iTkgr</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -574,7 +578,7 @@ easiest way to achieve this is to create an instance of a
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">ZZim6</td>
+<td align="left">HwZQa</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -583,7 +587,7 @@ easiest way to achieve this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">Ou932</td>
+<td align="left">mCwsK</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -592,7 +596,7 @@ easiest way to achieve this is to create an instance of a
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">UF7TO</td>
+<td align="left">x5lX2</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -601,7 +605,7 @@ easiest way to achieve this is to create an instance of a
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">7y1jb</td>
+<td align="left">Gv3KR</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -614,9 +618,9 @@ easiest way to achieve this is to create an instance of a
 <code>lookup</code> attribute:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">unlist</span>(psu<span class="sc">$</span>lookup)</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;            Maria Cook           Stephen Cox        Kimberly Ortiz </span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;               &quot;9JArd&quot;               &quot;dzLN9&quot;               &quot;ZZim6&quot; </span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;               &quot;0CwoC&quot;               &quot;iTkgr&quot;               &quot;HwZQa&quot; </span></span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;        Nathan Alvarez         Samuel Parker          Scott Morris </span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;               &quot;Ou932&quot;               &quot;UF7TO&quot;               &quot;7y1jb&quot; </span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;               &quot;mCwsK&quot;               &quot;x5lX2&quot;               &quot;Gv3KR&quot; </span></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>...</span></code></pre></div>
 <p>Often we will need to apply multiple transformations. Considering the
 <code>StaffsWorked</code> data, imagine the employees are complaining
@@ -654,7 +658,7 @@ removed). We can expand the pipeline to allow for this:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">9JArd</td>
+<td align="left">0CwoC</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -663,7 +667,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">dzLN9</td>
+<td align="left">iTkgr</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -672,7 +676,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">ZZim6</td>
+<td align="left">HwZQa</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -681,7 +685,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">Ou932</td>
+<td align="left">mCwsK</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -690,7 +694,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">UF7TO</td>
+<td align="left">x5lX2</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -699,7 +703,7 @@ removed). We can expand the pipeline to allow for this:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">7y1jb</td>
+<td align="left">Gv3KR</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -742,7 +746,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">9JArd</td>
+<td align="left">0CwoC</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>
@@ -751,7 +755,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">dzLN9</td>
+<td align="left">iTkgr</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -760,7 +764,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">ZZim6</td>
+<td align="left">HwZQa</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -769,7 +773,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">Ou932</td>
+<td align="left">mCwsK</td>
 <td align="left">2015-01-01</td>
 <td align="left">Day</td>
 <td align="left">08:01</td>
@@ -778,7 +782,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">UF7TO</td>
+<td align="left">x5lX2</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">16:01</td>
@@ -787,7 +791,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">7y1jb</td>
+<td align="left">Gv3KR</td>
 <td align="left">2015-01-01</td>
 <td align="left">Night</td>
 <td align="left">17:01</td>

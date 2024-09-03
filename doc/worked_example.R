@@ -42,6 +42,7 @@ library(deident)
 ShiftsWorked
 
 ## ---- render=local_print------------------------------------------------------
+set.seed(101)
 pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
 apply_deident(ShiftsWorked, pipeline)
 

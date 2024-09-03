@@ -159,8 +159,13 @@ reduce the data to a single case:</p>
 not wish to disclose the inter-variable correlations. To aid with this,
 we introduce the <code>shuffling</code> method which performs column
 wise sampling without replacement:</p>
+<p>NB: we set a random seed using <code>set.seed</code> here for
+reproducibility. We recommend users avoid this step when using the
+package in production code.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">shuffle_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">101</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">shuffle_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/add_shuffle.html">add_shuffle</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">homeworld</span>, <span class="va">hair_color</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">new_starwars</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">shuffle_pipe</span><span class="op">)</span></span>
@@ -169,11 +174,11 @@ wise sampling without replacement:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 14</span></span></span>
 <span><span class="co">#&gt;   name      height  mass hair_color skin_color eye_color birth_year sex   gender</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Luke Sky…    172    77 none       fair       blue            19   male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> C-3PO        167    75 black      gold       yellow         112   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> R2-D2         96    32 brown      white, bl… red             33   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Darth Va…    202   136 brown      white      yellow          41.9 male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Leia Org…    150    49 <span style="color: #BB0000;">NA</span>         light      brown           19   fema… femin…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Luke Sky…    172    77 white      fair       blue            19   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> C-3PO        167    75 none       gold       yellow         112   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> R2-D2         96    32 none       white, bl… red             33   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Darth Va…    202   136 none       white      yellow          41.9 male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Leia Org…    150    49 none       light      brown           19   fema… femin…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Owen Lars    178   120 brown      light      blue            52   male  mascu…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   vehicles &lt;list&gt;, starships &lt;list&gt;</span></span></span></code></pre></div>
@@ -185,11 +190,10 @@ which might lead to identification.</p>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, </span>
 <span>                <span class="va">homeworld</span> <span class="op">==</span> <span class="st">"Coruscant"</span></span>
 <span>                <span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 14</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 14</span></span></span>
 <span><span class="co">#&gt;   name      height  mass hair_color skin_color eye_color birth_year sex   gender</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Ratts Ty…     79    15 none       grey, blue unknown           <span style="color: #BB0000;">NA</span> male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Gasgano      122    <span style="color: #BB0000;">NA</span> brown      white, bl… black             <span style="color: #BB0000;">NA</span> male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Kit Fisto    196    87 blond      green      black             <span style="color: #BB0000;">NA</span> male  mascu…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   vehicles &lt;list&gt;, starships &lt;list&gt;</span></span></span></code></pre></div>
 <div class="section level3">
@@ -211,15 +215,15 @@ the whole data:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 87 × 14</span></span></span>
 <span><span class="co">#&gt;    name     height  mass hair_color skin_color eye_color birth_year sex   gender</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Luke Sk…    172    77 brown      fair       blue            19   male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> C-3PO       167    75 none       gold       yellow         112   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> R2-D2        96    32 none       white, bl… red             33   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Darth V…    202   136 white      white      yellow          41.9 male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Luke Sk…    172    77 <span style="color: #BB0000;">NA</span>         fair       blue            19   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> C-3PO       167    75 blond      gold       yellow         112   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> R2-D2        96    32 auburn, g… white, bl… red             33   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Darth V…    202   136 none       white      yellow          41.9 male  mascu…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Leia Or…    150    49 none       light      brown           19   fema… femin…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Owen La…    178   120 brown, gr… light      blue            52   male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Beru Wh…    165    75 brown      light      blue            47   fema… femin…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Owen La…    178   120 none       light      blue            52   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Beru Wh…    165    75 white      light      blue            47   fema… femin…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> R5-D4        97    32 none       white, red red             <span style="color: #BB0000;">NA</span>   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Biggs D…    183    84 black      light      brown           24   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Biggs D…    183    84 none       light      brown           24   male  mascu…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Obi-Wan…    182    77 brown      fair       blue-gray       57   male  mascu…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 77 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,</span></span></span>
