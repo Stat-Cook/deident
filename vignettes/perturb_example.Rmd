@@ -23,8 +23,11 @@ Three types of random noise are included:
 2. `white_noise` - random noise at a set spread.
 3. `lognorm_noise` - random multiplicative noise at a set spread.
 
+NB: we set a random seed using `set.seed` here for reproducibility.  We recommend users avoid this step when using the package in production code.
+
 ```{r setup}
 library(deident)
+set.seed(101)
 
 perturb_pipe <- ShiftsWorked |>
   add_perturb(`Daily Pay`)

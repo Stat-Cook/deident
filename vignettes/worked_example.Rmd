@@ -72,7 +72,10 @@ The simplest method for de-identification is a direct replacement, e.g. 'pseudon
 1. Define a pipeline
 2. Apply to the data set
 
+NB: we set a random seed using `set.seed` here for reproducibility.  We recommend users avoid this step when using the package in production code.
+
 ```{r, render=local_print}
+set.seed(101)
 pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
 apply_deident(ShiftsWorked, pipeline)
 ```

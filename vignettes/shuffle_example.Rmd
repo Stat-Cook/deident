@@ -45,7 +45,11 @@ starwars |>
 
 Hence, individual columns can contain useful information but we may not wish to disclose the inter-variable correlations.  To aid with this, we introduce the `shuffling` method  which performs column wise sampling without replacement:
 
+NB: we set a random seed using `set.seed` here for reproducibility.  We recommend users avoid this step when using the package in production code.
+
 ``` {r}
+set.seed(101)
+
 shuffle_pipe <- starwars |> 
   add_shuffle(species, homeworld, hair_color)
 
