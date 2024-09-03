@@ -23,23 +23,23 @@ date: 12 December 2023
 ---
 # Summary
 
-Research in the discipline of health data is of increasing interest due
-to the perception that artificial intelligence (AI) and machine learning
-(ML) techniques have the promise to bridge gaps in the large,
-resource-limited sector (Harwich and Laycock 2018; Wilson 2019; Nelson
-et al. 2019; Yu, Beam, and Kohane 2018). One key aspect of working
-within health data is the necessity to work within the ethical and legal
-frameworks of research with human participants(Sales and Folkman 2000;
-UKRI 2022), notably around the risks posed by the processing of
-personally identifiable data (PID) and pseudo-PID (variables which if
-used together can identify an individual)(ICO 2023).
+The delivery of quality health care is a constant act of balancing
+demand against capacity, with emerging, data intensive, artificial
+intelligence (AI) and machine learning (ML) approaches poised to bridge
+gaps in the large, resource-limited sector (Harwich and Laycock 2018;
+Wilson 2019; Nelson et al. 2019; Yu, Beam, and Kohane 2018). The scale
+of data required in such projects magnifies the importance of existing
+ethical and legal frameworks for research with human participants(Sales
+and Folkman 2000; UKRI 2022), notably around the risks posed by the
+processing of personally identifiable data (PID) and pseudo-PID
+(variables which if used together can identify an individual)(ICO 2023).
 
 One approach to dealing with PID concerns is to apply transformations to
 the data, e.g. encryption of names, or aggregation of ages, which can
 limit the risk of identification at the cost of nuance(Tachepun and
 Thammaboosadee 2020). Hence, we demonstrate an extendable package of
 tools for the implementation and application of deidentification
-techniques to panel datasets.
+techniques to panel data sets.
 
 # Statement of need
 
