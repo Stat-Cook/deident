@@ -3,7 +3,7 @@
 #'
 #' 'Shuffling' refers to the a random sampling of a variable without
 #' replacement e.g. \[A, B, C\] becoming \[B, A, C\] but not \[A, A, B\].  "Grouped
-#' shuffling" refers to aggregating the data by another feature before appling
+#' shuffling" refers to aggregating the data by another feature before applying
 #' the shuffling process.  Grouped shuffling will preserve aggregate level
 #' metrics (e.g. mean, median, mode) but removes ordinal properties
 #' i.e. correlations and auto-correlations
@@ -14,7 +14,7 @@
 GroupedShuffler <- R6Class(
 
   "GroupedShuffler", list(
-    #' @field group_on Symbolic representation of grouping varaibles
+    #' @field group_on Symbolic representation of grouping variables
     group_on = NA,
 
     #' @field limit Minimum number of rows required to shuffle data

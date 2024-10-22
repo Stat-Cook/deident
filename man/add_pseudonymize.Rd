@@ -30,7 +30,7 @@ and methods:
 \description{
 \code{add_pseudonymize()} adds a psuedonymization step to a transformation pipeline.
 When ran as a transformation, terms that have not been seen before are given a new
-random alpha-numeric string while terms that have been prefeviously transformed
+random alpha-numeric string while terms that have been previously transformed
 reuse the same term.
 }
 \examples{

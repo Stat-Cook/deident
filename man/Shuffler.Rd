@@ -14,7 +14,7 @@ to be used.  By default uses exhaustive sampling without replacement.}
 
 \item{limit}{integer - the minimum number of observations a variable needs to
 have for shuffling to be performed.  If the variable has length less than \code{limit}
-values are repalced with \code{NA}s.}
+values are replaced with \code{NA}s.}
 }
 \description{
 Create new Shuffler object

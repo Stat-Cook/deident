@@ -28,7 +28,7 @@ and methods:
 }
 \description{
 \code{add_numeric_blur()} adds an bluring step to a transformation pipeline
-(NB: intended for nuemric data).  When ran as a transformation, the data is
+(NB: intended for numeric data).  When ran as a transformation, the data is
 split into intervals depending on the \code{cuts} supplied of the series
 [-Inf, cut.1), [cut.1, cut.2), ..., [cut.n, Inf] where
 \code{cuts} = c(cut.1, cut.2, ..., cut.n).

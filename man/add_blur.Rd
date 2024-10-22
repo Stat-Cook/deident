@@ -40,6 +40,6 @@ pipe.blur$mutate(ShiftsWorked)
  
 }
 \seealso{
-\code{\link[=category_blur]{category_blur()}} is provided to aid in definindg the \code{blur}
+\code{\link[=category_blur]{category_blur()}} is provided to aid in defining the \code{blur}
 }
 \keyword{API}

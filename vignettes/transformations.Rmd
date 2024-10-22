@@ -185,7 +185,7 @@ deident(df, grouped_shuffle, B)
 ```
 ### Options
 
-At initialization  `GroupedShuffler` takes an argument `limit` such that if any aggregated sub group has fewer than `limit` observations all values are droped.
+At initialization  `GroupedShuffler` takes an argument `limit` such that if any aggregated sub group has fewer than `limit` observations all values are dropped.
 
 ``` {r}
 numeric_blur <- GroupedShuffler$new(C, limit=1)

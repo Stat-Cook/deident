@@ -31,7 +31,7 @@ new_deident <- function(object, ..., encrypter){
 #' 
 #' `add_pseudonymize()` adds a psuedonymization step to a transformation pipeline. 
 #' When ran as a transformation, terms that have not been seen before are given a new 
-#' random alpha-numeric string while terms that have been prefeviously transformed 
+#' random alpha-numeric string while terms that have been previously transformed 
 #' reuse the same term.
 #'  
 #' 
@@ -71,7 +71,7 @@ add_pseudonymize <- function(object, ..., lookup=list()){
 #' @inherit new_deident params return
 #' @param limit integer - the minimum number of observations a variable needs to 
 #' have for shuffling to be performed.  If the variable has length less than `limit`
-#' values are repalced with `NA`s. 
+#' values are replaced with `NA`s. 
 #' 
 #' @export
 #' @keywords API
@@ -97,13 +97,13 @@ add_shuffle <- function(object, ..., limit=0){
 
 #' De-identification via hash encryption
 #' 
-#' `add_encrypt()` adds an encrpytion step to a transformation pipeline. 
+#' `add_encrypt()` adds an encryption step to a transformation pipeline. 
 #' When ran as a transformation, each specified variable  undergoes replacement 
 #' via  an encryption hashing function depending on the `hash_key` and `seed` set.
 #' 
 #' @inherit new_deident params return
 #' @param hash_key a random alphanumeric key to control encryption
-#' @param seed a random alphanumeric to concat to the value being encypted
+#' @param seed a random alphanumeric to concat to the value being encrypted
 #' 
 #' @export
 #' @keywords API
@@ -174,7 +174,7 @@ add_perturb <- function(object, ..., noise=adaptive_noise(0.1)){
 #' @export
 #' @keywords API
 #' 
-#' @seealso [category_blur()] is provided to aid in definindg the `blur`
+#' @seealso [category_blur()] is provided to aid in defining the `blur`
 #' 
 #' @importFrom stringr str_detect
 
@@ -196,7 +196,7 @@ add_blur <- function(object, ..., blur=c()){
 #' De-identification via numeric aggregation
 #' 
 #' `add_numeric_blur()` adds an bluring step to a transformation pipeline 
-#' (NB: intended for nuemric data).  When ran as a transformation, the data is 
+#' (NB: intended for numeric data).  When ran as a transformation, the data is 
 #' split into intervals depending on the `cuts` supplied of the series 
 #' \[-Inf, cut.1), \[cut.1, cut.2), ..., \[cut.n, Inf\] where 
 #' `cuts` = c(cut.1, cut.2, ..., cut.n). 

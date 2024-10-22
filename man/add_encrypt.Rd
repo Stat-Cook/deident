@@ -13,7 +13,7 @@ add_encrypt(object, ..., hash_key = "", seed = NA)
 
 \item{hash_key}{a random alphanumeric key to control encryption}
 
-\item{seed}{a random alphanumeric to concat to the value being encypted}
+\item{seed}{a random alphanumeric to concat to the value being encrypted}
 }
 \value{
 A 'DeidentList' representing the untrained transformation pipeline.
@@ -29,7 +29,7 @@ and methods:
 }
 }
 \description{
-\code{add_encrypt()} adds an encrpytion step to a transformation pipeline.
+\code{add_encrypt()} adds an encryption step to a transformation pipeline.
 When ran as a transformation, each specified variable  undergoes replacement
 via  an encryption hashing function depending on the \code{hash_key} and \code{seed} set.
 }

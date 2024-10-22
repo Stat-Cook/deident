@@ -19,7 +19,7 @@ Character representation of the class
 \details{
 'Shuffling' refers to the a random sampling of a variable without
 replacement e.g. [A, B, C] becoming [B, A, C] but not [A, A, B].  "Grouped
-shuffling" refers to aggregating the data by another feature before appling
+shuffling" refers to aggregating the data by another feature before applying
 the shuffling process.  Grouped shuffling will preserve aggregate level
 metrics (e.g. mean, median, mode) but removes ordinal properties
 i.e. correlations and auto-correlations
@@ -27,7 +27,7 @@ i.e. correlations and auto-correlations
 \section{Fields}{
 
 \describe{
-\item{\code{group_on}}{Symbolic representation of grouping varaibles}
+\item{\code{group_on}}{Symbolic representation of grouping variables}
 
 \item{\code{limit}}{Minimum number of rows required to shuffle data
 Create new GroupedShuffler object}

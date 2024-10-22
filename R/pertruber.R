@@ -38,7 +38,7 @@ lognorm_noise <-  function(sd = 0.1){
   
 }
 
-#' Function factory to apply white noise to a vector proportioanl to the spread 
+#' Function factory to apply white noise to a vector proportional to the spread 
 #' of the data
 #' 
 #' @param sd.ratio the level of noise to apply relative to the vectors standard 

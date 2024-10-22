@@ -12,7 +12,7 @@
 #'  @inheritParams Pseudonymizer 
 #' @param limit integer - the minimum number of observations a variable needs to 
 #' have for shuffling to be performed.  If the variable has length less than `limit`
-#' values are repalced with `NA`s. 
+#' values are replaced with `NA`s. 
 #'   
 #' @export
 Shuffler <- R6Class(

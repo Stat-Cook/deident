@@ -58,7 +58,7 @@ new_starwars <- apply_deident(starwars, shuffle_pipe)
 head(new_starwars)
 ```
 
-A `Shuffle` hence preserves the column summaries, e.g. modal values and distributions, but breaks inter-column behaviors which might lead to identification.
+A `Shuffle` hence preserves the column summaries, e.g. modal values and distributions, but breaks inter-column behaviours which might lead to identification.
 
 ``` {r}
 new_starwars |> 

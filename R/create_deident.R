@@ -1,7 +1,7 @@
 #' Create a deident pipeline 
 #' 
 #' @param method A deidentifier to initialize.
-#' @param ... list of variables to be deindeitifer. NB: key word arguments will 
+#' @param ... list of variables to be deidentifier. NB: key word arguments will 
 #' be passed to method at initialization.
 #' 
 #' @export
@@ -58,7 +58,6 @@ create_deident.GrouperR6ClassGenerator <- function(method, ...){
 
 create_deident.list <- function(method, ...){
   #' @exportS3Method
-  #init.list <- init.list.f(on_init = object$OnInit, dot.args = object$Dots)
   
   create_deident(method$Type, !!!method$variables, !!!method$args)
 }
@@ -71,7 +70,7 @@ create_deident.character <- function(method, ...){
   .tra <- implemented_transforms[[method]]
   
   if (is.null(.tra)){
-    stop(glue::glue("Transform method {method} not implemented"))
+    abort(glue::glue("Transform method {method} not implemented"))
   }
   
   create_deident(.tra, ...)

@@ -13,7 +13,7 @@ add_shuffle(object, ..., limit = 0)
 
 \item{limit}{integer - the minimum number of observations a variable needs to
 have for shuffling to be performed.  If the variable has length less than \code{limit}
-values are repalced with \code{NA}s.}
+values are replaced with \code{NA}s.}
 }
 \value{
 A 'DeidentList' representing the untrained transformation pipeline.

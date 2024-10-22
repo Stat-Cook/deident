@@ -2,7 +2,7 @@
 % Please edit documentation in R/pertruber.R
 \name{adaptive_noise}
 \alias{adaptive_noise}
-\title{Function factory to apply white noise to a vector proportioanl to the spread
+\title{Function factory to apply white noise to a vector proportional to the spread
 of the data}
 \usage{
 adaptive_noise(sd.ratio = 1/10)
@@ -15,7 +15,7 @@ deviation.}
 a function
 }
 \description{
-Function factory to apply white noise to a vector proportioanl to the spread
+Function factory to apply white noise to a vector proportional to the spread
 of the data
 }
 \examples{
