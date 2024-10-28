@@ -1,7 +1,7 @@
 # deident
   <!-- badges: start -->
   [![R-CMD-check](https://github.com/Stat-Cook/deident/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Stat-Cook/deident/actions/workflows/R-CMD-check.yaml)
-  [![codecov](https://codecov.io/gh/Stat-Cook/deident/graph/badge.svg?token=1B5QA2JIP6)](https://codecov.io/gh/Stat-Cook/deident)
+  [![codecov](https://app.codecov.io/gh/Stat-Cook/deident/graph/badge.svg?token=1B5QA2JIP6)](https://codecov.io/gh/Stat-Cook/deident)
   <!-- badges: end -->
 
 

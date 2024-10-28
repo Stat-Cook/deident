@@ -1,6 +1,6 @@
 Package: deident
 Type: Package
-Title: Deident: An R package for data anonymization
+Title: An R Package for Data Anonymization
 Version: 1.0.0
 Authors@R: c(
     person("Robert", "Cook", , "robert.cook@staffs.ac.uk", role = c("aut", "cre"),
@@ -10,8 +10,7 @@ Authors@R: c(
     person("Sarahjane", "Jones", role = "aut",
            comment = c(ORCID = "0000-0003-4729-4029"))
   )
-Maintainer: Robert M. Cook <robert.cook@staffs.ac.uk>
-Description: A package for the replicable removal of personally identifiable data 
+Description: A framework for the replicable removal of personally identifiable data 
     (PID) in data sets.  The package implements a suite of methods to suit different 
     data types.
 License: MIT + file LICENSE
@@ -43,3 +42,4 @@ Imports:
 Depends: 
     R (>= 2.10)
 VignetteBuilder: knitr
+Language: en-GB

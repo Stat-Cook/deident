@@ -49,6 +49,16 @@ test_that("add_pseudonymize anonymizes Employee correctly", {
   expect_false(
     any(ShiftsWorked$Employee == new.data$Employee)
   )
+  
+  expect_warning(
+    pipe_non_var <- add_pseudonymize(ShiftsWorked, Barry)
+  )
+  
+  expect_equal(
+    apply_deident(ShiftsWorked, pipe_non_var), 
+    ShiftsWorked
+  )
+  
 })
 
 test_that("add_shuffle shuffles Shift correctly", {
@@ -124,6 +134,15 @@ test_that("add_group groups by Shift correctly", {
     groups(new.data) == "Shift"
   )
   
+  expect_warning(
+    pipe_non_var <- ShiftsWorked |>
+      add_encrypt(Employee) |>
+      add_group(Barry, Peter)
+  )
+  
+  expect_error(
+    apply_deident(ShiftsWorked, pipe_non_var)
+  )
 })
 
 test_that("add_ungroup ungroups correctly", {

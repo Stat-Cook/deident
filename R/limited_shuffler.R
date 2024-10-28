@@ -10,6 +10,8 @@ LimitedShuffler <- R6Class(
 
 
 LimitedGroupedShuffler <- R6Class(
+  #' @importFrom tidyselect eval_select
+  #' @importFrom rlang enquo sym
   "LimitedGroupedShuffler", list(
   initialize = function(..., limit=1){
     super$initialize(...)

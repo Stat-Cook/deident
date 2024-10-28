@@ -1,6 +1,16 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^doc$
+^docs$
+^data-raw$
 ^Meta$
 ^LICENSE\.md$
 ^\.github$
+
+_pkgdown\.yml
+model\.yml
+cran-comments\.md
+
+^paper*
+knit_pub.R
+preamble.txt

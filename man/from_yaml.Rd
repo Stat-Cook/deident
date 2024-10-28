@@ -13,12 +13,12 @@ from_yaml(path)
 Restore a serialized deident from file
 }
 \examples{
-
+\dontrun{
 deident <- deident(ShiftsWorked, Pseudonymizer, Employee)
 deident$to_yaml("model.yml")
 
 deident.yaml <- from_yaml("model.yml")
 deident.yaml$mutate(ShiftsWorked)
-
+}
 
 }
