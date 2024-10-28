@@ -1,3 +1,32 @@
+error_reduce <- function(.x, .f, ...){
+  #' @importFrom rlang abort
+  #' @importFrom purrr reduce2
+  #' @importFrom utils head
+  
+  .i <- head(seq_along(.x), -1)
+  
+
+  error_f <- function(x1, x2, step){
+    tryCatch(
+      .f(x1, x2, ...),
+      error = function(e){
+        .body <- paste0(e$body, collapse="\n")
+        .message <- e$message
+
+        rlang::abort(
+          sprintf("Error at step: %s\n%s\n%s", 
+                  step, 
+                  .message, 
+                  .body
+          )
+        )
+      }
+    )
+  }
+  
+  purrr::reduce2(.x, .i,  error_f, ...)
+}
+
 DeidentList <- R6Class("DeidentList", list(
   deident_methods = list(),
   data = NULL,
@@ -30,7 +59,7 @@ DeidentList <- R6Class("DeidentList", list(
   mutate = function(data){
     #' @importFrom purrr reduce
     .lis <- append(self$deident_methods, list(data), after = 0)
-    purrr::reduce(.lis, deident_list_mutate)
+    error_reduce(.lis, deident_list_mutate)
   },
 
   print = function(...){
