@@ -1,5 +1,4 @@
 map <- purrr::map
-map <- purrr::map
 
 test_that("new_deident creates DeidentList correctly", {
   psu <- Pseudonymizer$new()
