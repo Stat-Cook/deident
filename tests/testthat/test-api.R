@@ -1,6 +1,7 @@
 map <- purrr::map
+map <- purrr::map
 
-test_that("new_deident works", {
+test_that("new_deident creates DeidentList correctly", {
   psu <- Pseudonymizer$new()
   
   dlist.1 <- ShiftsWorked |> 
@@ -39,8 +40,7 @@ test_that("new_deident works", {
 
 })
 
-
-test_that("add_pseudonymize", {
+test_that("add_pseudonymize anonymizes Employee correctly", {
   pipe <- ShiftsWorked |> 
     add_pseudonymize(Employee)
   
@@ -52,7 +52,7 @@ test_that("add_pseudonymize", {
   )
 })
 
-test_that("add_shuffle", {
+test_that("add_shuffle shuffles Shift correctly", {
   pipe <- ShiftsWorked |> 
     add_shuffle(Shift)
   
@@ -64,8 +64,7 @@ test_that("add_shuffle", {
   )
 })
 
-
-test_that("add_encrypt", {
+test_that("add_encrypt encrypts Employee correctly", {
   pipe <- ShiftsWorked |> 
     add_encrypt(Employee)
   
@@ -77,8 +76,7 @@ test_that("add_encrypt", {
   )
 })
 
-
-test_that("add_perturb", {
+test_that("add_perturb perturbs Daily Pay correctly", {
   pipe <- ShiftsWorked |> 
     add_perturb(`Daily Pay`)
   
@@ -87,6 +85,84 @@ test_that("add_perturb", {
   
   expect_false(
     any(ShiftsWorked$`Daily Pay` == new.data$`Daily Pay`)
+  )
+})
+
+test_that("add_numeric_blur blurs Daily Pay correctly", {
+  pipe <- ShiftsWorked |> 
+    add_numeric_blur(`Daily Pay`)
+  
+  new.data <- ShiftsWorked |>
+    apply_deident(pipe)
+  
+  expect_true(
+    all(ShiftsWorked$`Daily Pay` != new.data$`Daily Pay`)
+  )
+  
+})
+
+test_that("add_drop drops Record ID correctly", {
+  pipe <- ShiftsWorked |> 
+    add_drop(`Record ID`)
+  
+  new.data <- ShiftsWorked |>
+    apply_deident(pipe)
+  
+  expect_false(
+    "Record ID" %in% colnames(new.data)
+  )
+  
+})
+
+test_that("add_group groups by Shift correctly", {
+  pipe <- ShiftsWorked |> 
+    add_group(Shift)
+  
+  new.data <- ShiftsWorked |>
+    apply_deident(pipe)
+
+  expect_true(
+    groups(new.data) == "Shift"
+  )
+  
+})
+
+test_that("add_ungroup ungroups correctly", {
+  pipe <- ShiftsWorked |> 
+    add_group(Shift) |> 
+    add_ungroup()
+  
+  new.data <- ShiftsWorked |>
+    apply_deident(pipe)
+  
+  expect_equal(
+    groups(new.data), list()
+  )
+  
+})
+
+test_that("add_tidy filters data correctly", {
+  pipe <- ShiftsWorked |> 
+    add_tidy(fn = \(x) dplyr::filter(x, Shift == "Day"))
+  
+  new.data <- ShiftsWorked |>
+    apply_deident(pipe)
+  
+  expect_true(
+    nrow(new.data) != nrow(ShiftsWorked)
+  )
+  
+})
+
+test_that("add_mutate creates Double Pay correctly", {
+  pipe <- ShiftsWorked |> 
+    add_mutate(`Double Pay` = 2*`Daily Pay`)
+  
+  new.data <- ShiftsWorked |>
+    apply_deident(pipe)
+
+  expect_true(
+    all(new.data$`Double Pay` == 2*ShiftsWorked$`Daily Pay`)
   )
 })
 
@@ -104,91 +180,5 @@ test_that("add_perturb", {
 #     any(ShiftsWorked$Shift != new.data$Shift)
 #   )
 #   
-# })
-
-test_that("add_numeric_blur", {
-  
-  pipe <- ShiftsWorked |> 
-    add_numeric_blur(`Daily Pay`)
-  
-  new.data <- ShiftsWorked |>
-    apply_deident(pipe)
-  
-  expect_true(
-    all(ShiftsWorked$`Daily Pay` != new.data$`Daily Pay`)
-  )
-  
-})
-
-test_that("add_drop", {
-  
-  pipe <- ShiftsWorked |> 
-    add_drop(`Record ID`)
-  
-  new.data <- ShiftsWorked |>
-    apply_deident(pipe)
-  
-  expect_false(
-    "Record ID" %in% colnames(new.data)
-  )
-  
-})
-
-test_that("add_group", {
-  
-  pipe <- ShiftsWorked |> 
-    add_group(Shift)
-  
-  new.data <- ShiftsWorked |>
-    apply_deident(pipe)
-
-  expect_true(
-    groups(new.data) == "Shift"
-  )
-  
-})
-
-test_that("add_ungroup", {
-  
-  pipe <- ShiftsWorked |> 
-    add_group(Shift) |> 
-    add_ungroup()
-  
-  new.data <- ShiftsWorked |>
-    apply_deident(pipe)
-  
-  expect_equal(
-    groups(new.data), list()
-  )
-  
-})
-
-test_that("add_tidy", {
-
-  pipe <- ShiftsWorked |> 
-    add_tidy(fn = \(x) dplyr::filter(x, Shift == "Day"))
-  
-  new.data <- ShiftsWorked |>
-    apply_deident(pipe)
-  
-  expect_true(
-    nrow(new.data) != nrow(ShiftsWorked)
-  )
-  
-})
-
-test_that("add_mutate", {
-  
-  pipe <- ShiftsWorked |> 
-    add_mutate(`Double Pay` = 2*`Daily Pay`)
-  
-  new.data <- ShiftsWorked |>
-    apply_deident(pipe)
-
-  expect_true(
-    all(new.data$`Double Pay` == 2*ShiftsWorked$`Daily Pay`)
-  )
-  
-})
-  
+# })  
   
