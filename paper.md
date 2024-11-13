@@ -75,6 +75,8 @@ implemented de-identification via:
     to specified rules
 -   perturbation – the addition of user-defined random noise to a
     numeric variable
+-   encryption - the consistent replacement of a string by an
+    alpha-numeric hash using an encryption key and salt
 
 Following the design principles of the existing tidyverse(Wickham et al.
 2019) domain for ease of adoption. The package includes tools to create
@@ -85,7 +87,7 @@ allows a researcher to design and implement an appropriate
 de-identification plan and deliver it to the research support/ business
 intelligence team of an organisation with limited knowledge of the
 sensitive data. The supply of an easy method for de-identifying data
-sets which require little scripting knowledge by Trust staff may aid in
+sets which requires little scripting knowledge by Trust staff may aid in
 overcoming several information governance risks that keep operational
 data siloed within health Trusts.
 
