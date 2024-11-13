@@ -68,15 +68,14 @@ implemented de-identification via:
 
 -   pseudonymization – the consistent replacement of a string by a
     random string
--   encryption
+-   encryption - the consistent replacement of a string by an
+    alpha-numeric hash using an encryption key and salt
 -   shuffling – replacement of columns by a random sample without
     replacement
 -   bluring – the aggregation of numeric or categorical data according
     to specified rules
 -   perturbation – the addition of user-defined random noise to a
     numeric variable
--   encryption - the consistent replacement of a string by an
-    alpha-numeric hash using an encryption key and salt
 
 Following the design principles of the existing tidyverse(Wickham et al.
 2019) domain for ease of adoption. The package includes tools to create
