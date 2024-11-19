@@ -14,3 +14,6 @@ cran-comments\.md
 ^paper*
 knit_pub.R
 preamble.txt
+
+README.md
+^model.yml

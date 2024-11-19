@@ -108,10 +108,8 @@ initialize.pertuber.character <- function(noise, self){
 #' @param noise a single-argument function that applies randomness.
 #' 
 #' @examples 
-#' \dontrun{
 #'   pert <- Perturber$new()
 #'   pert$transform(1:10)
-#' }
 #' 
 #' @export
 Perturber <- R6Class(

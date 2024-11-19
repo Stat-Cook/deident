@@ -1,6 +1,6 @@
 Package: deident
 Type: Package
-Title: An R Package for Data Anonymization
+Title: Persistent Data Anonymization Pipeline
 Version: 1.0.0
 Authors@R: c(
     person("Robert", "Cook", , "robert.cook@staffs.ac.uk", role = c("aut", "cre"),
@@ -12,7 +12,8 @@ Authors@R: c(
   )
 Description: A framework for the replicable removal of personally identifiable data 
     (PID) in data sets.  The package implements a suite of methods to suit different 
-    data types.
+    data types based on the suggestions of  Garfinkel (2015) <doi:10.6028/NIST.IR.8053> 
+    and the ICO "Guidelines on Anonymization" (2012) <https://ico.org.uk/media/1061/anonymisation-code.pdf>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

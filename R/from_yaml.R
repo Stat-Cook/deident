@@ -14,13 +14,13 @@ add_deident <- function(dlist, to_add){
 #' @export
 #' 
 #' @examples
-#' \dontrun{
-#' deident <- deident(ShiftsWorked, Pseudonymizer, Employee)
-#' deident$to_yaml("model.yml")
 #' 
-#' deident.yaml <- from_yaml("model.yml")
+#' deident <- deident(ShiftsWorked, Pseudonymizer, Employee)
+#' .tempfile <- tempfile(fileext = ".yml")
+#' deident$to_yaml(.tempfile)
+#' 
+#' deident.yaml <- from_yaml(.tempfile)
 #' deident.yaml$mutate(ShiftsWorked)
-#' }
 #' 
 #' @importFrom yaml read_yaml
 from_yaml <- function(path){

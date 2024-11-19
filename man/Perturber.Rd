@@ -31,9 +31,7 @@ Character representation of the class
 }}
 
 \examples{
-\dontrun{
   pert <- Perturber$new()
   pert$transform(1:10)
-}
 
 }
