@@ -1,5 +1,5 @@
 ---
-title: "transformations"
+title: "Transformations"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{transformations}
@@ -14,12 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(deident)
-```
-
-# Transformations
-
 Out of the box, `deident` features a set of transformations to aid in the de-identification of data sets.   Each transformation is implemented via `R6Class`  and extends `BaseDeident`.  User defined  transformations can be implemented in a similar manner.
 
 To demonstrate the different transformation we supply a toy data set, `df`, comprising 26 observations of three variables:
@@ -29,6 +23,8 @@ To demonstrate the different transformation we supply a toy data set, `df`, comp
 * C: character, `X` if `B <= 13`, `Y` if `B > 13`
 
 ``` {r, include=F}
+library(deident)
+
 df <- data.frame(
   A = letters, 
   B = 1:26, 
