@@ -94,7 +94,7 @@ data siloed within health Trusts.
 
 Several packages have undergone development for the implementation of
 `encryption` methods to minimize identifiability within data sets
-(e.g. ‘anonymizer’(Hendricks, n.d.), ‘deidentifyr’(Wilkins, n.d.) and
+(e.g. ‘anonymizer’(Hendricks 2017), ‘deidentifyr’(Wilkins 2019) and
 ‘digest’(Antoine Lucas et al. 2021)). While these packages implement a
 variety of encryption tools, such systems are not infallible(Wang and Yu
 2005; Szikora and Lazányi 2022 ) especially if the data being encrypted
@@ -112,7 +112,8 @@ via the other methods included.
 To install the current version of the `deident` package, run the command
 
 ``` r
-devtools::install_github("Stat-Cook/deident")
+# install.packages("pak")
+pak::pkg_install("Stat-Cook/deident")
 ```
 
 The core functionality of the package is the `deident` function. To
@@ -120,21 +121,18 @@ demonstrate functionality we use a subset of the `babynames` data set
 consisting of the final two years.
 
 ``` r
-library(deident)
-
 babynames <- babynames::babynames |> 
-  dplyr::filter(year > 2015) |> 
-  data.frame()
+  dplyr::filter(year > 2015) 
 
 str(babynames)
 ```
 
-    ## 'data.frame':    65448 obs. of  5 variables:
-    ##  $ year: num  2016 2016 2016 2016 2016 ...
-    ##  $ sex : chr  "F" "F" "F" "F" ...
-    ##  $ name: chr  "Emma" "Olivia" "Ava" "Sophia" ...
-    ##  $ n   : int  19471 19327 16283 16112 14772 14415 13080 11747 10957 10773 ...
-    ##  $ prop: num  0.0101 0.01002 0.00844 0.00835 0.00766 ...
+    ## tibble [65,448 × 5] (S3: tbl_df/tbl/data.frame)
+    ##  $ year: num [1:65448] 2016 2016 2016 2016 2016 ...
+    ##  $ sex : chr [1:65448] "F" "F" "F" "F" ...
+    ##  $ name: chr [1:65448] "Emma" "Olivia" "Ava" "Sophia" ...
+    ##  $ n   : int [1:65448] 19471 19327 16283 16112 14772 14415 13080 11747 10957 10773 ...
+    ##  $ prop: num [1:65448] 0.0101 0.01002 0.00844 0.00835 0.00766 ...
 
 The `deident` function produces a pipeline of actions and the variables
 to be transformed, with each subsequent call of `deident` adding a
@@ -144,6 +142,8 @@ data frame or the output of a previous `deident` call.
 The simplest use case is transforming one variable via a single method:
 
 ``` r
+library(deident)
+
 pipeline <- deident(babynames, "psudonymize", name)
 
 apply_deident(babynames, pipeline)
@@ -215,7 +215,7 @@ Gaithersburg, MD: NIST.
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
 
-Hendricks, Paul. n.d. “Anonymizer: Anonymize Data Containing Personally
+Hendricks, Paul. 2017. “Anonymizer: Anonymize Data Containing Personally
 Identifiable Information (PII) in r.”
 <https://github.com/paulhendricks/anonymizer>.
 
@@ -255,7 +255,7 @@ D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
 “Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
 Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
 
-Wilkins, David. n.d. “Deidentifyr.”
+Wilkins, David. 2019. “Deidentifyr.”
 <https://github.com/wilkox/deidentifyr>.
 
 Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.
