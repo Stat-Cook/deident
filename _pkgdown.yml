@@ -28,3 +28,16 @@ reference:
 - title: "R6 Classes"
   contents: 
   - starts_with("[A-Z]")
+articles:
+- title: Articles
+  navbar: ~
+  contents:
+  - rationale
+  - transformations
+  - blur_example
+  - encrypt_example
+  - numeric_blur_example
+  - perturb_example
+  - reusing_methods
+  - shuffle_example
+  - worked_example
