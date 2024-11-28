@@ -55,11 +55,8 @@ devtools::install_github("Stat-Cook/deident")
 The core functionality of the package is the `deident` function. To demonstrate functionality we use a subset of the `babynames` data set consisting of the final two years.  
 
 ``` {r}
-library(deident)
-
 babynames <- babynames::babynames |> 
-  dplyr::filter(year > 2015) |> 
-  data.frame()
+  dplyr::filter(year > 2015) 
 
 str(babynames)
 ```
@@ -70,6 +67,8 @@ The `deident` function produces a pipeline of actions and the variables to be tr
 The simplest use case is  transforming one variable via a single method:
 
 ``` {r, eval=F}
+library(deident)
+
 pipeline <- deident(babynames, "psudonymize", name)
 
 apply_deident(babynames, pipeline)
