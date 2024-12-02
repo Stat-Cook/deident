@@ -26,8 +26,8 @@ To demonstrate the different transformation we supply a toy data set, `df`, comp
 library(deident)
 
 df <- data.frame(
-  A = letters, 
-  B = 1:26, 
+  A = letters,
+  B = 1:26,
   C = sort(rep(c("X", "Y"), 13))
 )
 df
@@ -56,8 +56,8 @@ By default `Pseudonymizer` replaces  values in variables with a random alpha-num
 ``` {r}
 psu <- Pseudonymizer$new()
 
-new_method <- function(key, ...){
-  paste(sample(letters, 12, T), collapse="")
+new_method <- function(key, ...) {
+  paste(sample(letters, 12, T), collapse = "")
 }
 
 psu$set_method(new_method)
@@ -102,7 +102,7 @@ deident(df, encrypt, A)
 At initialization, `Encrypter` can be given `hash_key` and `seed` values to control the cryptographic encryption.  It is recommended users set these values and do not disclose them.
 
 ``` {r}
-encrypt <- Encrypter$new(hash_key="deident_hash_key_123", seed=202)
+encrypt <- Encrypter$new(hash_key = "deident_hash_key_123", seed = 202)
 deident(df, encrypt, A)
 ```
 
@@ -127,7 +127,7 @@ deident(df, perturb, A)
 At initialization, `Perturber` can be given a scale for the white noise via the `sd` argument.  
 
 ``` {r}
-perturb <- Perturber$new(noise=adaptive_noise(0.2))
+perturb <- Perturber$new(noise = adaptive_noise(0.2))
 deident(df, perturb, B)
 ```
 
@@ -165,7 +165,7 @@ deident(df, numeric_blur, B)
 At initialization  `NumericBlurer` takes an argument `cuts` to define the limits of each interval.
 
 ``` {r}
-numeric_blur <- NumericBlurer$new(cuts=c(5, 10, 15, 20))
+numeric_blur <- NumericBlurer$new(cuts = c(5, 10, 15, 20))
 deident(df, numeric_blur, B)
 ```
 
@@ -184,7 +184,7 @@ deident(df, grouped_shuffle, B)
 At initialization  `GroupedShuffler` takes an argument `limit` such that if any aggregated sub group has fewer than `limit` observations all values are dropped.
 
 ``` {r}
-numeric_blur <- GroupedShuffler$new(C, limit=1)
+numeric_blur <- GroupedShuffler$new(C, limit = 1)
 deident(df, numeric_blur, B)
 ```
 

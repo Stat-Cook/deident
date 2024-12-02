@@ -39,14 +39,14 @@ To change the noise, pass one of the functions including the desired level of no
 
 ```{r}
 perturb_pipe_white_noise <- ShiftsWorked |>
-  add_perturb(`Daily Pay`, noise = white_noise(sd=0.3))
+  add_perturb(`Daily Pay`, noise = white_noise(sd = 0.3))
 
 apply_deident(ShiftsWorked, perturb_pipe_white_noise)
 ```
 
 ```{r }
 perturb_pipe_heavy_adaptive_noise <- ShiftsWorked |>
-  add_perturb(`Daily Pay`, noise = adaptive_noise(sd.ratio=0.4))
+  add_perturb(`Daily Pay`, noise = adaptive_noise(sd.ratio = 0.4))
 
 apply_deident(ShiftsWorked, perturb_pipe_heavy_adaptive_noise)
 ```

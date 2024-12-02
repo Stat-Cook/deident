@@ -16,11 +16,11 @@ hook_output <- knit_hooks$get("output")
 knit_hooks$set(output = function(x, options) {
   lines <- options$output.lines
   if (is.null(lines)) {
-    return(hook_output(x, options))  # pass to default hook
+    return(hook_output(x, options)) # pass to default hook
   }
   x <- unlist(strsplit(x, "\n"))
   more <- "..."
-  if (length(lines)==1) {        # first n lines
+  if (length(lines) == 1) { # first n lines
     if (length(x) > lines) {
       # truncate the output, but add ....
       x <- c(head(x, lines), more)
@@ -33,7 +33,7 @@ knit_hooks$set(output = function(x, options) {
   hook_output(x, options)
 })
 
-local_print <- function(x, options, ...){
+local_print <- function(x, options, ...) {
   x <- head(x)
   lemon_print(x, options, ...)
 }
@@ -100,11 +100,11 @@ Often we will need to apply multiple transformations.  Considering the `StaffsWo
 ``` {r, render=local_print}
 blur <- NumericBlurer$new(cuts = c(0, 100, 200, 300))
 
-multistep_pipeline <- ShiftsWorked |> 
-  deident(psu, Employee) |> 
+multistep_pipeline <- ShiftsWorked |>
+  deident(psu, Employee) |>
   deident(blur, `Daily Pay`)
 
-ShiftsWorked |> 
+ShiftsWorked |>
   apply_deident(multistep_pipeline)
 ```
 
@@ -115,7 +115,7 @@ multistep_pipeline$to_yaml("multistep_pipeline.yml")
 
 restored_pipeline <- from_yaml("multistep_pipeline.yml")
 
-ShiftsWorked |> 
+ShiftsWorked |>
   apply_deident(restored_pipeline)
 ```
 

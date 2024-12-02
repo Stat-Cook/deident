@@ -26,8 +26,8 @@ The most direct method of removing identifiability is via 'encryption' which com
 This approach is implemented via the `Encrypter` methods (which uses the `openssl::sha256` implementation by default):
 
 ``` {r}
-name_pipe <- starwars |> 
-  add_encrypt(name, hash_key = "hash123", seed="seed456")
+name_pipe <- starwars |>
+  add_encrypt(name, hash_key = "hash123", seed = "seed456")
 
 apply_deident(starwars, name_pipe)
 ```

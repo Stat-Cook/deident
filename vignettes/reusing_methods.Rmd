@@ -42,7 +42,6 @@ reused_pipe <- combined.frm |>
   deident(psu, ID)
 
 apply_deident(combined.frm, reused_pipe)
-
 ```
 
 Since the first 5 lines of `combined.frm$ID` are the same as `starwars$ID` the first 5 lines of each transformed data set are also the same.

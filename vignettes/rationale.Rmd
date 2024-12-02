@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-
 ```
 
 This package deals with methods for handling personally identifiable features in data sets and hence we should address the point of why this is useful and necessary.
