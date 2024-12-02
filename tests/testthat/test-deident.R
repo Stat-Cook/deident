@@ -6,7 +6,7 @@ df <- data.frame(
   E = rnorm(100, 0, 4)
 )
 
-nb <- NumericBlurer$new()
+nb <- NumericBlurrer$new()
 
 test_that(
   "deident single step",
@@ -53,7 +53,7 @@ test_that(
     deidentlist.ADE <- deident(df) |>
       deident("encrypt", A) |>
       deident(nb, D) |>
-      deident("NumericBlurer", E, cuts = c(-2, 0, 2))
+      deident("NumericBlurrer", E, cuts = c(-2, 0, 2))
 
     df.mut.ADE <- deidentlist.ADE$mutate(df)
     expect_equal(dim(df), dim(df.mut.ADE))
@@ -71,7 +71,7 @@ test_that(
     deidentlist.ADE <- deident(df) |>
       deident("encrypt", A) |>
       deident(nb, D) |>
-      deident("NumericBlurer", E, cuts = c(-2, 0, 2))
+      deident("NumericBlurrer", E, cuts = c(-2, 0, 2))
 
     deidentlist.ADE$to_yaml("deidentListADE.yml")
     withr::defer(fs::file_delete("deidentListADE.yml"))

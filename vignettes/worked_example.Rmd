@@ -98,7 +98,7 @@ unlist(psu$lookup)
 Often we will need to apply multiple transformations.  Considering the `StaffsWorked` data, imagine the employees are complaining they don't want their exact salaries divulged (even once names are removed).  We can expand the pipeline to allow for this:
 
 ``` {r, render=local_print}
-blur <- NumericBlurer$new(cuts = c(0, 100, 200, 300))
+blur <- NumericBlurrer$new(cuts = c(0, 100, 200, 300))
 
 multistep_pipeline <- ShiftsWorked |>
   deident(psu, Employee) |>

@@ -23,7 +23,7 @@ test_that(
     enc <- Encrypter$new(hash_key = "qwerty", seed = 101)
 
     dl <- deident(enc, A) |>
-      deident(NumericBlurer, C)
+      deident(NumericBlurrer, C)
 
     yaml::write_yaml(serialize(dl), "temp.yml")
 

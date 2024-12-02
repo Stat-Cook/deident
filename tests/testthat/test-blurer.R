@@ -1,4 +1,4 @@
-test_that("Blurer works", {
+test_that("Blurrer works", {
   #' @importFrom checkmate expect_character expect_data_frame
   n <- 40
   df <- data.frame(
@@ -7,7 +7,7 @@ test_that("Blurer works", {
   )
 
   blur <- list(A = "Up", B = "Down")
-  .tra <- Blurer$new(blur)
+  .tra <- Blurrer$new(blur)
 
   expect_character(.tra$transform(df$A))
   expect_equal(length(.tra$transform(df$A)), n)

@@ -13,8 +13,8 @@ test_that("apply_transformer.BaseDeident methods", {
   shuf <- Shuffler$new()
   enc <- Encrypter$new()
   pert <- Perturber$new()
-  blur <- Blurer$new(list(A = "Up", B = "Up", C = "Down"))
-  num.blur <- NumericBlurer$new(cuts = c(-2, 0, 2))
+  blur <- Blurrer$new(list(A = "Up", B = "Up", C = "Down"))
+  num.blur <- NumericBlurrer$new(cuts = c(-2, 0, 2))
 
   expect_length(apply_transformer(str.vec, psu), n)
   expect_length(apply_transformer(str.vec, shuf), n)
@@ -39,9 +39,9 @@ test_that("apply_transformer.character methods", {
   expect_length(apply_transformer(int.vec, "Perturber"), n)
   expect_length(apply_transformer(int.vec, "perturb"), n)
 
-  expect_length(apply_transformer(str.vec, "Blurer"), n)
+  expect_length(apply_transformer(str.vec, "Blurrer"), n)
   expect_length(apply_transformer(str.vec, "blur"), n)
 
-  expect_length(apply_transformer(int.vec, "NumericBlurer"), n)
+  expect_length(apply_transformer(int.vec, "NumericBlurrer"), n)
   expect_length(apply_transformer(int.vec, "numeric_blur"), n)
 })

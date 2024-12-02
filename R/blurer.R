@@ -27,14 +27,14 @@ blur <- function(vec, .blur) {
 #' list(London = "England", Paris = "France").
 #'
 #' @export
-Blurer <- R6Class(
-  "Blurer", list(
+Blurrer <- R6Class(
+  "Blurrer", list(
     #' @field blur List of aggregations to be applied.
     blur = NA,
 
-    #' Create new Blurer object
+    #' Create new Blurrer object
     #' @param blur   Look-up list to define aggregation.
-    #' @return `Blurer`
+    #' @return `Blurrer`
     initialize = function(blur = c()) {
       self$blur <- blur
       self$method <- function(keys) blur(keys, self$blur)

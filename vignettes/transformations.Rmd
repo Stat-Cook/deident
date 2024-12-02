@@ -131,7 +131,7 @@ perturb <- Perturber$new(noise = adaptive_noise(0.2))
 deident(df, perturb, B)
 ```
 
-## Blurer
+## Blurrer
 
 Aggregate categorical values dependent on a user supplied list.  the list must be supplied to `Blur` at initialization.
 
@@ -141,31 +141,31 @@ Implemented `deident` options:
 letter_blur <- c(rep("Early", 13), rep("Late", 13))
 names(letter_blur) <- letters
 
-blur <- Blurer$new(blur = letter_blur)
+blur <- Blurrer$new(blur = letter_blur)
 deident(df, blur, A)
 ```
 
-## NumericBlurer
+## NumericBlurrer
 
-Aggregate numeric values dependent on a user supplied vector of breaks/ cuts.  If no vector is supplied `NumericBlurer` defaults to a binary classification about 0.
+Aggregate numeric values dependent on a user supplied vector of breaks/ cuts.  If no vector is supplied `NumericBlurrer` defaults to a binary classification about 0.
 
 Implemented `deident` options:
 
 ``` {r, eval=F}
 deident(df, "numeric_blur", B)
-deident(df, "NumericBlurer", B)
-deident(df, NumericBlurer, B)
-deident(df, NumericBlurer$new(), B)
+deident(df, "NumericBlurrer", B)
+deident(df, NumericBlurrer, B)
+deident(df, NumericBlurrer$new(), B)
 
-numeric_blur <- NumericBlurer$new()
+numeric_blur <- NumericBlurrer$new()
 deident(df, numeric_blur, B)
 ```
 ### Options
 
-At initialization  `NumericBlurer` takes an argument `cuts` to define the limits of each interval.
+At initialization  `NumericBlurrer` takes an argument `cuts` to define the limits of each interval.
 
 ``` {r}
-numeric_blur <- NumericBlurer$new(cuts = c(5, 10, 15, 20))
+numeric_blur <- NumericBlurrer$new(cuts = c(5, 10, 15, 20))
 deident(df, numeric_blur, B)
 ```
 

@@ -189,7 +189,7 @@ add_blur <- function(object, ..., blur = c()) {
   new_deident(object,
     ...,
     blur = {{ blur }},
-    encrypter = Blurer
+    encrypter = Blurrer
   )
 }
 
@@ -214,7 +214,7 @@ add_numeric_blur <- function(object, ..., cuts = 0) {
   new_deident(object,
     ...,
     cuts = {{ cuts }},
-    encrypter = NumericBlurer
+    encrypter = NumericBlurrer
   )
 }
 
