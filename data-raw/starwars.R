@@ -5,4 +5,3 @@ library(dplyr)
 print("Importing starwars Data")
 
 usethis::use_data(starwars, overwrite = TRUE)
-
