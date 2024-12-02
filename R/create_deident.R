@@ -1,7 +1,7 @@
 #' Create a deident pipeline 
 #' 
 #' @param method A deidentifier to initialize.
-#' @param ... list of variables to be deidentifier. NB: key word arguments will 
+#' @param ... list of variables to be deidentified. NB: key word arguments will 
 #' be passed to method at initialization.
 #' 
 #' @export
