@@ -398,11 +398,11 @@ removed). We can expand the pipeline to allow for this:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/NumericBlurer.html">NumericBlurer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>cuts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">300</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">multistep_pipeline</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">psu</span>, <span class="va">Employee</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">multistep_pipeline</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">psu</span>, <span class="va">Employee</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">blur</span>, <span class="va">`Daily Pay`</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">multistep_pipeline</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -489,7 +489,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 <span></span>
 <span><span class="va">restored_pipeline</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/from_yaml.html">from_yaml</a></span><span class="op">(</span><span class="st">"multistep_pipeline.yml"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">restored_pipeline</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>

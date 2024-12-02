@@ -129,7 +129,7 @@ vector, build a pipeline and apply it to the data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">shift_blur</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Day"</span> <span class="op">=</span> <span class="st">"Working"</span>, <span class="st">"Night"</span> <span class="op">=</span> <span class="st">"Working"</span><span class="op">)</span></span>
 <span><span class="va">blur_pipe</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/add_blur.html">add_blur</a></span><span class="op">(</span><span class="va">Shift</span>, blur<span class="op">=</span><span class="va">shift_blur</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/add_blur.html">add_blur</a></span><span class="op">(</span><span class="va">Shift</span>, blur <span class="op">=</span> <span class="va">shift_blur</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">blur_pipe</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,100 × 7</span></span></span>
@@ -200,8 +200,8 @@ groups.</p>
 before.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">species_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/add_blur.html">add_blur</a></span><span class="op">(</span><span class="va">species</span>, blur<span class="op">=</span><span class="va">human_blur</span><span class="op">)</span></span>
-<span>  </span>
+<span>  <span class="fu"><a href="../reference/add_blur.html">add_blur</a></span><span class="op">(</span><span class="va">species</span>, blur <span class="op">=</span> <span class="va">human_blur</span><span class="op">)</span></span>
+<span></span>
 <span><span class="va">new_starwars</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">species_pipe</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">new_starwars</span><span class="op">$</span><span class="va">species</span><span class="op">)</span></span>

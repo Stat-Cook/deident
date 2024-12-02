@@ -148,7 +148,7 @@ package in production code.</p>
 level of noise.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">perturb_pipe_white_noise</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/add_perturb.html">add_perturb</a></span><span class="op">(</span><span class="va">`Daily Pay`</span>, noise <span class="op">=</span> <span class="fu"><a href="../reference/white_noise.html">white_noise</a></span><span class="op">(</span>sd<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/add_perturb.html">add_perturb</a></span><span class="op">(</span><span class="va">`Daily Pay`</span>, noise <span class="op">=</span> <span class="fu"><a href="../reference/white_noise.html">white_noise</a></span><span class="op">(</span>sd <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">perturb_pipe_white_noise</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,100 × 7</span></span></span>
@@ -167,7 +167,7 @@ level of noise.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3,090 more rows</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">perturb_pipe_heavy_adaptive_noise</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/add_perturb.html">add_perturb</a></span><span class="op">(</span><span class="va">`Daily Pay`</span>, noise <span class="op">=</span> <span class="fu"><a href="../reference/adaptive_noise.html">adaptive_noise</a></span><span class="op">(</span>sd.ratio<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/add_perturb.html">add_perturb</a></span><span class="op">(</span><span class="va">`Daily Pay`</span>, noise <span class="op">=</span> <span class="fu"><a href="../reference/adaptive_noise.html">adaptive_noise</a></span><span class="op">(</span>sd.ratio <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">perturb_pipe_heavy_adaptive_noise</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,100 × 7</span></span></span>

@@ -142,8 +142,8 @@ with the desired function:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">psu</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Pseudonymizer.html">Pseudonymizer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">new_method</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">key</span>, <span class="va">...</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">12</span>, <span class="cn">T</span><span class="op">)</span>, collapse<span class="op">=</span><span class="st">""</span><span class="op">)</span></span>
+<span><span class="va">new_method</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">key</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span>, <span class="fl">12</span>, <span class="cn">T</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="va">psu</span><span class="op">$</span><span class="fu">set_method</span><span class="op">(</span><span class="va">new_method</span><span class="op">)</span></span>
@@ -192,7 +192,7 @@ transformed.</p>
 cryptographic encryption. It is recommended users set these values and
 do not disclose them.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">encrypt</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Encrypter.html">Encrypter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>hash_key<span class="op">=</span><span class="st">"deident_hash_key_123"</span>, seed<span class="op">=</span><span class="fl">202</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">encrypt</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Encrypter.html">Encrypter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>hash_key <span class="op">=</span> <span class="st">"deident_hash_key_123"</span>, seed <span class="op">=</span> <span class="fl">202</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">encrypt</span>, <span class="va">A</span><span class="op">)</span></span>
 <span><span class="co">#&gt; DeidentList</span></span>
 <span><span class="co">#&gt;    1 step(s) implemented </span></span>
@@ -220,7 +220,7 @@ do not disclose them.</p>
 <p>At initialization, <code>Perturber</code> can be given a scale for
 the white noise via the <code>sd</code> argument.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">perturb</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Perturber.html">Perturber</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>noise<span class="op">=</span><span class="fu"><a href="../reference/adaptive_noise.html">adaptive_noise</a></span><span class="op">(</span><span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">perturb</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Perturber.html">Perturber</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>noise <span class="op">=</span> <span class="fu"><a href="../reference/adaptive_noise.html">adaptive_noise</a></span><span class="op">(</span><span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">perturb</span>, <span class="va">B</span><span class="op">)</span></span>
 <span><span class="co">#&gt; DeidentList</span></span>
 <span><span class="co">#&gt;    1 step(s) implemented </span></span>
@@ -263,7 +263,7 @@ defaults to a binary classification about 0.</p>
 <p>At initialization <code>NumericBlurer</code> takes an argument
 <code>cuts</code> to define the limits of each interval.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">numeric_blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/NumericBlurer.html">NumericBlurer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>cuts<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">numeric_blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/NumericBlurer.html">NumericBlurer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>cuts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">numeric_blur</span>, <span class="va">B</span><span class="op">)</span></span>
 <span><span class="co">#&gt; DeidentList</span></span>
 <span><span class="co">#&gt;    1 step(s) implemented </span></span>
@@ -289,7 +289,7 @@ initialization.</p>
 <code>limit</code> such that if any aggregated sub group has fewer than
 <code>limit</code> observations all values are dropped.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">numeric_blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GroupedShuffler.html">GroupedShuffler</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">C</span>, limit<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">numeric_blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GroupedShuffler.html">GroupedShuffler</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">C</span>, limit <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">numeric_blur</span>, <span class="va">B</span><span class="op">)</span></span>
 <span><span class="co">#&gt; DeidentList</span></span>
 <span><span class="co">#&gt;    1 step(s) implemented </span></span>
