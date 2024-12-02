@@ -1,7 +1,7 @@
-serialize.desc <- function(){
+serialize.desc <- function() {
   "Convert `self` to a list."
 }
 
-transform.desc <- function(){
+transform.desc <- function() {
   "Apply the deidentifcation method to the supplied `keys`"
 }

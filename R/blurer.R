@@ -4,17 +4,17 @@
 #   }
 #   return(key)
 # }
-# 
+#
 # blur <- Vectorize(blur.f, "key")
 
 
-blur <- function(vec, .blur){
+blur <- function(vec, .blur) {
   corrected <- names(.blur)
   not_in_blur <- setdiff(unique(vec), corrected)
-  
+
   names(not_in_blur) <- not_in_blur
   compelete.blur <- c(.blur, not_in_blur)
-  
+
   simplify(compelete.blur[vec])
 }
 
@@ -35,28 +35,24 @@ Blurer <- R6Class(
     #' Create new Blurer object
     #' @param blur   Look-up list to define aggregation.
     #' @return `Blurer`
-    initialize = function(blur = c()){
-      self$blur = blur
-      self$method = function(keys) blur(keys, self$blur)
+    initialize = function(blur = c()) {
+      self$blur <- blur
+      self$method <- function(keys) blur(keys, self$blur)
     },
 
     #' Apply blur to a vector of values
     #' @param keys Vector of values to be processed
     #' @param ... Values to be concatenated to keys
-    transform = function(keys, ...){
+    transform = function(keys, ...) {
       keys <- c(keys, ...)
       self$method(keys)
     },
 
-    #' @description 
+    #' @description
     #' `r serialize.desc()`
-    serialize = function(){
+    serialize = function() {
       super$serialize(blur = self$blur)
     }
   ),
   inherit = BaseDeident
 )
-
-
-
-

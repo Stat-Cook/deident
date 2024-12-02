@@ -1,13 +1,13 @@
 
 UserDefinedDeident <- R6Class(
   "UserDefinedDeident", list(
-    initialize = function(method){
-      self$method = method
+    initialize = function(method) {
+      self$method <- method
     }
   ),
   inherit = BaseDeident
 )
 
-deident_from_func <- function(method){
+deident_from_func <- function(method) {
   UserDefinedDeident$new(method)
 }

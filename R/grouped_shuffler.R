@@ -23,7 +23,7 @@ GroupedShuffler <- R6Class(
     #' Create new GroupedShuffler object
     #' @param ... \[optional\] The columns of the to-be supplied data set to
     #' aggregate on.
-    initialize = function(..., limit=0){
+    initialize = function(..., limit = 0) {
       self$group_on <- enquos(...)
       self$set_method(sample)
       self$set_limit(limit)
@@ -32,35 +32,35 @@ GroupedShuffler <- R6Class(
     #' Aggregate a data frame and apply 'mutate' to each.
     #' @param data A data frame to be manipulated
     #' @param ... Vector of variables in 'data' to transform.
-    mutate = function(data, ...){
+    mutate = function(data, ...) {
       group_by(data, !!!self$group_on) %>%
         group_modify(private$group_mutate, ...)
     },
 
-    #' @description 
+    #' @description
     #' `r serialize.desc()`
-    serialize = function(){
+    serialize = function() {
       super$serialize(dots = dots_as_labels(!!!self$group_on))
     },
 
-    #' @description 
+    #' @description
     #' Character representation of the class
-    str = function(){
+    str = function() {
       labels <- quosure_as_labels(self$group_on)
       super.str <- super$str()
       glue("{super.str}(group_on={paste(labels, collapse=', ')})")
     }
   ),
   private = list(
-    group_mutate = function(data, groups, ...){
-      if (nrow(data) <= self$limit){
+    group_mutate = function(data, groups, ...) {
+      if (nrow(data) <= self$limit) {
         null.func <- function(i) rep(NA, length(i))
         return(
           mutate(data, across(c(...), null.func))
         )
       }
 
-      if (nrow(data) == 1){
+      if (nrow(data) == 1) {
         return(data)
       }
 
@@ -69,5 +69,3 @@ GroupedShuffler <- R6Class(
   ),
   inherit = Shuffler
 )
-
-

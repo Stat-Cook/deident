@@ -1,8 +1,6 @@
-#' @description 
-#' Convert `self` to a list 
+#' @description
+#' Convert `self` to a list
 #' @noRd
-serialize <- function(x, ...){
+serialize <- function(x, ...) {
   UseMethod("serialize", x)
 }
-
-

@@ -1,7 +1,7 @@
-encrypt_256 <- function(values, key, seed){
+encrypt_256 <- function(values, key, seed) {
   #' @importFrom openssl sha256
-  seeded_values <- paste(values, seed, sep="")
-  sha256(seeded_values, key=key)
+  seeded_values <- paste(values, seed, sep = "")
+  sha256(seeded_values, key = key)
 }
 
 
@@ -26,10 +26,10 @@ Encrypter <- R6Class(
     #' @param seed An alpha numeric key which is concatenated to
     #'     minimize brute force attacks
     #' @return `Encrypter`
-    initialize = function(hash_key='', seed=NA){
+    initialize = function(hash_key = "", seed = NA) {
       self$hash_key <- hash_key
       self$seed <- seed
-      self$method = function(values) {
+      self$method <- function(values) {
         encrypt_256(values, self$hash_key, self$seed)
       }
     },
@@ -37,15 +37,15 @@ Encrypter <- R6Class(
     #' Apply blur to a vector of values
     #' @param keys Vector of values to be processed
     #' @param ... Values to be concatenated to keys
-    transform = function(keys, ...){
+    transform = function(keys, ...) {
       keys <- c(keys, ...)
       self$method(keys)
     },
 
-    #' @description 
+    #' @description
     #' `r serialize.desc()`
-    serialize = function(){
-      super$serialize(hash_key=self$hash_key, seed=self$seed)
+    serialize = function() {
+      super$serialize(hash_key = self$hash_key, seed = self$seed)
     }
   ),
   inherit = BaseDeident

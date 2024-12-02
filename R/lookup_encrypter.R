@@ -1,41 +1,40 @@
 # LookupEncrypter
 
 
-LookupEncrypter <- R6Class("LookupEncrypter",list(
-    lookup = c(),
-    initialize = function(hash_key='', seed=NA,
-                          lookup.keys=c(), lookup.values=c()){
-      self$hash_key <- hash_key
-      self$seed <- seed
+LookupEncrypter <- R6Class("LookupEncrypter", list(
+  lookup = c(),
+  initialize = function(hash_key = "", seed = NA,
+                        lookup.keys = c(), lookup.values = c()) {
+    self$hash_key <- hash_key
+    self$seed <- seed
 
-      self$lookup <- lookup.values
-      names(self$lookup) <- lookup.keys
+    self$lookup <- lookup.values
+    names(self$lookup) <- lookup.keys
 
-      self$method = function(values) {
+    self$method <- function(values) {
+      values <- as.character(values)
 
-        values <- as.character(values)
+      .uni <- unique(values)
+      to_add <- .uni[!.uni %in% names(self$lookup)]
 
-        .uni <- unique(values)
-        to_add <- .uni[!.uni %in% names(self$lookup)]
+      if (length(to_add)) {
+        converted <- encrypt_256(to_add, self$hash_key, self$seed)
+        names(converted) <- to_add
 
-        if (length(to_add)){
-
-          converted <- encrypt_256(to_add, self$hash_key, self$seed)
-          names(converted) <- to_add
-
-          self$lookup <- append(self$lookup, converted)
-        }
-
-        self$lookup[values]
-
+        self$lookup <- append(self$lookup, converted)
       }
-    },
-    key_frame = function(){
-      dplyr::tibble(Key = names(self$lookup),
-                    Value = self$lookup)
+
+      self$lookup[values]
     }
-  ),
-  inherit = Encrypter
+  },
+  key_frame = function() {
+    dplyr::tibble(
+      Key = names(self$lookup),
+      Value = self$lookup
+    )
+  }
+),
+inherit = Encrypter
 )
 
 # enc <- LookupEncrypter$new()
