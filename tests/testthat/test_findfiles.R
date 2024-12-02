@@ -5,9 +5,9 @@ paths <- c()
 
 q <- 10
 
-for (ext in file.extensions){
+for (ext in file.extensions) {
   dir.create(file.path(root, ext))
-  for (i in seq_len(q)){
+  for (i in seq_len(q)) {
     file <- glue::glue("Test {i}.{ext}")
     fp <- file.path("Test_files", ext, file)
 
@@ -17,7 +17,7 @@ for (ext in file.extensions){
 
 .files <- find_files("Test_files", file.extensions)
 
-unlink("Test_files",recursive = TRUE)
+unlink("Test_files", recursive = TRUE)
 
 expect_true(length(.files) == 30)
 
@@ -25,5 +25,3 @@ expect_true(length(.files) == 30)
 expect_true(
   all(.classes %in% c("csv_path", "xls_path", "xlsx_path"))
 )
-
-

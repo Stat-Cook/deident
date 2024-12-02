@@ -15,5 +15,4 @@ test_that("Blurer works", {
   .mut <- .tra$mutate(df, A)
   expect_data_frame(.mut)
   expect_equal(nrow(.mut), n)
-
 })

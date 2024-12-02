@@ -4,12 +4,11 @@ df <- data.frame(
   A = sample(LETTERS[1:4], n, T),
   B = rnorm(n)
 )
-df[40,1] <- "E"
+df[40, 1] <- "E"
 
 .tra <- LimitedShuffler$new()
 
 test_that("LimitedShuffler works", {
-
   expect_character(.tra$transform(df$A))
   expect_equal(length(.tra$transform(df$A)), n)
 
@@ -23,7 +22,6 @@ test_that("LimitedShuffler works", {
   .mut <- .tra$mutate(df, B)
   expect_data_frame(.mut)
   expect_equal(nrow(.mut), n)
-
 })
 
 test_that("Grouped Shuffler works", {

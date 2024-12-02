@@ -8,7 +8,6 @@ df <- data.frame(
 .tra <- Shuffler$new()
 
 test_that("Shuffler works", {
-
   expect_character(.tra$transform(df$A))
   expect_equal(length(.tra$transform(df$A)), n)
 
@@ -22,7 +21,6 @@ test_that("Shuffler works", {
   .mut <- .tra$mutate(df, B)
   expect_data_frame(.mut)
   expect_equal(nrow(.mut), n)
-
 })
 
 test_that("Grouped Shuffler works", {
@@ -35,5 +33,3 @@ test_that("Grouped Shuffler works", {
 
   expect_equal(df.ave$Ave, shuffled.ave$Ave)
 })
-
-

@@ -3,7 +3,7 @@ df <- data.frame(
   B = sample(letters[1:4], 100, T),
   C = sample(letters[1:4], 100, T),
   D = rnorm(100),
-  E = rnorm(100,0, 4)
+  E = rnorm(100, 0, 4)
 )
 
 nb <- NumericBlurer$new()
@@ -19,7 +19,6 @@ test_that(
 
     expect_true(all(df$A != df.mut.A$A))
     expect_true(all(select(df, -A) == select(df.mut.A, -A)))
-
   }
 )
 
@@ -45,7 +44,6 @@ test_that(
     expect_true(all(select(df, -A) == select(df.mut.A.yml, -A)))
 
     expect_true(all(df.mut.A == df.mut.A.yml))
-
   }
 )
 
@@ -55,7 +53,7 @@ test_that(
     deidentlist.ADE <- deident(df) |>
       deident("encrypt", A) |>
       deident(nb, D) |>
-      deident("NumericBlurer", E, cuts=c(-2,0,2))
+      deident("NumericBlurer", E, cuts = c(-2, 0, 2))
 
     df.mut.ADE <- deidentlist.ADE$mutate(df)
     expect_equal(dim(df), dim(df.mut.ADE))
@@ -64,7 +62,6 @@ test_that(
     expect_true(all(df$D != df.mut.ADE$D))
     expect_true(all(df$E != df.mut.ADE$E))
     expect_true(all(select(df, -c(A, D, E)) == select(df.mut.ADE, -c(A, D, E))))
-
   }
 )
 
@@ -74,7 +71,7 @@ test_that(
     deidentlist.ADE <- deident(df) |>
       deident("encrypt", A) |>
       deident(nb, D) |>
-      deident("NumericBlurer", E, cuts=c(-2,0,2))
+      deident("NumericBlurer", E, cuts = c(-2, 0, 2))
 
     deidentlist.ADE$to_yaml("deidentListADE.yml")
     withr::defer(fs::file_delete("deidentListADE.yml"))
@@ -94,14 +91,12 @@ test_that(
     expect_true(all(select(df, -c(A, D, E)) == select(df.mut.ADE.yml, -c(A, D, E))))
 
     expect_true(all(df.mut.ADE == df.mut.ADE.yml))
-
   }
 )
 
 test_that(
   "deident different methods test",
   {
-
     dl.character <- deident("encrypt", A)
     dl.generator <- deident(Encrypter, A)
     enc <- Encrypter$new()
@@ -132,12 +127,12 @@ test_that(
   "deident different methods with init list test",
   {
     key <<- "KEY"
-  
-    dl.character <- deident("encrypt", A, hash_key=key)
-    dl.generator <- deident(Encrypter, A, hash_key=key)
-    enc <- Encrypter$new(hash_key=key)
+
+    dl.character <- deident("encrypt", A, hash_key = key)
+    dl.generator <- deident(Encrypter, A, hash_key = key)
+    enc <- Encrypter$new(hash_key = key)
     dl.R6 <- deident(enc, A)
-  
+
     df.character <- dl.character$mutate(df)
     df.generator <- dl.generator$mutate(df)
     df.R6 <- dl.R6$mutate(df)
@@ -156,30 +151,29 @@ test_that(
 
     expect_true(all(df.character == df.generator))
     expect_true(all(df.character == df.R6))
-
   }
 )
 
 test_that(
   "Deident from Generator",
   {
-    dl <- deident(ShiftsWorked,Pseudonymizer, Employee, lookup=list(Bob="asjkdha"))
+    dl <- deident(ShiftsWorked, Pseudonymizer, Employee, lookup = list(Bob = "asjkdha"))
     d <- dl$deident_methods[[1]]
-    .vars <- purrr::map(d$variables, rlang::quo_get_expr) 
-    
+    .vars <- purrr::map(d$variables, rlang::quo_get_expr)
+
     expect_equal(
       .vars[[1]],
       as.name("Employee")
     )
-    
+
     expect_equal(
       length(.vars),
       1
     )
-    
+
     expect_equal(
       d$method$lookup,
-      list(Bob="asjkdha")
+      list(Bob = "asjkdha")
     )
   }
 )
@@ -187,26 +181,25 @@ test_that(
 test_that(
   "Deident from object",
   {
-    
-    psu <- Pseudonymizer$new(lookup=list(Bob="asjkdha"))
-    
-    dl <- deident(ShiftsWorked,psu, Employee)
+    psu <- Pseudonymizer$new(lookup = list(Bob = "asjkdha"))
+
+    dl <- deident(ShiftsWorked, psu, Employee)
     d <- dl$deident_methods[[1]]
-    .vars <- purrr::map(d$variables, rlang::quo_get_expr) 
-    
+    .vars <- purrr::map(d$variables, rlang::quo_get_expr)
+
     expect_equal(
       .vars[[1]],
       as.name("Employee")
     )
-    
+
     expect_equal(
       length(.vars),
       1
     )
-    
+
     expect_equal(
       d$method$lookup,
-      list(Bob="asjkdha")
+      list(Bob = "asjkdha")
     )
   }
 )
@@ -215,35 +208,31 @@ test_that(
 test_that(
   "Deident from character",
   {
-    dl <- deident(ShiftsWorked, "Pseudonymizer", Employee, lookup=list(Bob="asjkdha"))
+    dl <- deident(ShiftsWorked, "Pseudonymizer", Employee, lookup = list(Bob = "asjkdha"))
     d <- dl$deident_methods[[1]]
-    .vars <- purrr::map(d$variables, rlang::quo_get_expr) 
-    
+    .vars <- purrr::map(d$variables, rlang::quo_get_expr)
+
     expect_equal(
       .vars[[1]],
       as.name("Employee")
     )
-    
+
     expect_equal(
       length(.vars),
       1
     )
-    
+
     expect_equal(
       d$method$lookup,
-      list(Bob="asjkdha")
+      list(Bob = "asjkdha")
     )
   }
 )
 
-test_that("auxillary tests",{
-  
+test_that("auxillary tests", {
   new.data <- apply_to_data_frame(ShiftsWorked, Pseudonymizer, Employee)
-  
+
   expect_true(all(
     new.data$Employee != ShiftsWorked$Employee
   ))
-  
-  
-  
 })

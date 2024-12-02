@@ -26,7 +26,7 @@ test_that(
   "apply_to_data_frame.DeidentTask methods",
   {
     enc_task <- create_deident("Encrypter", A)
-    
+
     df_DeidentTask <- apply_to_data_frame(df, enc_task)
     expect_equal(dim(df), dim(df_DeidentTask))
     expect_equal(colnames(df), colnames(df_DeidentTask))

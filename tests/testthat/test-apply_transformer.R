@@ -6,7 +6,6 @@ str.vec <- sample(LETTERS[1:4], n, T)
 
 test_that("apply_transformer.default fails", {
   expect_error(apply_transformer(int.vec, mean))
-
 })
 
 test_that("apply_transformer.BaseDeident methods", {
@@ -14,8 +13,8 @@ test_that("apply_transformer.BaseDeident methods", {
   shuf <- Shuffler$new()
   enc <- Encrypter$new()
   pert <- Perturber$new()
-  blur <- Blurer$new(list(A="Up", B="Up", C="Down"))
-  num.blur <- NumericBlurer$new(cuts=c(-2, 0, 2))
+  blur <- Blurer$new(list(A = "Up", B = "Up", C = "Down"))
+  num.blur <- NumericBlurer$new(cuts = c(-2, 0, 2))
 
   expect_length(apply_transformer(str.vec, psu), n)
   expect_length(apply_transformer(str.vec, shuf), n)
