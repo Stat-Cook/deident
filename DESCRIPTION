@@ -24,7 +24,8 @@ Suggests:
     checkmate,
     knitr,
     rmarkdown,
-    roxygen2
+    roxygen2,
+    covr
 Imports:
     R6,
     dplyr,
