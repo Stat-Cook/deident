@@ -123,7 +123,7 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Basic usage; </span></span></span>
+<span class="r-in"><span><span class="co"># Basic usage;</span></span></span>
 <span class="r-in"><span><span class="va">pipe.shuffle</span> <span class="op">&lt;-</span> <span class="fu">add_shuffle</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.shuffle</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
@@ -141,7 +141,7 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 Brian Jon… 2015-01-01 Night 16:01         00:01             242. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,090 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">pipe.shuffle.limit</span> <span class="op">&lt;-</span> <span class="fu">add_shuffle</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span>, limit<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pipe.shuffle.limit</span> <span class="op">&lt;-</span> <span class="fu">add_shuffle</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">Employee</span>, limit <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.shuffle.limit</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee   Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>

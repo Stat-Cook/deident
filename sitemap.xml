@@ -17,11 +17,11 @@
 <url><loc>/news/index.html</loc></url>
 <url><loc>/paper.html</loc></url>
 <url><loc>/reference/BaseDeident.html</loc></url>
-<url><loc>/reference/Blurer.html</loc></url>
+<url><loc>/reference/Blurrer.html</loc></url>
 <url><loc>/reference/Drop.html</loc></url>
 <url><loc>/reference/Encrypter.html</loc></url>
 <url><loc>/reference/GroupedShuffler.html</loc></url>
-<url><loc>/reference/NumericBlurer.html</loc></url>
+<url><loc>/reference/NumericBlurrer.html</loc></url>
 <url><loc>/reference/Perturber.html</loc></url>
 <url><loc>/reference/Pseudonymizer.html</loc></url>
 <url><loc>/reference/ShiftsWorked.html</loc></url>
