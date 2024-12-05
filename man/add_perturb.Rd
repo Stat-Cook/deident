@@ -36,10 +36,10 @@ specified variable is transformed by the \code{noise} function.
 pipe.perturb <- add_perturb(ShiftsWorked, `Daily Pay`)
 pipe.perturb$mutate(ShiftsWorked)
 
-pipe.perturb.white_noise <- add_perturb(ShiftsWorked, `Daily Pay`, noise=white_noise(0.1))
+pipe.perturb.white_noise <- add_perturb(ShiftsWorked, `Daily Pay`, noise = white_noise(0.1))
 pipe.perturb.white_noise$mutate(ShiftsWorked)
 
-pipe.perturb.noisy_adaptive <- add_perturb(ShiftsWorked, `Daily Pay`, noise=adaptive_noise(1))
+pipe.perturb.noisy_adaptive <- add_perturb(ShiftsWorked, `Daily Pay`, noise = adaptive_noise(1))
 pipe.perturb.noisy_adaptive$mutate(ShiftsWorked)
 }
 \seealso{

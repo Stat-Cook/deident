@@ -39,9 +39,9 @@ via  an encryption hashing function depending on the \code{hash_key} and \code{s
 pipe.encrypt <- add_encrypt(ShiftsWorked, Employee)
 pipe.encrypt$mutate(ShiftsWorked)
 
-# Once set the encryption is more secure assuming `hash_key` and `seed` are 
+# Once set the encryption is more secure assuming `hash_key` and `seed` are
 # not exposed.
-pipe.encrypt.secure <- add_encrypt(ShiftsWorked, Employee, hash_key="hash1", seed="Seed2")
+pipe.encrypt.secure <- add_encrypt(ShiftsWorked, Employee, hash_key = "hash1", seed = "Seed2")
 pipe.encrypt.secure$mutate(ShiftsWorked)
 
 }

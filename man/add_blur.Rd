@@ -37,7 +37,7 @@ are recoded to a lower cardinality as defined by \code{blur}.
 .blur <- category_blur(ShiftsWorked$Shift, `Working` = "Day|Night")
 pipe.blur <- add_blur(ShiftsWorked, `Shift`, blur = .blur)
 pipe.blur$mutate(ShiftsWorked)
- 
+
 }
 \seealso{
 \code{\link[=category_blur]{category_blur()}} is provided to aid in defining the \code{blur}

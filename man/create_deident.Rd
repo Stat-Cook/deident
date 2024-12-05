@@ -9,7 +9,7 @@ create_deident(method, ...)
 \arguments{
 \item{method}{A deidentifier to initialize.}
 
-\item{...}{list of variables to be deidentifier. NB: key word arguments will
+\item{...}{list of variables to be deidentified. NB: key word arguments will
 be passed to method at initialization.}
 }
 \description{

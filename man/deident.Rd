@@ -36,11 +36,11 @@ the repeated application of  anonymization transformations.
 }
 \examples{
 
-# 
+#
 pipe <- deident(ShiftsWorked, Pseudonymizer, Employee)
 
 print(pipe)
 
 apply_deident(ShiftsWorked, pipe)
-  
+
 }

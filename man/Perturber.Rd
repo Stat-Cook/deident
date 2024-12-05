@@ -31,7 +31,7 @@ Character representation of the class
 }}
 
 \examples{
-  pert <- Perturber$new()
-  pert$transform(1:10)
+pert <- Perturber$new()
+pert$transform(1:10)
 
 }

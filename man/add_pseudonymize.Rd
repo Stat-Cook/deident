@@ -35,12 +35,13 @@ reuse the same term.
 }
 \examples{
 
-# Basic usage; 
+# Basic usage;
 pipe.pseudonymize <- add_pseudonymize(ShiftsWorked, Employee)
 pipe.pseudonymize$mutate(ShiftsWorked)
 
-pipe.pseudonymize2 <- add_pseudonymize(ShiftsWorked, Employee, 
-                                    lookup=list("Kyle Wilson" = "Kyle"))
+pipe.pseudonymize2 <- add_pseudonymize(ShiftsWorked, Employee,
+  lookup = list("Kyle Wilson" = "Kyle")
+)
 pipe.pseudonymize2$mutate(ShiftsWorked)
 
 }

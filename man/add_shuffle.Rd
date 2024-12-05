@@ -36,11 +36,11 @@ inter-variable metrics are rendered spurious.
 }
 \examples{
 
-# Basic usage; 
+# Basic usage;
 pipe.shuffle <- add_shuffle(ShiftsWorked, Employee)
 pipe.shuffle$mutate(ShiftsWorked)
 
-pipe.shuffle.limit <- add_shuffle(ShiftsWorked, Employee, limit=1)
+pipe.shuffle.limit <- add_shuffle(ShiftsWorked, Employee, limit = 1)
 pipe.shuffle.limit$mutate(ShiftsWorked)
 
 }
