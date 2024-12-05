@@ -95,7 +95,7 @@ that keep operational data siloed within health Trusts.
 
 Several packages have undergone development for the implementation of
 encryption methods to minimize identifiability within data sets
-(e.g. \``anonymizer` (Hendricks 2017), `deidentifyr` (Wilkins 2019) and
+(e.g. `anonymizer` (Hendricks 2017), `deidentifyr` (Wilkins 2019) and
 `digest` (Antoine Lucas et al. 2021)). While these packages implement a
 variety of encryption tools, such systems are not infallible (Wang and
 Yu 2005; Szikora and Lazányi 2022 ) especially if the data being
@@ -119,7 +119,7 @@ pak::pkg_install("Stat-Cook/deident")
 
 The core functionality of the package is the `deident` function. To
 demonstrate functionality we use a subset of the `babynames` data set
-consisting of the final two years.
+(Wickham 2021) consisting of the final two years.
 
 ``` r
 babynames <- babynames::babynames |> 
@@ -128,7 +128,7 @@ babynames <- babynames::babynames |>
 str(babynames)
 ```
 
-    ## tibble [65,448 × 5] (S3: tbl_df/tbl/data.frame)
+    ## tibble [65,448 x 5] (S3: tbl_df/tbl/data.frame)
     ##  $ year: num [1:65448] 2016 2016 2016 2016 2016 ...
     ##  $ sex : chr [1:65448] "F" "F" "F" "F" ...
     ##  $ name: chr [1:65448] "Emma" "Olivia" "Ava" "Sophia" ...
@@ -250,6 +250,9 @@ UKRI. 2022. “Framework for Research Ethics.” 2022.
 Wang, Xiaoyun, and Hongbo Yu. 2005. “How to Break MD5 and Other Hash
 Functions.” In *Annual International Conference on the Theory and
 Applications of Cryptographic Techniques*, 19–35. Springer.
+
+Wickham, Hadley. 2021. *Babynames: US Baby Names 1880-2017*.
+<https://CRAN.R-project.org/package=babynames>.
 
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
 D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
