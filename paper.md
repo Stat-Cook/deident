@@ -56,7 +56,7 @@ cumbersome, limiting uptake in the domain of research. The research
 community hence requires a simple toolbox for the application of several
 common ‘data masking transforms’ implemented in an open source language.
 
-This implementation of the “deident” methods is in R, chosen due to the
+This implementation of the `deident` methods is in R, chosen due to the
 increased adoption of open source software into the working practices of
 the NHS (driven by the growth on the NHS-R community and similar
 groups). However, the underlying specification, and implementation of
@@ -94,9 +94,9 @@ that keep operational data siloed within health Trusts.
 # Comparison to existing R packages
 
 Several packages have undergone development for the implementation of
-`encryption` methods to minimize identifiability within data sets
-(e.g. ‘anonymizer’ (Hendricks 2017), ‘deidentifyr’ (Wilkins 2019) and
-‘digest’ (Antoine Lucas et al. 2021)). While these packages implement a
+encryption methods to minimize identifiability within data sets
+(e.g. \``anonymizer` (Hendricks 2017), `deidentifyr` (Wilkins 2019) and
+`digest` (Antoine Lucas et al. 2021)). While these packages implement a
 variety of encryption tools, such systems are not infallible (Wang and
 Yu 2005; Szikora and Lazányi 2022 ) especially if the data being
 encrypted is drawn from a known domain such as common names. This
@@ -173,7 +173,7 @@ Performing a multi-stage transformation can be done by chaining together
 calls to `deident`
 
 ``` r
-blur <- NumericBlurer$new(cuts=c(0, 10, 100, 1000, 10000))
+blur <- NumericBlurrer$new(cuts=c(0, 10, 100, 1000, 10000))
 
 pipeline3 <- deident(babynames, "psudonymize", name, sex) |>
   deident(blur, n)
