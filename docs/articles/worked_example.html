@@ -50,6 +50,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -62,16 +68,10 @@
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -107,8 +107,8 @@
     
 <p>To assist new users, this vignette serves as a worked example of
 building, applying and saving a de-identification pipeline. Due to the
-risk of suppling data with genuine PID to be redacted, we instead supply
-a synthetic data set comprising of artificial PID,
+risk of supplying data with genuine PID to be redacted, we instead
+supply a synthetic data set comprising of artificial PID,
 <code>ShiftsWorked</code>.</p>
 <p>The data set consists of 3,100 observations where each row lists the
 work done (shift status, actual work done, and daily pay) by an
@@ -397,13 +397,13 @@ easiest way to achieve this is to create an instance of a
 they don’t want their exact salaries divulged (even once names are
 removed). We can expand the pipeline to allow for this:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/NumericBlurer.html">NumericBlurer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>cuts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">300</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">blur</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/NumericBlurrer.html">NumericBlurrer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>cuts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">300</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">multistep_pipeline</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">psu</span>, <span class="va">Employee</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">multistep_pipeline</span> <span class="op">&lt;-</span> <span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">psu</span>, <span class="va">Employee</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/deident.html">deident</a></span><span class="op">(</span><span class="va">blur</span>, <span class="va">`Daily Pay`</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">multistep_pipeline</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -490,7 +490,7 @@ calls <code>to_yaml</code> and <code>from_yaml</code>:</p>
 <span></span>
 <span><span class="va">restored_pipeline</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/from_yaml.html">from_yaml</a></span><span class="op">(</span><span class="st">"multistep_pipeline.yml"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">ShiftsWorked</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">restored_pipeline</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>

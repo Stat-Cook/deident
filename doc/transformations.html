@@ -12,7 +12,7 @@
 
 
 
-<title>transformations</title>
+<title>Transformations</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -119,13 +119,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -329,13 +336,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">transformations</h1>
+<h1 class="title toc-ignore">Transformations</h1>
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(deident)</span></code></pre></div>
-<div id="transformations" class="section level1">
-<h1>Transformations</h1>
 <p>Out of the box, <code>deident</code> features a set of
 transformations to aid in the de-identification of data sets. Each
 transformation is implemented via <code>R6Class</code> and extends
@@ -354,33 +358,33 @@ implemented in a similar manner.</p>
 <p>Apply a cached random replacement cipher. Re-occurrence of the same
 key will receive the same hash.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;psudonymize&quot;</span>, A)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Pseudonymizer&quot;</span>, A)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">deident</span>(df, Pseudonymizer, A)</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">deident</span>(df, Pseudonymizer<span class="sc">$</span><span class="fu">new</span>(), A)</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>psu <span class="ot">&lt;-</span> Pseudonymizer<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="fu">deident</span>(df, psu, A)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;psudonymize&quot;</span>, A)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Pseudonymizer&quot;</span>, A)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">deident</span>(df, Pseudonymizer, A)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">deident</span>(df, Pseudonymizer<span class="sc">$</span><span class="fu">new</span>(), A)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>psu <span class="ot">&lt;-</span> Pseudonymizer<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">deident</span>(df, psu, A)</span></code></pre></div>
 <div id="options" class="section level3">
 <h3>Options</h3>
 <p>By default <code>Pseudonymizer</code> replaces values in variables
 with a random alpha-numeric string of 5 characters. This can be replaced
 via calling <code>set_method</code> on an instantiated Pseudonymizer
 with the desired function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>psu <span class="ot">&lt;-</span> Pseudonymizer<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>new_method <span class="ot">&lt;-</span> <span class="cf">function</span>(key, ...){</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="fu">sample</span>(letters, <span class="dv">12</span>, T), <span class="at">collapse=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>}</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>psu<span class="sc">$</span><span class="fu">set_method</span>(new_method)</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="fu">deident</span>(df, psu, A)</span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;Pseudonymizer&#39; on variable(s) A </span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>psu <span class="ot">&lt;-</span> Pseudonymizer<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>new_method <span class="ot">&lt;-</span> <span class="cf">function</span>(key, ...){</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="fu">sample</span>(letters, <span class="dv">12</span>, T), <span class="at">collapse=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>}</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>psu<span class="sc">$</span><span class="fu">set_method</span>(new_method)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="fu">deident</span>(df, psu, A)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;Pseudonymizer&#39; on variable(s) A </span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
 <p>The first argument to the method receives the key to be
 transformed.</p>
 </div>
@@ -388,57 +392,57 @@ transformed.</p>
 <div id="shuffler" class="section level2">
 <h2>Shuffler</h2>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;shuffle&quot;</span>, A)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Shuffler&quot;</span>, A)</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">deident</span>(df, Shuffler, A)</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">deident</span>(df, Shuffler<span class="sc">$</span><span class="fu">new</span>(), A)</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>shuffle <span class="ot">&lt;-</span> Shuffler<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fu">deident</span>(df, shuffle, A)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;shuffle&quot;</span>, A)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Shuffler&quot;</span>, A)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">deident</span>(df, Shuffler, A)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">deident</span>(df, Shuffler<span class="sc">$</span><span class="fu">new</span>(), A)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>shuffle <span class="ot">&lt;-</span> Shuffler<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">deident</span>(df, shuffle, A)</span></code></pre></div>
 </div>
 <div id="encrypter" class="section level2">
 <h2>Encrypter</h2>
 <p>Apply cryptographic hashing to a variable.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;encrypt&quot;</span>, A)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Encrypter&quot;</span>, A)</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">deident</span>(df, Encrypter, A)</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">deident</span>(df, Encrypter<span class="sc">$</span><span class="fu">new</span>(), A)</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>encrypt <span class="ot">&lt;-</span> Encrypter<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="fu">deident</span>(df, encrypt, A)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;encrypt&quot;</span>, A)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Encrypter&quot;</span>, A)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">deident</span>(df, Encrypter, A)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">deident</span>(df, Encrypter<span class="sc">$</span><span class="fu">new</span>(), A)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>encrypt <span class="ot">&lt;-</span> Encrypter<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fu">deident</span>(df, encrypt, A)</span></code></pre></div>
 <div id="options-1" class="section level3">
 <h3>Options</h3>
 <p>At initialization, <code>Encrypter</code> can be given
 <code>hash_key</code> and <code>seed</code> values to control the
 cryptographic encryption. It is recommended users set these values and
 do not disclose them.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>encrypt <span class="ot">&lt;-</span> Encrypter<span class="sc">$</span><span class="fu">new</span>(<span class="at">hash_key=</span><span class="st">&quot;deident_hash_key_123&quot;</span>, <span class="at">seed=</span><span class="dv">202</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">deident</span>(df, encrypt, A)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;Encrypter&#39; on variable(s) A </span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>encrypt <span class="ot">&lt;-</span> Encrypter<span class="sc">$</span><span class="fu">new</span>(<span class="at">hash_key=</span><span class="st">&quot;deident_hash_key_123&quot;</span>, <span class="at">seed=</span><span class="dv">202</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">deident</span>(df, encrypt, A)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;Encrypter&#39; on variable(s) A </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
 </div>
 </div>
 <div id="perturber" class="section level2">
 <h2>Perturber</h2>
 <p>Apply Gaussian white noise to a numeric variable.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;perturb&quot;</span>, A)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Perturber&quot;</span>, A)</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">deident</span>(df, Perturber, A)</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">deident</span>(df, Perturber<span class="sc">$</span><span class="fu">new</span>(), A)</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>perturb <span class="ot">&lt;-</span> Perturber<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="fu">deident</span>(df, perturb, A)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;perturb&quot;</span>, A)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;Perturber&quot;</span>, A)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">deident</span>(df, Perturber, A)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">deident</span>(df, Perturber<span class="sc">$</span><span class="fu">new</span>(), A)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>perturb <span class="ot">&lt;-</span> Perturber<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">deident</span>(df, perturb, A)</span></code></pre></div>
 <div id="options-2" class="section level3">
 <h3>Options</h3>
 <p>At initialization, <code>Perturber</code> can be given a scale for
 the white noise via the <code>sd</code> argument.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># perturb &lt;- Perturber$new(noise=adaptive_noise(0.2))</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co"># deident(df, perturb, B)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># perturb &lt;- Perturber$new(noise=adaptive_noise(0.2))</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co"># deident(df, perturb, B)</span></span></code></pre></div>
 </div>
 </div>
 <div id="blurer" class="section level2">
@@ -446,11 +450,11 @@ the white noise via the <code>sd</code> argument.</p>
 <p>Aggregate categorical values dependent on a user supplied list. the
 list must be supplied to <code>Blur</code> at initialization.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>letter_blur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Early&quot;</span>, <span class="dv">13</span>), <span class="fu">rep</span>(<span class="st">&quot;Late&quot;</span>, <span class="dv">13</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">names</span>(letter_blur) <span class="ot">&lt;-</span> letters</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>blur <span class="ot">&lt;-</span> Blurer<span class="sc">$</span><span class="fu">new</span>(<span class="at">blur =</span> letter_blur)</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">deident</span>(df, blur, A)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>letter_blur <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Early&quot;</span>, <span class="dv">13</span>), <span class="fu">rep</span>(<span class="st">&quot;Late&quot;</span>, <span class="dv">13</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">names</span>(letter_blur) <span class="ot">&lt;-</span> letters</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>blur <span class="ot">&lt;-</span> Blurer<span class="sc">$</span><span class="fu">new</span>(<span class="at">blur =</span> letter_blur)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="fu">deident</span>(df, blur, A)</span></code></pre></div>
 </div>
 <div id="numericblurer" class="section level2">
 <h2>NumericBlurer</h2>
@@ -458,24 +462,24 @@ list must be supplied to <code>Blur</code> at initialization.</p>
 breaks/ cuts. If no vector is supplied <code>NumericBlurer</code>
 defaults to a binary classification about 0.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;numeric_blur&quot;</span>, B)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;NumericBlurer&quot;</span>, B)</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">deident</span>(df, NumericBlurer, B)</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="fu">deident</span>(df, NumericBlurer<span class="sc">$</span><span class="fu">new</span>(), B)</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>numeric_blur <span class="ot">&lt;-</span> NumericBlurer<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="fu">deident</span>(df, numeric_blur, B)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;numeric_blur&quot;</span>, B)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">deident</span>(df, <span class="st">&quot;NumericBlurer&quot;</span>, B)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">deident</span>(df, NumericBlurer, B)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">deident</span>(df, NumericBlurer<span class="sc">$</span><span class="fu">new</span>(), B)</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>numeric_blur <span class="ot">&lt;-</span> NumericBlurer<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="fu">deident</span>(df, numeric_blur, B)</span></code></pre></div>
 <div id="options-3" class="section level3">
 <h3>Options</h3>
 <p>At initialization <code>NumericBlurer</code> takes an argument
 <code>cuts</code> to define the limits of each interval.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>numeric_blur <span class="ot">&lt;-</span> NumericBlurer<span class="sc">$</span><span class="fu">new</span>(<span class="at">cuts=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">deident</span>(df, numeric_blur, B)</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;NumericBlurer&#39; on variable(s) B </span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>numeric_blur <span class="ot">&lt;-</span> NumericBlurer<span class="sc">$</span><span class="fu">new</span>(<span class="at">cuts=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">deident</span>(df, numeric_blur, B)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;NumericBlurer&#39; on variable(s) B </span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
 </div>
 </div>
 <div id="groupedshuffler" class="section level2">
@@ -484,32 +488,31 @@ defaults to a binary classification about 0.</p>
 data on column(s). The grouping needs to be defined at
 initialization.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>grouped_shuffle <span class="ot">&lt;-</span> GroupedShuffler<span class="sc">$</span><span class="fu">new</span>(C)</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">deident</span>(df, grouped_shuffle, B)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>grouped_shuffle <span class="ot">&lt;-</span> GroupedShuffler<span class="sc">$</span><span class="fu">new</span>(C)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">deident</span>(df, grouped_shuffle, B)</span></code></pre></div>
 <div id="options-4" class="section level3">
 <h3>Options</h3>
 <p>At initialization <code>GroupedShuffler</code> takes an argument
 <code>limit</code> such that if any aggregated sub group has fewer than
-<code>limit</code> observations all values are droped.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>numeric_blur <span class="ot">&lt;-</span> GroupedShuffler<span class="sc">$</span><span class="fu">new</span>(C, <span class="at">limit=</span><span class="dv">1</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">deident</span>(df, numeric_blur, B)</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;GroupedShuffler(group_on=C)&#39; on variable(s) B </span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
+<code>limit</code> observations all values are dropped.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>numeric_blur <span class="ot">&lt;-</span> GroupedShuffler<span class="sc">$</span><span class="fu">new</span>(C, <span class="at">limit=</span><span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">deident</span>(df, numeric_blur, B)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt; DeidentList</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co">#&gt;    1 step(s) implemented </span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="co">#&gt;    Step 1 : &#39;GroupedShuffler(group_on=C)&#39; on variable(s) B </span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="co">#&gt; For data:</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co">#&gt;    columns: A, B, C</span></span></code></pre></div>
 </div>
 </div>
 <div id="drop" class="section level2">
 <h2>Drop</h2>
 <p>Define a column to be removed from the pipeline.</p>
 <p>Implemented <code>deident</code> options:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="fu">deident</span>(df, Drop, B)</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>drop <span class="ot">&lt;-</span> deident<span class="sc">:::</span>Drop<span class="sc">$</span><span class="fu">new</span>()</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="fu">deident</span>(df, drop, B)</span></code></pre></div>
-</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">deident</span>(df, Drop, B)</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>drop <span class="ot">&lt;-</span> deident<span class="sc">:::</span>Drop<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="fu">deident</span>(df, drop, B)</span></code></pre></div>
 </div>
 
 

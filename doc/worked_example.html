@@ -119,13 +119,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -335,8 +342,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <p>To assist new users, this vignette serves as a worked example of
 building, applying and saving a de-identification pipeline. Due to the
-risk of suppling data with genuine PID to be redacted, we instead supply
-a synthetic data set comprising of artificial PID,
+risk of supplying data with genuine PID to be redacted, we instead
+supply a synthetic data set comprising of artificial PID,
 <code>ShiftsWorked</code>.</p>
 <p>The data set consists of 3,100 observations where each row lists the
 work done (shift status, actual work done, and daily pay) by an

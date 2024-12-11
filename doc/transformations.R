@@ -1,13 +1,12 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----setup--------------------------------------------------------------------
+## ----include=F----------------------------------------------------------------
 library(deident)
 
-## ---- include=F---------------------------------------------------------------
 df <- data.frame(
   A = letters, 
   B = 1:26, 
@@ -15,7 +14,7 @@ df <- data.frame(
 )
 df
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  deident(df, "psudonymize", A)
 #  deident(df, "Pseudonymizer", A)
 #  deident(df, Pseudonymizer, A)
@@ -35,7 +34,7 @@ psu$set_method(new_method)
 
 deident(df, psu, A)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  deident(df, "shuffle", A)
 #  deident(df, "Shuffler", A)
 #  deident(df, Shuffler, A)
@@ -44,7 +43,7 @@ deident(df, psu, A)
 #  shuffle <- Shuffler$new()
 #  deident(df, shuffle, A)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  deident(df, "encrypt", A)
 #  deident(df, "Encrypter", A)
 #  deident(df, Encrypter, A)
@@ -57,7 +56,7 @@ deident(df, psu, A)
 encrypt <- Encrypter$new(hash_key="deident_hash_key_123", seed=202)
 deident(df, encrypt, A)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  deident(df, "perturb", A)
 #  deident(df, "Perturber", A)
 #  deident(df, Perturber, A)
@@ -70,14 +69,14 @@ deident(df, encrypt, A)
 # perturb <- Perturber$new(noise=adaptive_noise(0.2))
 # deident(df, perturb, B)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  letter_blur <- c(rep("Early", 13), rep("Late", 13))
 #  names(letter_blur) <- letters
 #  
 #  blur <- Blurer$new(blur = letter_blur)
 #  deident(df, blur, A)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  deident(df, "numeric_blur", B)
 #  deident(df, "NumericBlurer", B)
 #  deident(df, NumericBlurer, B)
@@ -90,7 +89,7 @@ deident(df, encrypt, A)
 numeric_blur <- NumericBlurer$new(cuts=c(5, 10, 15, 20))
 deident(df, numeric_blur, B)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  grouped_shuffle <- GroupedShuffler$new(C)
 #  deident(df, grouped_shuffle, B)
 
@@ -98,7 +97,7 @@ deident(df, numeric_blur, B)
 numeric_blur <- GroupedShuffler$new(C, limit=1)
 deident(df, numeric_blur, B)
 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  
 #  deident(df, Drop, B)
 #  

@@ -50,6 +50,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -62,16 +68,10 @@
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -118,8 +118,8 @@ e.g. MD5 or sha256.</li>
 (which uses the <code><a href="https://rdrr.io/pkg/openssl/man/hash.html" class="external-link">openssl::sha256</a></code> implementation by
 default):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">name_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/add_encrypt.html">add_encrypt</a></span><span class="op">(</span><span class="va">name</span>, hash_key <span class="op">=</span> <span class="st">"hash123"</span>, seed<span class="op">=</span><span class="st">"seed456"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">name_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/add_encrypt.html">add_encrypt</a></span><span class="op">(</span><span class="va">name</span>, hash_key <span class="op">=</span> <span class="st">"hash123"</span>, seed <span class="op">=</span> <span class="st">"seed456"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">name_pipe</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 87 × 14</span></span></span>

@@ -50,6 +50,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -62,16 +68,10 @@
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -127,16 +127,16 @@ the first pipeline:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 87 × 14</span></span></span>
 <span><span class="co">#&gt;    name  height  mass hair_color    skin_color eye_color birth_year sex   gender</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> pRlzW    172    77 blond         fair       blue            19   male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> cvpn4    167    75 <span style="color: #BB0000;">NA</span>            gold       yellow         112   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> XOfnj     96    32 <span style="color: #BB0000;">NA</span>            white, bl… red             33   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> uH6no    202   136 none          white      yellow          41.9 male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Xz7rq    150    49 brown         light      brown           19   fema… femin…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Gqd98    178   120 brown, grey   light      blue            52   male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> LC4BZ    165    75 brown         light      blue            47   fema… femin…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> ntoQZ     97    32 <span style="color: #BB0000;">NA</span>            white, red red             <span style="color: #BB0000;">NA</span>   none  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> dcUKy    183    84 black         light      brown           24   male  mascu…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Nbc4k    182    77 auburn, white fair       blue-gray       57   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> f3IAn    172    77 blond         fair       blue            19   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PBJ4T    167    75 <span style="color: #BB0000;">NA</span>            gold       yellow         112   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> pbHJ3     96    32 <span style="color: #BB0000;">NA</span>            white, bl… red             33   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Dwuzw    202   136 none          white      yellow          41.9 male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> h4Hpo    150    49 brown         light      brown           19   fema… femin…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> UYiiL    178   120 brown, grey   light      blue            52   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> EzMqU    165    75 brown         light      blue            47   fema… femin…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Bsf2g     97    32 <span style="color: #BB0000;">NA</span>            white, red red             <span style="color: #BB0000;">NA</span>   none  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> PG9bc    183    84 black         light      brown           24   male  mascu…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CYub2    182    77 auburn, white fair       blue-gray       57   male  mascu…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 77 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   vehicles &lt;list&gt;, starships &lt;list&gt;</span></span></span></code></pre></div>
@@ -155,16 +155,16 @@ using <code>psu</code>:</p>
 <span></span>
 <span><span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">combined.frm</span>, <span class="va">reused_pipe</span><span class="op">)</span></span>
 <span><span class="co">#&gt;       ID</span></span>
-<span><span class="co">#&gt; 1  pRlzW</span></span>
-<span><span class="co">#&gt; 2  cvpn4</span></span>
-<span><span class="co">#&gt; 3  XOfnj</span></span>
-<span><span class="co">#&gt; 4  uH6no</span></span>
-<span><span class="co">#&gt; 5  Xz7rq</span></span>
-<span><span class="co">#&gt; 6  WTN23</span></span>
-<span><span class="co">#&gt; 7  ulziv</span></span>
-<span><span class="co">#&gt; 8  6MzNv</span></span>
-<span><span class="co">#&gt; 9  phZOy</span></span>
-<span><span class="co">#&gt; 10 Pur7U</span></span></code></pre></div>
+<span><span class="co">#&gt; 1  f3IAn</span></span>
+<span><span class="co">#&gt; 2  PBJ4T</span></span>
+<span><span class="co">#&gt; 3  pbHJ3</span></span>
+<span><span class="co">#&gt; 4  Dwuzw</span></span>
+<span><span class="co">#&gt; 5  h4Hpo</span></span>
+<span><span class="co">#&gt; 6  tjARj</span></span>
+<span><span class="co">#&gt; 7  gEpA3</span></span>
+<span><span class="co">#&gt; 8  SIPKG</span></span>
+<span><span class="co">#&gt; 9  azmnY</span></span>
+<span><span class="co">#&gt; 10 MiL3o</span></span></code></pre></div>
 <p>Since the first 5 lines of <code>combined.frm$ID</code> are the same
 as <code>starwars$ID</code> the first 5 lines of each transformed data
 set are also the same.</p>

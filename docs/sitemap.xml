@@ -97,6 +97,9 @@
     <loc>/reference/Blurer.html</loc>
   </url>
   <url>
+    <loc>/reference/Blurrer.html</loc>
+  </url>
+  <url>
     <loc>/reference/category_blur.html</loc>
   </url>
   <url>
@@ -134,6 +137,9 @@
   </url>
   <url>
     <loc>/reference/NumericBlurer.html</loc>
+  </url>
+  <url>
+    <loc>/reference/NumericBlurrer.html</loc>
   </url>
   <url>
     <loc>/reference/Perturber.html</loc>

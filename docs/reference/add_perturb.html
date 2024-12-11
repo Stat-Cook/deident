@@ -34,6 +34,12 @@ specified variable is transformed by the noise function."><!-- mathjax --><scrip
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -46,16 +52,10 @@ specified variable is transformed by the noise function."><!-- mathjax --><scrip
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -124,50 +124,50 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee   Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Maria Cook 2015-01-01 Night 17:01         00:01             76.2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Stephen C… 2015-01-01 Day   08:01         16:01            150.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Kimberly … 2015-01-01 Day   08:01         16:01             70.4 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Nathan Al… 2015-01-01 Day   08:01         15:01            199.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Samuel Pa… 2015-01-01 Night 16:01         23:01            214.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Scott Mor… 2015-01-01 Night 17:01         00:01            153.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Nathan Sa… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                 5.27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Maria Cook 2015-01-01 Night 17:01         00:01             73.0 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Stephen C… 2015-01-01 Day   08:01         16:01            161.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Kimberly … 2015-01-01 Day   08:01         16:01             96.7 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Nathan Al… 2015-01-01 Day   08:01         15:01            188.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Samuel Pa… 2015-01-01 Night 16:01         23:01            215.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Scott Mor… 2015-01-01 Night 17:01         00:01            125.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Nathan Sa… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                -<span style="color: #BB0000;">4.78</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Jose Lopez 2015-01-01 Night 17:01         00:01            213.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Donna Bro… 2015-01-01 Night 16:01         00:01            233.  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 George Ki… 2015-01-01 Night 16:01         00:01            254.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Donna Bro… 2015-01-01 Night 16:01         00:01            224.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 George Ki… 2015-01-01 Night 16:01         00:01            234.  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,090 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">pipe.perturb.white_noise</span> <span class="op">&lt;-</span> <span class="fu">add_perturb</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">`Daily Pay`</span>, noise<span class="op">=</span><span class="fu"><a href="white_noise.html">white_noise</a></span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pipe.perturb.white_noise</span> <span class="op">&lt;-</span> <span class="fu">add_perturb</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">`Daily Pay`</span>, noise <span class="op">=</span> <span class="fu"><a href="white_noise.html">white_noise</a></span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.perturb.white_noise</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee   Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Maria Cook 2015-01-01 Night 17:01         00:01            78.1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Maria Cook 2015-01-01 Night 17:01         00:01            78.0  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Stephen C… 2015-01-01 Day   08:01         16:01           155.   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Kimberly … 2015-01-01 Day   08:01         16:01            77.8  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Kimberly … 2015-01-01 Day   08:01         16:01            78.0  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Nathan Al… 2015-01-01 Day   08:01         15:01           203.   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Samuel Pa… 2015-01-01 Night 16:01         23:01           211.   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Scott Mor… 2015-01-01 Night 17:01         00:01           142.   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Nathan Sa… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                0.163</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Nathan Sa… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                0.184</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Jose Lopez 2015-01-01 Night 17:01         00:01           213.   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Donna Bro… 2015-01-01 Night 16:01         00:01           219.   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Donna Bro… 2015-01-01 Night 16:01         00:01           220.   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 George Ki… 2015-01-01 Night 16:01         00:01           242.   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,090 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">pipe.perturb.noisy_adaptive</span> <span class="op">&lt;-</span> <span class="fu">add_perturb</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">`Daily Pay`</span>, noise<span class="op">=</span><span class="fu"><a href="adaptive_noise.html">adaptive_noise</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pipe.perturb.noisy_adaptive</span> <span class="op">&lt;-</span> <span class="fu">add_perturb</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">`Daily Pay`</span>, noise <span class="op">=</span> <span class="fu"><a href="adaptive_noise.html">adaptive_noise</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">pipe.perturb.noisy_adaptive</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,100 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    `Record ID` Employee   Date       Shift `Shift Start` `Shift End` `Daily Pay`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Maria Cook 2015-01-01 Night 17:01         00:01             -<span style="color: #BB0000;">97.7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Stephen C… 2015-01-01 Day   08:01         16:01             124. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Kimberly … 2015-01-01 Day   08:01         16:01              69.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Nathan Al… 2015-01-01 Day   08:01         15:01             374. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Samuel Pa… 2015-01-01 Night 16:01         23:01             339. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Scott Mor… 2015-01-01 Night 17:01         00:01             162. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Nathan Sa… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                -<span style="color: #BB0000;">40.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Jose Lopez 2015-01-01 Night 17:01         00:01             352. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Donna Bro… 2015-01-01 Night 16:01         00:01             193. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 George Ki… 2015-01-01 Night 16:01         00:01             300. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>           1 Maria Cook 2015-01-01 Night 17:01         00:01              99.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>           2 Stephen C… 2015-01-01 Day   08:01         16:01             252. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>           3 Kimberly … 2015-01-01 Day   08:01         16:01              11.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>           4 Nathan Al… 2015-01-01 Day   08:01         15:01             194. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>           5 Samuel Pa… 2015-01-01 Night 16:01         23:01             235. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>           6 Scott Mor… 2015-01-01 Night 17:01         00:01             135. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>           7 Nathan Sa… 2015-01-01 Rest  <span style="color: #BB0000;">NA</span>            <span style="color: #BB0000;">NA</span>                -<span style="color: #BB0000;">99.9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>           8 Jose Lopez 2015-01-01 Night 17:01         00:01             266. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>           9 Donna Bro… 2015-01-01 Night 16:01         00:01             316. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          10 George Ki… 2015-01-01 Night 16:01         00:01             204. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,090 more rows</span></span>
 </code></pre></div>
     </div>

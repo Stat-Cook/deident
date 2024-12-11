@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 library(lemon)
 
 library(knitr)
@@ -37,25 +37,25 @@ knitr::opts_chunk$set(
 
 library(deident)
 
-## ---- render=local_print------------------------------------------------------
+## ----render=local_print-------------------------------------------------------
 library(deident)
 ShiftsWorked
 
-## ---- render=local_print------------------------------------------------------
+## ----render=local_print-------------------------------------------------------
 set.seed(101)
 pipeline <- deident(ShiftsWorked, "psudonymize", Employee)
 apply_deident(ShiftsWorked, pipeline)
 
-## ---- render=local_print------------------------------------------------------
+## ----render=local_print-------------------------------------------------------
 psu <- Pseudonymizer$new()
 pipeline2 <- deident(ShiftsWorked, psu, Employee)
 
 apply_deident(ShiftsWorked, pipeline2)
 
-## ---- output.lines=4----------------------------------------------------------
+## ----output.lines=4-----------------------------------------------------------
 unlist(psu$lookup)
 
-## ---- render=local_print------------------------------------------------------
+## ----render=local_print-------------------------------------------------------
 blur <- NumericBlurer$new(cuts = c(0, 100, 200, 300))
 
 multistep_pipeline <- ShiftsWorked |> 
@@ -65,7 +65,7 @@ multistep_pipeline <- ShiftsWorked |>
 ShiftsWorked |> 
   apply_deident(multistep_pipeline)
 
-## ---- render=local_print------------------------------------------------------
+## ----render=local_print-------------------------------------------------------
 multistep_pipeline$to_yaml("multistep_pipeline.yml")
 
 restored_pipeline <- from_yaml("multistep_pipeline.yml")

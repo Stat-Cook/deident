@@ -37,6 +37,12 @@ Character representation of the class"><!-- mathjax --><script src="https://cdnj
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -49,16 +55,10 @@ Character representation of the class"><!-- mathjax --><script src="https://cdnj
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -121,10 +121,10 @@ numeric variable.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">pert</span> <span class="op">&lt;-</span> <span class="va">Perturber</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">pert</span><span class="op">$</span><span class="fu">transform</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">pert</span> <span class="op">&lt;-</span> <span class="va">Perturber</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pert</span><span class="op">$</span><span class="fu">transform</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.410115 1.129768 2.676166 4.020170 5.240570 6.677701 6.564656 7.326716</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] 8.329948 9.959792</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

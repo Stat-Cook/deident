@@ -35,6 +35,12 @@ are recoded to a lower cardinality as defined by blur.
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -47,16 +53,10 @@ are recoded to a lower cardinality as defined by blur.
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -116,7 +116,7 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="category_blur.html">category_blur()</a></code> is provided to aid in definindg the <code>blur</code></p></div>
+    <div class="dont-index"><p><code><a href="category_blur.html">category_blur()</a></code> is provided to aid in defining the <code>blur</code></p></div>
     </div>
 
     <div id="ref-examples">
@@ -125,8 +125,8 @@ The object contains fields:</p><ul><li><p><code>deident_methods</code> a list of
 <span class="r-in"><span><span class="va">pipe.blur</span> <span class="op">&lt;-</span> <span class="fu">add_blur</span><span class="op">(</span><span class="va">ShiftsWorked</span>, <span class="va">`Shift`</span>, blur <span class="op">=</span> <span class="va">.blur</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in initialize(...):</span> object '.blur' not found</span>
 <span class="r-in"><span><span class="va">pipe.blur</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">ShiftsWorked</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'pipe.blur' not found</span>
-<span class="r-in"><span> </span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'pipe.blur' not found</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

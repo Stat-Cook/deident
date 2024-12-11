@@ -50,6 +50,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/rationale.html">Rationale for De-identification</a>
+    </li>
+    <li>
+      <a href="../articles/transformations.html">Transformations</a>
+    </li>
+    <li>
       <a href="../articles/blur_example.html">Blur Example</a>
     </li>
     <li>
@@ -62,16 +68,10 @@
       <a href="../articles/perturb_example.html">Perturb Example</a>
     </li>
     <li>
-      <a href="../articles/rationale.html">Rationale for De-identification</a>
-    </li>
-    <li>
       <a href="../articles/reusing_methods.html">Re-using Methods</a>
     </li>
     <li>
       <a href="../articles/shuffle_example.html">Shuffle Example</a>
-    </li>
-    <li>
-      <a href="../articles/transformations.html">transformations</a>
     </li>
     <li>
       <a href="../articles/worked_example.html">Worked Example</a>
@@ -131,7 +131,7 @@ from <code>dplyr</code>):</p>
 identifier (e.g. ‘Admiral Ackbar’ is the only ‘Mon Calamari’) so we may
 consider aggregating species:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">starwars</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">starwars</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Mon Calamari"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 14</span></span></span>
 <span><span class="co">#&gt;   name   height  mass hair_color skin_color   eye_color birth_year sex   gender </span></span>
@@ -144,11 +144,12 @@ effect, if we also knew they were from ‘Coruscant’ and had ‘blond’ hair
 (each of which is not uniquely identifiable) if used in combination we
 reduce the data to a single case:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">starwars</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, </span>
-<span>                <span class="va">homeworld</span> <span class="op">==</span> <span class="st">"Coruscant"</span>,</span>
-<span>                <span class="va">hair_color</span> <span class="op">==</span> <span class="st">"blond"</span></span>
-<span>                <span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">starwars</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
+<span>    <span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>,</span>
+<span>    <span class="va">homeworld</span> <span class="op">==</span> <span class="st">"Coruscant"</span>,</span>
+<span>    <span class="va">hair_color</span> <span class="op">==</span> <span class="st">"blond"</span></span>
+<span>  <span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 14</span></span></span>
 <span><span class="co">#&gt;   name      height  mass hair_color skin_color eye_color birth_year sex   gender</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
@@ -165,7 +166,7 @@ package in production code.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">101</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">shuffle_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">shuffle_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/add_shuffle.html">add_shuffle</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">homeworld</span>, <span class="va">hair_color</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">new_starwars</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/apply_deident.html">apply_deident</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">shuffle_pipe</span><span class="op">)</span></span>
@@ -183,13 +184,14 @@ package in production code.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   vehicles &lt;list&gt;, starships &lt;list&gt;</span></span></span></code></pre></div>
 <p>A <code>Shuffle</code> hence preserves the column summaries,
-e.g. modal values and distributions, but breaks inter-column behaviors
+e.g. modal values and distributions, but breaks inter-column behaviours
 which might lead to identification.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">new_starwars</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, </span>
-<span>                <span class="va">homeworld</span> <span class="op">==</span> <span class="st">"Coruscant"</span></span>
-<span>                <span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">new_starwars</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
+<span>    <span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>,</span>
+<span>    <span class="va">homeworld</span> <span class="op">==</span> <span class="st">"Coruscant"</span></span>
+<span>  <span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 14</span></span></span>
 <span><span class="co">#&gt;   name      height  mass hair_color skin_color eye_color birth_year sex   gender</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
@@ -206,8 +208,8 @@ the column metrics within strata. Such a situation is foreseen, and
 ‘shuffling’ can be performed within a grouped data set as easily as on
 the whole data:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">grouped_shuffle_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/add_group.html">add_group</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">grouped_shuffle_pipe</span> <span class="op">&lt;-</span> <span class="va">starwars</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/add_group.html">add_group</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/add_shuffle.html">add_shuffle</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">homeworld</span>, <span class="va">hair_color</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/add_group.html">add_ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
