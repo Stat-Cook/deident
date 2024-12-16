@@ -10,14 +10,16 @@ authors:
   - name: Md Asaduzaman
     orcid: 0000-0002-8885-6721
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
-    affiliation: 1
+    affiliation: 2
   - name: Sarahjane Jones
     orcid: 0000-0003-4729-4029
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 1
 affiliations:
- - name: Staffordshire University, England
+ - name: University of Staffordshire, Centre for Health Innovation, Blackheath Lane, Stafford,  England
    index: 1
+ - name: University of Staffordshire, Stoke-on-Trent,  England
+   index: 2
 date: 12 December 2023
 
 ---
@@ -128,7 +130,7 @@ babynames <- babynames::babynames |>
 str(babynames)
 ```
 
-    ## tibble [65,448 x 5] (S3: tbl_df/tbl/data.frame)
+    ## tibble [65,448 × 5] (S3: tbl_df/tbl/data.frame)
     ##  $ year: num [1:65448] 2016 2016 2016 2016 2016 ...
     ##  $ sex : chr [1:65448] "F" "F" "F" "F" ...
     ##  $ name: chr [1:65448] "Emma" "Olivia" "Ava" "Sophia" ...
