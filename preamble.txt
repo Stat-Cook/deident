@@ -7,7 +7,7 @@ authors:
     orcid: 0000-0003-3343-8271
     equal-contrib: false
     affiliation: 1
-  - name: Md Asaduzaman
+  - name: Md Asaduzzaman
     orcid: 0000-0002-8885-6721
     equal-contrib: false # (This is how you can denote equal contributions between multiple authors)
     affiliation: 2
