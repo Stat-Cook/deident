@@ -213,7 +213,7 @@ Stokely, et al. 2021. *Digest: Create Compact Hash Digests of r
 Objects*. <https://CRAN.R-project.org/package=digest>.
 
 Garfinkel, Simson L. 2015. *De-Identification of Personal Information*.
-Gaithersburg, MD: NIST.
+Gaithersburg, MD: NIST. <https://doi.org/10.6028/NIST.IR.8053>.
 
 Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
 the NHS.” *Reform Research Trust*.
@@ -234,17 +234,19 @@ Integrate.IO. n.d. “6 Steps for Data Pseudonymization.”
 Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
 “Predicting Scheduled Hospital Attendance with Artificial Intelligence.”
 *NPJ Digital Medicine* 2 (1): 26.
+<https://doi.org/10.1038/s41746-019-0103-3>.
 
 Sales, Bruce D, and Susan Ed Folkman. 2000. *Ethics in Research with
 Human Participants.* American Psychological Association.
 
 Szikora, Péter, and Kornélia Lazányi. 2022. *The End of Encryption?–the
 Era of Quantum Computers*. Springer.
+<https://doi.org/10.1007/978-94-024-2174-3_5>.
 
 Tachepun, Chitanut, and Sotarat Thammaboosadee. 2020. “A Data Masking
 Guideline for Optimizing Insights and Privacy Under GDPR Compliance.” In
 *Proceedings of the 11th International Conference on Advances in
-Information Technology*, 1–9.
+Information Technology*, 1–9. <https://doi.org/10.1145/3406601.3406627>.
 
 UKRI. 2022. “Framework for Research Ethics.” 2022.
 <https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics>.
@@ -252,6 +254,7 @@ UKRI. 2022. “Framework for Research Ethics.” 2022.
 Wang, Xiaoyun, and Hongbo Yu. 2005. “How to Break MD5 and Other Hash
 Functions.” In *Annual International Conference on the Theory and
 Applications of Cryptographic Techniques*, 19–35. Springer.
+<https://doi.org/10.1007/11426639_2>.
 
 Wickham, Hadley. 2021. *Babynames: US Baby Names 1880-2017*.
 <https://CRAN.R-project.org/package=babynames>.
@@ -265,7 +268,8 @@ Wilkins, David. 2019. “Deidentifyr.”
 <https://github.com/wilkox/deidentifyr>.
 
 Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.
+<https://doi.org/10.1016/S0262-4079(19)31555-6>.
 
 Yu, Kun-Hsing, Andrew L Beam, and Isaac S Kohane. 2018. “Artificial
 Intelligence in Healthcare.” *Nature Biomedical Engineering* 2 (10):
-719–31.
+719–31. <https://doi.org/10.1038/s41551-018-0305-z>.
