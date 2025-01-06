@@ -21,7 +21,7 @@ affiliations:
  - name: University of Staffordshire, Stoke-on-Trent,  England
    index: 2
 date: 12 December 2023
-
+bibliography: paper.bib
 ---
 # Summary
 
