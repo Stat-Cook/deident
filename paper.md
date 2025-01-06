@@ -97,7 +97,7 @@ data siloed within health Trusts.
 Several packages have undergone development for the implementation of
 encryption methods to minimize identifiability within data sets
 (e.g. `anonymizer` [@Anonymizer2024], `deidentifyr`
-[@deidentifyr2024] and `digest` \[@digest2021\]). While these packages
+[@deidentifyr2024] and `digest` [@digest2021]). While these packages
 implement a variety of encryption tools, such systems are not infallible
 [@wang2005break; @szikora2022end ] especially if the data being
 encrypted is drawn from a known domain such as common names. This
@@ -201,7 +201,7 @@ and SJ. Funding for the work was won by RC and SJ.
 
 ## Acknowledgements
 
-The development of `deident` was part of the he NuRS and AmreS projects
+The development of `deident` was part of the he NuRS and AmReS projects
 funded by the Health Foundation.
 
 ## References
