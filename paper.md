@@ -28,19 +28,18 @@ date: 12 December 2023
 The delivery of quality health care is a constant act of balancing
 demand against capacity, with emerging, data intensive, artificial
 intelligence (AI) and machine learning (ML) approaches poised to bridge
-gaps in the large, resource-limited sector (Harwich and Laycock 2018;
-Wilson 2019; Nelson et al. 2019; Yu, Beam, and Kohane 2018). The scale
+gaps in the large, resource-limited sector [@harwich2018thinking;
+@wilson2019high; @nelson2019predicting; @yu2018artificial]. The scale
 of data required in such projects magnifies the importance of existing
-ethical and legal frameworks for research with human participants (Sales
-and Folkman 2000; UKRI 2022), notably around the risks posed by the
+ethical and legal frameworks for research with human participants
+[@sales2000ethics; @UKRI], notably around the risks posed by the
 processing of personally identifiable data (PID) and pseudo-PID
-(variables which if used together can identify an individual) (ICO
-2023).
+(variables which if used together can identify an individual) [@ICO].
 
 One approach to dealing with PID concerns is to apply transformations to
 the data, e.g. encryption of names, or aggregation of ages, which can
-limit the risk of identification at the cost of nuance (Tachepun and
-Thammaboosadee 2020). Hence, we demonstrate an extendable package of
+limit the risk of identification at the cost of nuance
+[@tachepun2020data]. Hence, we demonstrate an extendable package of
 tools for the implementation and application of deidentification
 techniques to panel data sets.
 
@@ -65,9 +64,9 @@ groups). However, the underlying specification, and implementation of
 the transforms can be ported to other languages.
 
 This package was designed considering the ICO guidelines on
-anonymization (ICO 2012) and draws on pre-existing methodologies and
-naming conventions (Garfinkel 2015; Integrate.IO, n.d.). The package
-implemented de-identification via:
+anonymization [@ICOAnonymisation] and draws on pre-existing
+methodologies and naming conventions [@NIST2015; @integrateIO]. The
+package implemented de-identification via:
 
 -   pseudonymization – the consistent replacement of a string by a
     random string
@@ -80,27 +79,27 @@ implemented de-identification via:
 -   perturbation – the addition of user-defined random noise to a
     numeric variable
 
-Following the design principles of the existing tidyverse (Wickham et
-al. 2019) domain for ease of adoption. The package includes tools to
-create a single pipeline for the application of a multi-step
-deidentification pipeline to multiple files stored within the same
-repository, alongside the option to serialize/ define the pipeline to/
-via yaml. This approach allows a researcher to design and implement an
-appropriate de-identification plan and deliver it to the research
-support/ business intelligence team of an organisation with limited
-knowledge of the sensitive data. The supply of an easy method for
-de-identifying data sets which requires little scripting knowledge by
-Trust staff may aid in overcoming several information governance risks
-that keep operational data siloed within health Trusts.
+Following the design principles of the existing tidyverse [@tidyverse]
+domain for ease of adoption. The package includes tools to create a
+single pipeline for the application of a multi-step deidentification
+pipeline to multiple files stored within the same repository, alongside
+the option to serialize/ define the pipeline to/ via yaml. This approach
+allows a researcher to design and implement an appropriate
+de-identification plan and deliver it to the research support/ business
+intelligence team of an organisation with limited knowledge of the
+sensitive data. The supply of an easy method for de-identifying data
+sets which requires little scripting knowledge by Trust staff may aid in
+overcoming several information governance risks that keep operational
+data siloed within health Trusts.
 
 # Comparison to existing R packages
 
 Several packages have undergone development for the implementation of
 encryption methods to minimize identifiability within data sets
-(e.g. `anonymizer` (Hendricks 2017), `deidentifyr` (Wilkins 2019) and
-`digest` (Antoine Lucas et al. 2021)). While these packages implement a
-variety of encryption tools, such systems are not infallible (Wang and
-Yu 2005; Szikora and Lazányi 2022 ) especially if the data being
+(e.g. `anonymizer` [@Anonymizer2024], `deidentifyr`
+[@deidentifyr2024] and `digest` \[@digest2021\]). While these packages
+implement a variety of encryption tools, such systems are not infallible
+[@wang2005break; @szikora2022end ] especially if the data being
 encrypted is drawn from a known domain such as common names. This
 package introduces the stateful ‘pseudonymization’ method by which
 string vectors are replaced by a randomly generated hash the first time
@@ -121,7 +120,7 @@ pak::pkg_install("Stat-Cook/deident")
 
 The core functionality of the package is the `deident` function. To
 demonstrate functionality we use a subset of the `babynames` data set
-(Wickham 2021) consisting of the final two years.
+[@babynames2021] consisting of the final two years.
 
 ``` r
 babynames <- babynames::babynames |> 
@@ -206,70 +205,3 @@ The development of `deident` was part of the he NuRS and AmreS projects
 funded by the Health Foundation.
 
 ## References
-
-Antoine Lucas, Dirk Eddelbuettel with contributions by, Jarek Tuszynski,
-Henrik Bengtsson, Simon Urbanek, Mario Frasca, Bryan Lewis, Murray
-Stokely, et al. 2021. *Digest: Create Compact Hash Digests of r
-Objects*. <https://CRAN.R-project.org/package=digest>.
-
-Garfinkel, Simson L. 2015. *De-Identification of Personal Information*.
-Gaithersburg, MD: NIST. <https://doi.org/10.6028/NIST.IR.8053>.
-
-Harwich, Eleonora, and Kate Laycock. 2018. “Thinking on Its Own: AI in
-the NHS.” *Reform Research Trust*.
-
-Hendricks, Paul. 2017. “Anonymizer: Anonymize Data Containing Personally
-Identifiable Information (PII) in r.”
-<https://github.com/paulhendricks/anonymizer>.
-
-ICO. 2012. “Anonymisation: Managing Data Protection Risk Code of
-Practice.” Wycliffe House, Cheshire.
-
-———. 2023. “What Is Personal Information: A Guide.” 2023.
-<https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-information-a-guide/>.
-
-Integrate.IO. n.d. “6 Steps for Data Pseudonymization.”
-<https://www.integrate.io/blog/6-steps-to-pseudonymize-pii/#steps>.
-
-Nelson, Amy, Daniel Herron, Geraint Rees, and Parashkev Nachev. 2019.
-“Predicting Scheduled Hospital Attendance with Artificial Intelligence.”
-*NPJ Digital Medicine* 2 (1): 26.
-<https://doi.org/10.1038/s41746-019-0103-3>.
-
-Sales, Bruce D, and Susan Ed Folkman. 2000. *Ethics in Research with
-Human Participants.* American Psychological Association.
-
-Szikora, Péter, and Kornélia Lazányi. 2022. *The End of Encryption?–the
-Era of Quantum Computers*. Springer.
-<https://doi.org/10.1007/978-94-024-2174-3_5>.
-
-Tachepun, Chitanut, and Sotarat Thammaboosadee. 2020. “A Data Masking
-Guideline for Optimizing Insights and Privacy Under GDPR Compliance.” In
-*Proceedings of the 11th International Conference on Advances in
-Information Technology*, 1–9. <https://doi.org/10.1145/3406601.3406627>.
-
-UKRI. 2022. “Framework for Research Ethics.” 2022.
-<https://www.ukri.org/councils/esrc/guidance-for-applicants/research-ethics-guidance/framework-for-research-ethics>.
-
-Wang, Xiaoyun, and Hongbo Yu. 2005. “How to Break MD5 and Other Hash
-Functions.” In *Annual International Conference on the Theory and
-Applications of Cryptographic Techniques*, 19–35. Springer.
-<https://doi.org/10.1007/11426639_2>.
-
-Wickham, Hadley. 2021. *Babynames: US Baby Names 1880-2017*.
-<https://CRAN.R-project.org/package=babynames>.
-
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
-Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
-
-Wilkins, David. 2019. “Deidentifyr.”
-<https://github.com/wilkox/deidentifyr>.
-
-Wilson, Clare. 2019. “High-Tech Plans for the NHS.” Elsevier.
-<https://doi.org/10.1016/S0262-4079(19)31555-6>.
-
-Yu, Kun-Hsing, Andrew L Beam, and Isaac S Kohane. 2018. “Artificial
-Intelligence in Healthcare.” *Nature Biomedical Engineering* 2 (10):
-719–31. <https://doi.org/10.1038/s41551-018-0305-z>.
