@@ -8,9 +8,9 @@ bibliography: paper.bib
 # Summary
 
 The delivery of quality health care is a constant act of balancing  demand  against  capacity,  with emerging, data intensive, artificial intelligence (AI) and machine learning (ML) approaches poised to bridge gaps in the large, resource-limited 
-sector  [@harwich2018thinking; @wilson2019high; @nelson2019predicting; @yu2018artificial].  The scale of data required in such projects magnifies the importance of  existing  ethical and legal frameworks for research with human participants  [@sales2000ethics; @UKRI], notably around the risks posed by the processing of personally identifiable data (PID) and pseudo-PID (variables which if used together can identify an individual)  [@ICO].  
+sector  [\@harwich2018thinking; \@wilson2019high; \@nelson2019predicting; \@yu2018artificial].  The scale of data required in such projects magnifies the importance of  existing  ethical and legal frameworks for research with human participants  [\@sales2000ethics; \@UKRI], notably around the risks posed by the processing of personally identifiable data (PID) and pseudo-PID (variables which if used together can identify an individual)  [\@ICO].  
 
-One approach to dealing with PID concerns is to apply transformations to the data, e.g. encryption of names, or aggregation of ages, which  can limit the risk of identification  at the cost of nuance  [@tachepun2020data].   Hence, we demonstrate an extendable package of tools for the implementation  and application of deidentification techniques to panel data sets.
+One approach to dealing with PID concerns is to apply transformations to the data, e.g. encryption of names, or aggregation of ages, which  can limit the risk of identification  at the cost of nuance  [\@tachepun2020data].   Hence, we demonstrate an extendable package of tools for the implementation  and application of deidentification techniques to panel data sets.
 
 # Statement of need
 
@@ -19,7 +19,7 @@ In order to broaden the access to sensitive data, data handlers need an auditabl
 This implementation of the `deident` methods is in R, chosen due to the increased adoption of open source software into the working practices of the NHS (driven by the growth on the NHS-R community and similar groups).  However, the underlying specification, and implementation of the transforms can be ported to other languages.
 
 
-This package was designed considering the ICO guidelines on anonymization  [@ICOAnonymisation] and draws on pre-existing methodologies and naming conventions  [@NIST2015; @integrateIO]. The package implemented de-identification via:   
+This package was designed considering the ICO guidelines on anonymization  [\@ICOAnonymisation] and draws on pre-existing methodologies and naming conventions  [\@NIST2015; \@integrateIO]. The package implemented de-identification via:   
 
 *	pseudonymization – the consistent replacement of a string by a random string
 * encryption - the consistent replacement of a string by an alpha-numeric hash using an encryption key and salt
@@ -28,7 +28,7 @@ This package was designed considering the ICO guidelines on anonymization  [@ICO
 *	perturbation – the addition of user-defined random noise to a numeric variable
 
 
-Following the design principles of the existing tidyverse  [@tidyverse] domain for ease of
+Following the design principles of the existing tidyverse  [\@tidyverse] domain for ease of
 adoption.  The package includes tools to create a single pipeline for the 
 application of a multi-step deidentification pipeline to multiple files 
 stored within the same repository, alongside the option to serialize/ define 
@@ -42,7 +42,7 @@ siloed within health Trusts.
 
 # Comparison to existing R packages
 
-Several packages have undergone development for the implementation of encryption methods to minimize identifiability within data sets (e.g. `anonymizer`  [@Anonymizer2024], `deidentifyr`  [@deidentifyr2024] and `digest` [@digest2021]).  While these packages implement a variety of encryption tools, such systems are not infallible [@wang2005break; @szikora2022end ] especially if the data being encrypted is drawn from a known domain such as common names.  This package introduces the stateful 'pseudonymization' method by which string vectors are replaced by a randomly generated hash the first time they are observed and then preserved for re-use.  As such, breaking a single hash no longer exposes the 'key' and 'salt' the encryption relies on.  In addition, this package introduces methods for removing pseudo-identifiability (identification via the combination of features) via the other methods included.
+Several packages have undergone development for the implementation of encryption methods to minimize identifiability within data sets (e.g. `anonymizer`  [\@Anonymizer2024], `deidentifyr`  [\@deidentifyr2024] and `digest` [\@digest2021]).  While these packages implement a variety of encryption tools, such systems are not infallible [\@wang2005break; \@szikora2022end ] especially if the data being encrypted is drawn from a known domain such as common names.  This package introduces the stateful 'pseudonymization' method by which string vectors are replaced by a randomly generated hash the first time they are observed and then preserved for re-use.  As such, breaking a single hash no longer exposes the 'key' and 'salt' the encryption relies on.  In addition, this package introduces methods for removing pseudo-identifiability (identification via the combination of features) via the other methods included.
  
 # In practice
 
@@ -53,7 +53,7 @@ To install the current version of the `deident` package, run the command
 pak::pkg_install("Stat-Cook/deident")
 ```
 
-The core functionality of the package is the `deident` function. To demonstrate functionality we use a subset of the `babynames` data set [@babynames2021] consisting of the final two years.  
+The core functionality of the package is the `deident` function. To demonstrate functionality we use a subset of the `babynames` data set [\@babynames2021] consisting of the final two years.  
 
 ``` {r}
 babynames <- babynames::babynames |> 
@@ -121,7 +121,7 @@ The package was designed by RC, MA, and SJ.  Implementation was done by RC. Qual
 
 ## Acknowledgements
 
-The development of `deident` was part of the he NuRS and AmreS projects funded by the Health Foundation.
+The development of `deident` was part of the he NuRS and AmReS projects funded by the Health Foundation.
 
 ## References
 
