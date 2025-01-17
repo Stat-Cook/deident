@@ -1,3 +1,7 @@
+# deident 1.1.1
+
+* DOIs now work in JOSS paper. 
+
 # deident 1.1.0
 
 * JOSS review version

@@ -1,7 +1,7 @@
 Package: deident
 Type: Package
 Title: Persistent Data Anonymization Pipeline
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
     person("Robert", "Cook", , "robert.cook@staffs.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3343-8271")),
