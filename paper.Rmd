@@ -31,10 +31,10 @@ This package was designed considering the ICO guidelines on anonymization  [\@IC
 Following the design principles of the existing tidyverse  [\@tidyverse] domain for ease of
 adoption.  The package includes tools to create a single pipeline for the 
 application of a multi-step deidentification pipeline to multiple files 
-stored within the same repository, alongside the option to serialize/ define 
-the pipeline to/ via yaml.  This approach allows a researcher to design and 
+stored within the same repository, alongside the option to serialize and define 
+the pipeline with yaml.  This approach allows a researcher to design and 
 implement an appropriate de-identification plan and deliver it to the research 
-support/ business intelligence team of an organisation with limited knowledge 
+support or business intelligence team of an organisation with limited knowledge 
 of the sensitive data.  The supply of an easy method for de-identifying data
 sets which requires little scripting knowledge by Trust staff may aid in 
 overcoming several information governance risks that keep operational data 
